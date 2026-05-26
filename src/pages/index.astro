@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date);
+
+const postSlug = (id: string) => id.replace(/\.mdx?$/, "");
+---
+
+<BaseLayout>
+  <section>
+    <h1>Openfilm</h1>
+    <p class="lede">
+      Notes, essays, and experiments on film, media, tools, and the things worth
+      looking at twice.
+    </p>
+  </section>
+
+  <section class="post-list" aria-label="Latest posts">
+    {
+      posts.map((post) => (
+        <a class="post-card" href={`/posts/${postSlug(post.id)}/`}>
+          <span class="meta">{formatDate(post.data.pubDate)}</span>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          {post.data.tags.length > 0 && (
+            <div class="tags">
+              {post.data.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </a>
+      ))
+    }
+  </section>
+</BaseLayout>
