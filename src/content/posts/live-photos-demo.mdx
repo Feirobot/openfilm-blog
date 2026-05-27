@@ -1,0 +1,54 @@
+---
+title: "Live Photos Demo"
+description: "Testing Live Photos component on Openfilm blog with real examples."
+pubDate: 2026-05-27
+tags: ["demo", "live photos", "test"]
+draft: false
+---
+
+import LivePhoto from "../../components/LivePhoto.astro";
+
+This post demonstrates the Live Photos component built for Astro. Hover over the **LIVE** badge on desktop, or long-press on mobile to see the motion.
+
+---
+
+## Example 1: Sunset
+
+A warm evening scene captured with a mobile device.
+
+<LivePhoto 
+  photo="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/MVIMG_20241231_161000-scaled.jpg" 
+  video="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/VID_20250912_234046.mp4" 
+  width={500} 
+  muted={true} 
+/>
+
+---
+
+## Example 2: Street
+
+Everyday moment on the street.
+
+<LivePhoto 
+  photo="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/MVIMG_20250405_132341-scaled.jpg" 
+  video="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/VID_20250912_234608.mp4" 
+  width={500} 
+  muted={true} 
+/>
+
+---
+
+## Example 3: Nature
+
+A quiet moment in nature, with sound enabled.
+
+<LivePhoto 
+  photo="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2026/05/DSCF2490.00_00_05_34.Still001.jpg" 
+  video="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/VID_20250912_234608.mp4" 
+  width={500} 
+  muted={false} 
+/>
+
+---
+
+*Media sources from [eatbbq.cn](https://eatbbq.cn/archives/260).*

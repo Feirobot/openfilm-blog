@@ -1,0 +1,329 @@
+---
+interface Props {
+  photo: string;
+  video: string;
+  width?: number;
+  muted?: boolean;
+}
+
+const {
+  photo,
+  video,
+  width = 600,
+  muted = true
+} = Astro.props;
+---
+
+<div class="live-photo" style={`max-width: ${width}px;`} data-muted={muted.toString()} data-photo={photo}>
+  <div class="container">
+    <div class="photo-bg"></div>
+    <video src={video} playsinline preload="metadata" {muted}></video>
+    <div class="overlay"></div>
+  </div>
+  <div class="icon">
+    <svg class="live-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="3" fill="currentColor"/>
+    </svg>
+    <span>LIVE</span>
+  </div>
+</div>
+
+<style>
+  :root {
+    --lp-border-radius: 8px;
+  }
+
+  .live-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--lp-border-radius);
+    height: auto !important;
+    margin: 1em auto;
+    display: block;
+    background-color: #f0f0f0;
+    aspect-ratio: 4 / 3;
+    min-height: 200px;
+  }
+
+  .live-photo .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+
+  .live-photo .container video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .live-photo .photo-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    transition: opacity 1s ease;
+    pointer-events: none;
+  }
+
+  .live-photo .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    background: transparent;
+  }
+
+  .live-photo.zoom .photo-bg {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .live-photo.zoom video {
+    opacity: 1;
+  }
+
+  .live-photo .icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px;
+    border-radius: var(--lp-border-radius);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height: 22px;
+    background-color: rgba(240, 255, 255, 0.67);
+    cursor: pointer;
+    user-select: none;
+    z-index: 10;
+    gap: 3px;
+  }
+
+  .live-photo .icon .live-icon-svg {
+    width: 22px;
+    height: 22px;
+    color: #606060;
+  }
+
+  .live-photo .icon span {
+    padding: 3px;
+    color: #606060;
+    font-size: 80%;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 769px) {
+    .live-photo {
+      max-width: min(800px, 60%);
+    }
+
+    .live-photo .icon {
+      left: 15px;
+      top: 15px;
+      height: 24px;
+    }
+
+    .live-photo .icon .live-icon-svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .live-photo .icon span {
+      font-size: 85%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .live-photo {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    .live-photo .icon {
+      left: 8px;
+      top: 8px;
+      height: 20px;
+    }
+
+    .live-photo .icon .live-icon-svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .live-photo .icon span {
+      font-size: 75%;
+    }
+  }
+
+  .live-photo .container video::-webkit-media-controls {
+    display: none !important;
+  }
+
+  .live-photo .container video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+
+  .live-photo .container video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+</style>
+
+<script>
+  const isWeixin = /MicroMessenger/i.test(navigator.userAgent);
+
+  function initLivePhoto(el: HTMLElement) {
+    if (el.classList.contains("lp-init")) return;
+    el.classList.add("lp-init");
+
+    const container = el.querySelector(".container")!;
+    const icon = el.querySelector(".icon")!;
+    const video = container.querySelector("video")!;
+    const overlay = container.querySelector(".overlay")!;
+    const photoBg = container.querySelector(".photo-bg")!;
+
+    const photoUrl = el.getAttribute("data-photo");
+    if (photoUrl) {
+      photoBg.style.backgroundImage = `url(${photoUrl})`;
+
+      const tempImg = new Image();
+      tempImg.onload = () => {
+        const ratio = tempImg.naturalHeight / tempImg.naturalWidth;
+        el.style.aspectRatio = `${tempImg.naturalWidth} / ${tempImg.naturalHeight}`;
+      };
+      tempImg.src = photoUrl;
+    }
+
+    const playVideo = async () => {
+      try {
+        if (navigator.vibrate) navigator.vibrate(50);
+        video.currentTime = 0;
+        await video.play();
+        el.classList.add("zoom");
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    const stopVideo = () => {
+      el.classList.remove("zoom");
+      video.pause();
+    };
+
+    icon.addEventListener("mouseenter", () => playVideo());
+    icon.addEventListener("mouseleave", () => stopVideo());
+
+    let longPressTimer: ReturnType<typeof setTimeout> | null = null;
+    let isPlaying = false;
+
+    overlay.addEventListener(
+      "touchstart",
+      () => {
+        longPressTimer = setTimeout(() => {
+          isPlaying = true;
+          playVideo();
+        }, 300);
+      },
+      { passive: true }
+    );
+
+    overlay.addEventListener(
+      "touchmove",
+      () => {
+        if (longPressTimer) {
+          clearTimeout(longPressTimer);
+          longPressTimer = null;
+        }
+      },
+      { passive: true }
+    );
+
+    overlay.addEventListener(
+      "touchend",
+      () => {
+        if (longPressTimer) {
+          clearTimeout(longPressTimer);
+          longPressTimer = null;
+        }
+        if (isPlaying) {
+          isPlaying = false;
+          stopVideo();
+        }
+      },
+      { passive: true }
+    );
+
+    overlay.addEventListener(
+      "touchcancel",
+      () => {
+        if (longPressTimer) {
+          clearTimeout(longPressTimer);
+          longPressTimer = null;
+        }
+        isPlaying = false;
+        stopVideo();
+      },
+      { passive: true }
+    );
+
+    if (isWeixin) {
+      icon.addEventListener(
+        "touchstart",
+        (e) => {
+          e.stopPropagation();
+          playVideo();
+        },
+        { passive: true }
+      );
+
+      icon.addEventListener(
+        "touchend",
+        (e) => {
+          e.stopPropagation();
+          setTimeout(stopVideo, 2000);
+        },
+        { passive: true }
+      );
+    }
+
+    video.addEventListener("ended", () => {
+      el.classList.remove("zoom");
+    });
+  }
+
+  document.querySelectorAll(".live-photo:not(.lp-init)").forEach(initLivePhoto);
+
+  if (typeof MutationObserver !== "undefined") {
+    const observer = new MutationObserver((mutations) => {
+      let shouldInit = false;
+      mutations.forEach((m) => {
+        if (m.addedNodes && m.addedNodes.length > 0) shouldInit = true;
+      });
+      if (shouldInit) {
+        setTimeout(() => {
+          document.querySelectorAll(".live-photo:not(.lp-init)").forEach(initLivePhoto);
+        }, 100);
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+</script>
