@@ -5,19 +5,23 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   console.log("Total posts:", posts.length);
-  console.log("All posts:", posts.map(p => ({ id: p.id, lang: p.data.lang, draft: p.data.draft })));
+  
+  // 打印第一篇文章的完整 data 对象
+  if (posts.length > 0) {
+    console.log("First post full data:", JSON.stringify(posts[0].data, null, 2));
+    console.log("First post keys:", Object.keys(posts[0].data));
+  }
   
   const zhPosts = posts.filter((post) => {
     const isZh = post.data.lang === "zh";
     const isNotDraft = !post.data.draft;
-    console.log(`Post ${post.id}: lang=${post.data.lang}, draft=${post.data.draft}, include=${isZh && isNotDraft}`);
     return isZh && isNotDraft;
   });
   
   console.log("ZH posts:", zhPosts.length);
 
   return zhPosts.map((post) => ({
-    params: { slug: post.id.replace(/\.mdx?$/, "") },
+    params: { slug: post.id.replace(/\\.mdx?$/, "") },
     props: { post }
   }));
 }
