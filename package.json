@@ -16,6 +16,7 @@
     "@astrojs/mdx": "^5.0.6",
     "@astrojs/rss": "^4.0.12",
     "astro": "^6.3.8",
+    "live-photo-component": "^1.0.0",
     "typescript": "^5.9.3"
   }
 }

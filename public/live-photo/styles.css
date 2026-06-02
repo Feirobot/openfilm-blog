@@ -1,0 +1,256 @@
+/**
+ * @openfilm/live-photo
+ * Styles for Live Photo Web Component
+ */
+
+:root {
+  --lp-border-radius: 8px;
+  --lp-icon-bg: rgba(240, 255, 255, 0.67);
+  --lp-icon-color: #606060;
+  --lp-transition-duration: 1s;
+  --lp-spinner-size: 40px;
+  --lp-spinner-color: #666;
+}
+
+/* Component container */
+live-photo {
+  display: block;
+  margin: 1em auto;
+}
+
+.live-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--lp-border-radius);
+  height: auto !important;
+  display: block;
+  background-color: #f0f0f0;
+  aspect-ratio: 4 / 3;
+  min-height: 200px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Video and photo container */
+.live-photo .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Video layer */
+.live-photo .container video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity var(--lp-transition-duration) ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Photo background layer */
+.live-photo .photo-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 3;
+  transition: opacity var(--lp-transition-duration) ease;
+  pointer-events: none;
+}
+
+/* Transparent overlay for touch events */
+.live-photo .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background: transparent;
+}
+
+/* Playing state - show video, hide photo */
+.live-photo.playing .photo-bg {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.live-photo.playing video {
+  opacity: 1;
+}
+
+/* LIVE icon badge - matching WP version */
+.live-photo .icon {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: var(--lp-border-radius);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  height: 22px;
+  background-color: rgba(240, 255, 255, 0.67);
+  cursor: pointer;
+  user-select: none;
+  z-index: 10;
+}
+
+.live-photo .icon img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Playing state - show video, hide photo */
+.live-photo.zoom .photo-bg {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.live-photo.zoom video {
+  opacity: 1;
+}
+
+/* Rotate icon when playing */
+.live-photo.zoom .icon img {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.live-photo .icon span {
+  padding: 3px;
+  color: #606060;
+  font-size: 80%;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/* Loading indicator */
+.live-photo .loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.live-photo .loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.live-photo .loading .spinner {
+  width: var(--lp-spinner-size);
+  height: var(--lp-spinner-size);
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--lp-spinner-color);
+  border-radius: 50%;
+  animation: lp-spin 1s linear infinite;
+  font-size: 24px;
+  line-height: var(--lp-spinner-size);
+  text-align: center;
+}
+
+.live-photo .loading.error .spinner {
+  animation: none;
+  border: none;
+}
+
+@keyframes lp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive - desktop */
+@media (min-width: 769px) {
+  .live-photo {
+    max-width: min(800px, 60%);
+  }
+  
+  .live-photo .icon {
+    left: 15px;
+    top: 15px;
+    height: 24px;
+  }
+  
+  .live-photo .icon img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .live-photo .icon span {
+    font-size: 85%;
+  }
+}
+
+/* Responsive - mobile */
+@media (max-width: 768px) {
+  .live-photo {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .live-photo .icon {
+    left: 8px;
+    top: 8px;
+    height: 20px;
+  }
+  
+  .live-photo .icon img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .live-photo .icon span {
+    font-size: 75%;
+  }
+}
+
+/* Hide video controls */
+.live-photo .container video::-webkit-media-controls {
+  display: none !important;
+}
+
+.live-photo .container video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+.live-photo .container video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+/* Accessibility */
+.live-photo .icon:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .live-photo .photo-bg,
+  .live-photo video {
+    transition-duration: 0.01ms !important;
+  }
+  
+  .live-photo .loading .spinner {
+    animation-duration: 2s;
+  }
+}
