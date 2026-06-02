@@ -1,46 +1,34 @@
 ---
-import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-
-const posts = (await getCollection("posts"))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat("en", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  }).format(date);
-
-const postSlug = (id: string) => id.replace(/\.mdx?$/, "");
+// Root redirect page - detects browser language and redirects
 ---
 
-<BaseLayout>
-  <section>
-    <h1>Openfilm</h1>
-    <p class="lede">
-      Notes, essays, and experiments on film, media, tools, and the things worth
-      looking at twice.
-    </p>
-  </section>
-
-  <section class="post-list" aria-label="Latest posts">
-    {
-      posts.map((post) => (
-        <a class="post-card" href={`/posts/${postSlug(post.id)}/`}>
-          <span class="meta">{formatDate(post.data.pubDate)}</span>
-          <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          {post.data.tags.length > 0 && (
-            <div class="tags">
-              {post.data.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          )}
-        </a>
-      ))
-    }
-  </section>
-</BaseLayout>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function() {
+        // Check localStorage for saved language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang && (savedLang === 'zh' || savedLang === 'en')) {
+          window.location.href = '/' + savedLang + '/';
+          return;
+        }
+        
+        // Detect browser language
+        const browserLang = navigator.language || navigator.userLanguage;
+        const lang = browserLang.startsWith('zh') ? 'zh' : 'en';
+        
+        // Save preference
+        localStorage.setItem('preferred-lang', lang);
+        
+        // Redirect
+        window.location.href = '/' + lang + '/';
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to your preferred language...</p>
+  </body>
+</html>

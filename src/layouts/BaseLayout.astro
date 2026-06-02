@@ -1,12 +1,37 @@
 ---
 const {
   title = "Openfilm",
-  description = "Notes, essays, and experiments from Openfilm."
+  description = "Notes, essays, and experiments from Openfilm.",
+  lang = "zh"
 } = Astro.props;
+
+// Translations
+const translations = {
+  zh: {
+    brand: "Openfilm",
+    posts: "文章",
+    about: "关于",
+    rss: "RSS",
+    footer: "Openfilm.cc",
+    langSwitch: "English"
+  },
+  en: {
+    brand: "Openfilm",
+    posts: "Posts",
+    about: "About",
+    rss: "RSS",
+    footer: "Openfilm.cc",
+    langSwitch: "中文"
+  }
+};
+
+const t = translations[lang] || translations.zh;
+const htmlLang = lang === "zh" ? "zh-CN" : "en";
+const otherLang = lang === "zh" ? "en" : "zh";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -18,18 +43,21 @@ const {
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">Openfilm</a>
+      <a class="brand" href={`/${lang}/`}>{t.brand}</a>
       <nav aria-label="Primary navigation">
-        <a href="/">Posts</a>
-        <a href="/about/">About</a>
-        <a href="/rss.xml">RSS</a>
+        <a href={`/${lang}/`}>{t.posts}</a>
+        <a href={`/${lang}/about/`}>{t.about}</a>
+        <a href="/rss.xml">{t.rss}</a>
+        <a href={`/${otherLang}/`} class="lang-switch-btn" title={t.langSwitch}>
+          {t.langSwitch}
+        </a>
       </nav>
     </header>
     <main>
       <slot />
     </main>
     <footer>
-      <p>Openfilm.cc</p>
+      <p>{t.footer}</p>
     </footer>
   </body>
 </html>
@@ -101,6 +129,20 @@ const {
   }
 
   nav a:hover {
+    color: var(--accent-dark);
+  }
+
+  .lang-switch-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .lang-switch-btn:hover {
+    background: var(--surface);
+    border-color: var(--accent);
     color: var(--accent-dark);
   }
 

@@ -4,5 +4,13 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://openfilm.cc",
   output: "static",
-  integrations: [mdx()]
+  integrations: [mdx()],
+  i18n: {
+    defaultLocale: "zh",
+    locales: ["zh", "en"],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: true,
+    },
+  },
 });
