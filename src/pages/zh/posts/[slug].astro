@@ -3,10 +3,20 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("posts"))
-    .filter((post) => !post.data.draft && post.data.lang === "zh");
+  const posts = await getCollection("posts");
+  console.log("Total posts:", posts.length);
+  console.log("All posts:", posts.map(p => ({ id: p.id, lang: p.data.lang, draft: p.data.draft })));
+  
+  const zhPosts = posts.filter((post) => {
+    const isZh = post.data.lang === "zh";
+    const isNotDraft = !post.data.draft;
+    console.log(`Post ${post.id}: lang=${post.data.lang}, draft=${post.data.draft}, include=${isZh && isNotDraft}`);
+    return isZh && isNotDraft;
+  });
+  
+  console.log("ZH posts:", zhPosts.length);
 
-  return posts.map((post) => ({
+  return zhPosts.map((post) => ({
     params: { slug: post.id.replace(/\.mdx?$/, "") },
     props: { post }
   }));
@@ -20,12 +30,6 @@ const formatDate = (date: Date) =>
     month: "long",
     day: "numeric"
   }).format(date);
-
-// 查找对应的英文版本
-const allPosts = await getCollection("posts");
-const enPost = allPosts.find(
-  (p) => p.id.replace(/-zh$/, "") === post.id.replace(/-zh$/, "") && p.data.lang === "en"
-);
 ---
 
 <BaseLayout lang="zh" title={`${post.data.title} | Openfilm`} description={post.data.description}>
@@ -33,42 +37,6 @@ const enPost = allPosts.find(
     <p class="meta">{formatDate(post.data.pubDate)}</p>
     <h1>{post.data.title}</h1>
     <p class="lede">{post.data.description}</p>
-    {
-      post.data.tags.length > 0 && (
-        <div class="tags">
-          {post.data.tags.map((tag) => (
-            <span class="tag">{tag}</span>
-          ))}
-        </div>
-      )
-    }
-    {enPost && (
-      <div class="lang-switch">
-        <a href={`/en/posts/${enPost.id.replace(/\.mdx?$/, "")}/`}>
-          🌐 Read the English version
-        </a>
-      </div>
-    )}
     <Content />
   </article>
 </BaseLayout>
-
-<style>
-  .lang-switch {
-    margin: 24px 0;
-    padding: 12px 16px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-  }
-
-  .lang-switch a {
-    color: var(--accent-dark);
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .lang-switch a:hover {
-    text-decoration: underline;
-  }
-</style>
