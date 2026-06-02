@@ -5,8 +5,4 @@ export default defineConfig({
   site: "https://openfilm.cc",
   output: "static",
   integrations: [mdx()],
-  i18n: {
-    defaultLocale: "zh",
-    locales: ["zh", "en"],
-  },
 });
