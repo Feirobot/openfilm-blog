@@ -102,6 +102,15 @@ const {
     opacity: 1;
   }
 
+  .live-photo.zoom .icon .live-icon-svg {
+    animation: spin 5s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
   .live-photo .icon {
     display: inline-flex;
     align-items: center;
