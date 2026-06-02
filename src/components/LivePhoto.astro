@@ -31,10 +31,10 @@ const {
 <live-photo 
   photo={photo}
   video={video}
-  width={typeof width === 'number' ? `${width}px` : width}
-  muted={muted}
-  loop={loop}
-  autoplay={autoplay}
+  width={typeof width === "number" ? `${width}px` : width}
+  muted={muted ? "true" : "false"}
+  loop={loop ? "" : null}
+  autoplay={autoplay ? "" : null}
   radius={radius.toString()}
 ></live-photo>
 
@@ -44,3 +44,4 @@ const {
     margin: 1.5em auto;
   }
 </style>
+
