@@ -3,6 +3,7 @@ title: "Welcome to Openfilm"
 description: "A first note from the Openfilm blog."
 pubDate: 2026-05-27
 tags: ["notes"]
+lang: zh
 ---
 
 This is the first post on Openfilm.

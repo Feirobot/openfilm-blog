@@ -3,6 +3,7 @@ title: "为什么胶片依然重要"
 description: "在数字影像统治一切的时代，胶片摄影为何仍然吸引着新一代创作者。"
 pubDate: 2026-05-27
 tags: ["film", "photography", "essay"]
+lang: zh
 ---
 
 ## 一种不可复制的质感

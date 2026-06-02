@@ -3,6 +3,7 @@ title: "一次性相机与被误读的胶片感"
 description: "当人们谈论胶片感时，为什么脑海中浮现的总是粗糙颗粒和 VSCO 滤镜？一次性相机或许是这个误解的起点。"
 pubDate: 2026-05-27
 tags: ["film", "disposable camera", "opinion"]
+lang: zh
 ---
 
 ## 每个人的第一卷胶片
