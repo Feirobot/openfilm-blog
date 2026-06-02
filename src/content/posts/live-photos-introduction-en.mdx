@@ -1,0 +1,200 @@
+---
+title: "Live Photos - Bring Your Photos to Life"
+description: "Introduction to Live Photos feature and how to implement Apple-style dynamic photo effects on your website."
+pubDate: 2026-06-03
+tags: ["live photos", "photography", "web development", "technology"]
+draft: false
+lang: en
+---
+
+import LivePhoto from "../../components/LivePhoto.astro";
+
+Have you ever admired the Live Photos feature on iPhone? Now, this stunning effect can be implemented on your website or blog!
+
+## 📱 What are Live Photos?
+
+Live Photos is an innovative feature introduced by Apple on iPhone 6s. When you take a photo, iPhone simultaneously records a 3-second HD video, capturing the moments before and after the shot.
+
+### Advantages of Live Photos
+
+- **Dynamic Moments**: Capture dynamic scenes that static photos cannot record
+- **Audio Memories**: Include ambient sounds from the moment
+- **Interactive Experience**: Users can view dynamic effects with simple gestures
+- **Emotional Connection**: Make photos more vivid and enhance the viewing experience
+
+## 🌟 Live Photo Web Component
+
+Now you can add Live Photos functionality to any website using our **Live Photo Web Component**!
+
+### Features
+
+✨ **Zero Dependencies** — Pure vanilla JavaScript, no framework required  
+🎬 **HTML5 Video** — Uses standard `<video>` tag, highly compatible  
+🌍 **Universal** — Works with WordPress, Astro, React, Vue, plain HTML  
+📱 **Touch-Friendly** — Long-press on mobile, hover on desktop  
+💬 **WeChat Compatible** — Tap-to-play support in WeChat browser  
+📳 **Haptic Feedback** — Supports device vibration  
+📐 **Auto Aspect Ratio** — Automatically detects photo dimensions  
+♿ **Accessible** — Keyboard navigation and screen reader support  
+⚡ **Optional Autoplay** — Auto-play when entering viewport (configurable)  
+🎯 **LIVE Icon Animation** — Rotating icon when video plays (similar to Apple Live Photos)
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+# Install via npm
+npm install live-photo-component
+```
+
+Or via CDN:
+
+```html
+<script src="https://unpkg.com/live-photo-component/dist/live-photo.umd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/live-photo-component/dist/styles.css">
+```
+
+### Basic Usage
+
+```html
+<live-photo 
+  photo="photo.jpg" 
+  video="video.mp4">
+</live-photo>
+```
+
+### Full Configuration
+
+```html
+<live-photo 
+  photo="photo.jpg" 
+  video="video.mp4" 
+  width="600" 
+  muted 
+  autoplay
+  radius="12"
+  loop>
+</live-photo>
+```
+
+## 🎨 Live Demos
+
+### Example 1: Sunset
+
+A warm evening scene captured with a mobile device.
+
+<LivePhoto 
+  photo="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/MVIMG_20241231_161000-scaled.jpg" 
+  video="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/VID_20250912_234046.mp4" 
+  width={600} 
+  muted={true}
+  autoplay={false}
+/>
+
+**How to interact**:
+- 🖥️ **Desktop**: Hover over the **LIVE** badge
+- 📱 **Mobile**: Long-press the image to see the dynamic effect
+
+---
+
+### Example 2: Street
+
+An ordinary moment on the street, brought to life by Live Photos.
+
+<LivePhoto 
+  photo="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/MVIMG_20250405_132341-scaled.jpg" 
+  video="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2025/09/VID_20250912_234608.mp4" 
+  width={600} 
+  muted={true}
+  autoplay={false}
+/>
+
+---
+
+### Example 3: Nature (with sound)
+
+A quiet moment in nature, with sound enabled to feel the atmosphere.
+
+<LivePhoto 
+  photo="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2026/05/DSCF2490.00_00_05_34.Still001.jpg" 
+  video="https://eatbbqcici.oss-cn-shenzhen.aliyuncs.com/images/eatbbq/2026/05/4月28日.mp4" 
+  width={600} 
+  muted={false}
+  autoplay={false}
+/>
+
+## 🔧 Configuration Options
+
+| Attribute | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `photo` | string | required | Cover image URL |
+| `video` | string | required | Video URL |
+| `width` | number/string | `600` | Max width (pixels or percentage) |
+| `muted` | boolean | `true` | Mute audio |
+| `autoplay` | boolean | `false` | Auto-play when entering viewport |
+| `radius` | number | `8` | Border radius (pixels) |
+| `loop` | boolean | `false` | Loop video playback |
+
+## 💡 Best Practices
+
+### 1. Match Photo and Video Aspect Ratio
+
+Ensure the cover image and video have the same aspect ratio for smooth transitions.
+
+### 2. Keep Videos Short
+
+Live Photos are typically 1-3 seconds. Longer videos affect user experience and loading speed.
+
+### 3. Compress Videos
+
+Use MP4 (H.264) format to significantly reduce file size and improve loading speed.
+
+### 4. Use HTTPS
+
+Ensure both images and videos use HTTPS protocol to avoid mixed content issues.
+
+### 5. Provide Fallback
+
+The component displays the cover image when video fails to load, ensuring users always see content.
+
+## 🎯 LIVE Icon Animation
+
+One of the core features of Live Photos is the **LIVE icon animation**:
+
+- **Icon Rotation**: The LIVE icon rotates 360° every 5 seconds during playback
+- **Smooth Transition**: Video fades in while cover image fades out
+- **Visual Feedback**: Clear indication that Live Photo is playing
+
+This animation effect is identical to Apple
+'
+s Live Photos, providing users with a familiar interactive experience.
+
+## 🌐 Browser Compatibility
+
+| Browser | Version |
+|---------|---------|
+| Chrome | 60+ |
+| Firefox | 60+ |
+| Safari | 11+ |
+| Edge | 79+ |
+| WeChat Browser | All versions |
+| iOS Safari | 11+ |
+| Android Chrome | 60+ |
+
+## 📚 Related Resources
+
+- **npm Package**: [live-photo-component](https://www.npmjs.com/package/live-photo-component)
+- **GitHub Repository**: [Live Photos for WordPress](https://github.com/Feirobot/Live-Photos-for-WordPress)
+- **Live Demo**: [Live Photos Demo](/en/posts/live-photos-demo/)
+
+## 🎉 Conclusion
+
+Live Photos make your website more dynamic and engaging. Whether showcasing travel photos, documenting life moments, or creating artistic photography, Live Photo adds unique charm to your work.
+
+Start using it now and bring your photos to life!
+
+---
+
+*If you have any questions or suggestions, feel free to open an issue on GitHub!*
+
