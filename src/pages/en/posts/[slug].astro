@@ -4,16 +4,14 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  console.log("Total posts:", posts.length);
   
+  // Filter by filename suffix instead of lang field
   const enPosts = posts.filter((post) => {
-    const isEn = post.data.lang === "en";
+    const id = post.id.toLowerCase();
+    const isEn = id.endsWith('-en');
     const isNotDraft = !post.data.draft;
-    console.log(`Post ${post.id}: lang=${post.data.lang}, draft=${post.data.draft}, include=${isEn && isNotDraft}`);
     return isEn && isNotDraft;
   });
-  
-  console.log("EN posts:", enPosts.length);
 
   return enPosts.map((post) => ({
     params: { slug: post.id.replace(/\.mdx?$/, "") },

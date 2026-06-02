@@ -4,24 +4,17 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  console.log("Total posts:", posts.length);
   
-  // 打印第一篇文章的完整 data 对象
-  if (posts.length > 0) {
-    console.log("First post full data:", JSON.stringify(posts[0].data, null, 2));
-    console.log("First post keys:", Object.keys(posts[0].data));
-  }
-  
+  // Filter by filename suffix instead of lang field
   const zhPosts = posts.filter((post) => {
-    const isZh = post.data.lang === "zh";
+    const id = post.id.toLowerCase();
+    const isZh = id.endsWith('-zh') || !id.includes('-en');
     const isNotDraft = !post.data.draft;
     return isZh && isNotDraft;
   });
-  
-  console.log("ZH posts:", zhPosts.length);
 
   return zhPosts.map((post) => ({
-    params: { slug: post.id.replace(/\\.mdx?$/, "") },
+    params: { slug: post.id.replace(/\.mdx?$/, "") },
     props: { post }
   }));
 }
