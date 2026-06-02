@@ -1,0 +1,86 @@
+---
+/**
+ * LanguageSwitcher.astro
+ * Language switcher component for i18n support
+ */
+const { currentLang = "zh" } = Astro.props;
+
+const languages = [
+  { code: "zh", label: "中文", name: "Chinese" },
+  { code: "en", label: "EN", name: "English" },
+];
+
+// Generate alternative URLs for other languages
+const currentPath = Astro.url.pathname;
+---
+
+<div class="language-switcher" role="navigation" aria-label="Language switcher">
+  {languages.map((lang) => {
+    // Build alternative URL
+    const baseUrl = "https://openfilm.cc";
+    let href;
+    
+    if (lang.code === currentLang) {
+      href = currentPath;
+    } else {
+      // Replace language prefix in URL
+      const pathWithoutLang = currentPath.replace(/^\/(zh|en)/, "");
+      href = `/${lang.code}${pathWithoutLang}`;
+    }
+    
+    return (
+      <a
+        href={href}
+        class={currentLang === lang.code ? "active" : ""}
+        lang={lang.code}
+        hreflang={lang.code}
+        title={`Switch to ${lang.name}`}
+      >
+        {lang.label}
+      </a>
+    );
+  })}
+</div>
+
+<style>
+  .language-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .language-switcher a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .language-switcher a:hover {
+    color: var(--accent-dark);
+    border-color: var(--line);
+    background: var(--surface);
+  }
+
+  .language-switcher a.active {
+    color: var(--accent-dark);
+    background: var(--surface);
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+
+  @media (max-width: 620px) {
+    .language-switcher {
+      gap: 4px;
+    }
+
+    .language-switcher a {
+      padding: 5px 10px;
+      font-size: 0.85rem;
+    }
+  }
+</style>
