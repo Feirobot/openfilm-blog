@@ -1,13 +1,16 @@
 {
   "article": "src/content/posts/film-photography-revival-2026-zh.mdx",
   "translated_article": "src/content/posts/film-photography-revival-2026-en.mdx",
-  "stage": "built",
-  "updated_at": "2026-06-11T01:21:30+08:00",
+  "stage": "published",
+  "updated_at": "2026-06-11T01:31:06+08:00",
   "retry_count": 0,
+  "published_url": "https://openfilm.cc/zh/posts/film-photography-revival-2026-zh/",
+  "commit_hash": "45cc40681d5c7cef6da4d2985e8ee5c1fff95e6a",
   "history": [
     {"stage": "draft_created", "at": "2026-06-10T16:30:00+08:00", "by": "胶片编辑", "note": "新文章创作: 《2026 年胶片复兴》"},
     {"stage": "review_passed", "at": "2026-06-11T01:10:00+08:00", "by": "审墨", "note": "审核通过"},
     {"stage": "translation_reviewed", "at": "2026-06-11T01:20:00+08:00", "by": "译笔", "note": "翻译完成：中文→英文"},
-    {"stage": "built", "at": "2026-06-11T01:21:30+08:00", "by": "筑页", "note": "构建验证通过，耗时 3s"}
+    {"stage": "built", "at": "2026-06-11T01:21:30+08:00", "by": "筑页", "note": "构建验证通过，耗时 3s"},
+    {"stage": "published", "at": "2026-06-11T01:31:06+08:00", "by": "启航", "note": "发布成功，URL: https://openfilm.cc/zh/posts/film-photography-revival-2026-zh/"}
   ]
 }
