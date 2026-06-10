@@ -1,0 +1,10 @@
+{
+  "article": "src/content/posts/film-photography-revival-2026-zh.mdx",
+  "stage": "draft_created",
+  "updated_at": "2026-06-10T12:00:00+08:00",
+  "retry_count": 0,
+  "history": [
+    {"stage": "draft_created", "at": "2026-06-10T16:30:00+08:00", "by": "胶片编辑", "note": "新文章创作: 《2026 年胶片复兴：当年轻人重新拥抱模拟摄影》"},
+    {"stage": "reset", "at": "2026-06-10T12:00:00+08:00", "by": "系统", "note": "重置流水线状态，修复结构错误"}
+  ]
+}
