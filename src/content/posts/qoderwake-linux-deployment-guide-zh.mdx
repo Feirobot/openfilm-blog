@@ -1,0 +1,536 @@
+---
+title: "QoderWake Linux 服务器部署与配置完全指南"
+description: "从零开始在 Linux 服务器上安装、配置 QoderWake，包括认证、模型接入、反向代理、自动化工作流等完整流程。"
+pubDate: 2026-06-12
+updatedDate: 2026-06-12
+draft: false
+tags: ["QoderWake", "Linux", "部署", "DevOps", "自动化"]
+lang: "zh"
+---
+
+import "../../styles/qw-guide.css";
+
+<div class="qw-guide">
+
+## 环境准备与系统要求
+
+### 系统要求
+
+| 项目 | 最低要求 | 推荐配置 |
+|------|---------|---------|
+| 操作系统 | Ubuntu 22.04 / Debian 12 | Ubuntu 24.04 LTS |
+| CPU | 2 核 | 4 核+ |
+| 内存 | 4 GB | 8 GB+ |
+| 磁盘 | 20 GB | 50 GB SSD |
+| Node.js | 18.x | 20.x LTS |
+| 网络 | 可访问外网 | 固定公网 IP 或隧道 |
+
+### 安装依赖
+
+```bash
+# 更新系统包
+sudo apt update && sudo apt upgrade -y
+
+# 安装必要工具
+sudo apt install -y curl git nginx xdg-utils
+
+# 安装 Node.js 20 LTS（如尚未安装）
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+
+# 验证安装
+node -v   # 应输出 v20.x.x
+npm -v    # 应输出 10.x.x
+```
+
+<div class="qw-callout qw-callout-tip">
+<div class="qw-callout-title">提示</div>
+
+如果服务器没有图形界面（无头服务器），`xdg-utils` 包仍然建议安装，QoderWake 的部分功能依赖它。后续章节会说明无头环境的替代方案。
+</div>
+
+---
+
+## 安装 QoderWake
+
+### 全局安装
+
+```bash
+sudo npm install -g qoderwake
+
+# 验证安装
+qoderwake --version
+```
+
+### 初始化
+
+```bash
+# 启动 QoderWake（首次启动会引导配置）
+qoderwake start --port 19822
+```
+
+<div class="qw-callout qw-callout-warn">
+<div class="qw-callout-title">注意</div>
+
+内部端口建议使用 `19822`，后续通过 Nginx 反向代理对外暴露 `19820` 端口。这样可以避免直接暴露内部服务。
+</div>
+
+### 验证服务状态
+
+```bash
+# 检查进程是否运行
+ps aux | grep qoderwake
+
+# 检查端口监听
+ss -tlnp | grep 19822
+
+# 本地访问测试
+curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:19822
+# 应返回 200
+```
+
+### 停止与重启
+
+```bash
+# 停止服务
+qoderwake stop
+
+# 重启服务
+qoderwake start --port 19822
+```
+
+---
+
+## 用户认证与登录
+
+### 认证方式
+
+QoderWake 支持两种认证方式：
+
+| 方式 | 适用场景 | 说明 |
+|------|---------|------|
+| 浏览器登录 | 本地开发环境 | 自动打开浏览器完成 OAuth 授权 |
+| Token 登录 | 远程服务器 / 无头环境 | 手动输入 Token 完成认证 |
+
+### 服务器环境登录（Token 方式）
+
+在无图形界面的 Linux 服务器上，无法使用浏览器登录，需使用 Token 认证：
+
+```bash
+qoderwake login
+```
+
+命令执行后会输出一个认证 URL 和 Token 输入提示：
+
+<ol class="qw-steps">
+<li>在本地浏览器中打开输出的认证 URL</li>
+<li>完成 Qoder 账号授权</li>
+<li>将获得的 Token 复制回服务器终端输入</li>
+<li>认证成功后会显示登录账号信息</li>
+</ol>
+
+<div class="qw-callout qw-callout-danger">
+<div class="qw-callout-title">重要</div>
+
+服务器环境**无法**自动打开浏览器，必须使用 Token 方式登录。如果 `qoderwake login` 尝试打开浏览器失败，请检查输出中是否有手动认证链接。
+</div>
+
+### 验证登录状态
+
+```bash
+qoderwake whoami
+# 应显示当前登录的账号信息
+```
+
+---
+
+## 自定义模型接入
+
+### 支持的模型提供商
+
+QoderWake 支持接入多种 LLM 模型，包括 OpenAI、阿里云百炼、Anthropic 等。以下以阿里云百炼（通义千问）为例。
+
+### 添加自定义模型
+
+```bash
+# 通过 CLI 添加模型（如支持）
+qoderwake model add --provider bailian --model qwen3.7-plus
+
+# 或通过 Web UI 添加（推荐）
+# 1. 打开 QoderWake Web 控制台
+# 2. 进入设置 → 模型管理
+# 3. 点击"添加模型"，填写：
+#    - 提供商：Alibaba Cloud (百炼)
+#    - 模型 ID：qwen3.7-plus
+#    - API Key：你的百炼 API Key
+#    - 显示名称：Qwen-3.7-Plus (Alibaba Cloud Coding Plan)
+```
+
+<div class="qw-callout qw-callout-tip">
+<div class="qw-callout-title">提示</div>
+
+模型配置完成后，在创建自动化任务时可以从下拉菜单中选择该模型。如果 CLI 添加模型遇到问题，建议直接在 Web UI 中操作。
+</div>
+
+### 模型配置注意事项
+
+- 确保 API Key 有效且有足够的配额
+- 部分模型需要特定的 API 端点 URL
+- 模型 ID 必须与提供商文档中的标识一致
+- 添加后需在自动化任务中手动选择模型，CLI 创建的默认使用 `auto`
+
+---
+
+## Waker（智能体）管理
+
+### 什么是 Waker
+
+Waker 是 QoderWake 中的智能体单元，每个 Waker 拥有独立的工作空间、角色设定和任务配置。可以为不同岗位创建不同的 Waker，如 QA 工程师、前端开发、产品经理等。
+
+### 创建 Waker
+
+```bash
+# 通过 Web UI 创建（推荐）
+# 1. 打开 QoderWake Web 控制台
+# 2. 点击"新建 Waker"
+# 3. 填写名称、角色描述、选择模型
+# 4. 保存后获得 Waker ID
+
+# 通过 CLI 查看已有 Waker
+qoderwake waker list
+```
+
+### Waker 角色配置示例
+
+| 角色 | 建议配置 | 典型任务 |
+|------|---------|---------|
+| QA 工程师 | 注重测试和 Bug 检测 | 自动化测试、回归测试 |
+| 前端开发 | 熟悉 React/Vue 生态 | 构建检查、组件审查 |
+| 后端开发 | 熟悉 API 和数据库 | 代码质量、架构审查 |
+| 产品经理 | 关注进度和风险 | 项目巡检、进度跟踪 |
+| 内容运营 | 注重文档和内容 | 文档审查、内容更新 |
+| 数据分析师 | 擅长数据处理 | 数据分析、趋势报告 |
+| 技术支持 | 综合能力强 | 全流程任务、问题排查 |
+
+### 更新 Waker 配置
+
+```bash
+# 更新 Waker 身份/人设（注意参数顺序）
+qoderwake waker update identity --waker-id <ID> --name "新名称"
+
+# 更新 Waker 圣经（知识库）
+qoderwake waker update bible --waker-id <ID> --content "..."
+```
+
+<div class="qw-callout qw-callout-warn">
+<div class="qw-callout-title">注意：参数顺序</div>
+
+`qoderwake waker update` 必须指定子命令（如 `identity`、`persona`、`bible`），`--waker-id` 参数必须放在子命令之后，否则会报错。
+</div>
+
+---
+
+## Nginx 反向代理与外网访问
+
+### 为什么需要反向代理
+
+QoderWake 默认运行在本地端口（如 19822），无法直接从外网访问。通过 Nginx 反向代理可以：
+
+- 将内部端口映射到外部可访问端口
+- 提供 HTTPS 支持
+- 处理跨域请求头
+- 作为静态文件服务器（产物访问）
+
+### Nginx 配置
+
+```bash
+# 创建 QoderWake 的 Nginx 配置
+sudo tee /etc/nginx/sites-available/qoderwake << 'EOF'
+server {
+    listen 19820;
+    server_name _;
+
+    # 反向代理到 QoderWake 内部服务
+    location / {
+        proxy_pass http://127.0.0.1:19822;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # 跨域修复：覆盖 Origin/Referer/Host 头
+        proxy_set_header Origin http://127.0.0.1:19822;
+        proxy_set_header Referer http://127.0.0.1:19822/;
+    }
+
+    # 产物（Artifact）静态文件服务
+    location /artifacts/ {
+        alias /root/.qoderwake/data/workers/;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+    }
+}
+EOF
+
+# 启用站点
+sudo ln -s /etc/nginx/sites-available/qoderwake /etc/nginx/sites-enabled/
+
+# 测试配置
+sudo nginx -t
+
+# 重载 Nginx
+sudo systemctl reload nginx
+```
+
+### 验证反向代理
+
+```bash
+# 通过代理端口访问
+curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:19820
+# 应返回 200
+
+# 检查产物访问
+curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:19820/artifacts/<waker-id>/workspace/
+```
+
+<div class="qw-callout qw-callout-danger">
+<div class="qw-callout-title">关键：跨域头覆盖</div>
+
+必须设置 `proxy_set_header Origin` 和 `proxy_set_header Referer` 指向内部地址，否则 QoderWake 前端在通过反向代理访问时会因跨域策略拒绝文件系统浏览请求。
+</div>
+
+---
+
+## 产物（Artifact）访问修复
+
+### 问题描述
+
+QoderWake 的 `fs-reveal` 功能依赖 `xdg-open` 命令打开文件。在无头服务器上，`xdg-open` 不可用或无法打开浏览器，导致产物无法访问。
+
+### 解决方案：xdg-open 包装脚本
+
+```bash
+# 创建 xdg-open 包装脚本
+sudo tee /usr/local/bin/xdg-open << 'EOF'
+#!/bin/bash
+# QoderWake 无头服务器 xdg-open 包装器
+# 将文件路径转换为可通过 Web 访问的 URL
+
+URL="$1"
+
+# 如果是文件路径，转换为 artifacts URL
+if [[ "$URL" == /* ]]; then
+    WORKER_ID=$(echo "$URL" | grep -oP 'workers/\K[^/]+')
+    REL_PATH="${URL#*/root/.qoderwake/data/workers/$WORKER_ID/}"
+    echo "http://127.0.0.1:19820/artifacts/$WORKER_ID/$REL_PATH"
+else
+    echo "$URL"
+fi
+EOF
+
+sudo chmod +x /usr/local/bin/xdg-open
+```
+
+### 产物访问路径格式
+
+```bash
+# 标准访问路径
+http://<服务器地址>:19820/artifacts/<waker-id>/workspace/<filename>
+
+# 示例
+http://127.0.0.1:19820/artifacts/085c1325c034/workspace/report.html
+```
+
+<div class="qw-callout qw-callout-tip">
+<div class="qw-callout-title">提示</div>
+
+产物文件需要放在 Waker 的工作空间目录下：`/root/.qoderwake/data/workers/<waker-id>/workspace/`，才能通过 artifacts 路径访问。
+</div>
+
+---
+
+## 自动化工作流配置
+
+### 创建项目
+
+```bash
+# 为 Waker 创建项目（注意参数是 --path 而非 --workspace-path）
+qoderwake project create --name "AIWork" --path /root/AIwork --waker-id <WAKER_ID>
+```
+
+<div class="qw-callout qw-callout-warn">
+<div class="qw-callout-title">常见错误</div>
+
+`project create` 的参数是 `--path`，不是 `--workspace-path`。使用错误的参数名会报 `unknown option` 错误。
+</div>
+
+### 创建定时任务
+
+```bash
+# 创建定时自动化任务
+qoderwake automation create schedule \
+  --waker-id <WAKER_ID> \
+  --name "每日自动化测试" \
+  --cron "0 9 * * *" \
+  --timezone "Asia/Shanghai" \
+  --prompt-file /path/to/prompt.md
+```
+
+### Cron 表达式说明
+
+| 字段 | 范围 | 示例 | 含义 |
+|------|------|------|------|
+| 分钟 | 0-59 | 0 | 整点 |
+| 小时 | 0-23 | 9 | 上午 9 点 |
+| 日 | 1-31 | * | 每天 |
+| 月 | 1-12 | * | 每月 |
+| 星期 | 0-6 | 5 | 周五 |
+
+### 更新任务权限
+
+```bash
+# CLI 创建的任务默认权限不足，必须手动更新
+qoderwake automation update \
+  --automation-id <TASK_ID> \
+  --file-system read-write \
+  --run-commands true \
+  --network true
+```
+
+<div class="qw-callout qw-callout-danger">
+<div class="qw-callout-title">关键：权限必须单独设置</div>
+
+`automation create schedule` **不支持**权限参数。创建后必须通过 `automation update` 单独设置文件系统、命令执行和网络访问权限，否则任务无法正常运行。
+</div>
+
+### 查看任务列表
+
+```bash
+# 查看指定 Waker 的任务（必须指定 --waker-id）
+qoderwake automation list --waker-id <WAKER_ID>
+```
+
+### 典型工作流配置
+
+| 任务 | Cron | 说明 |
+|------|------|------|
+| 每日自动化测试 | `0 9 * * *` | 每天 09:00 执行测试 |
+| 每日代码审查 | `0 10 * * *` | 每天 10:00 审查代码 |
+| CI/CD 流水线检查 | `0 11,17 * * *` | 每天 11:00 和 17:00 |
+| 每日项目巡检 | `0 18 * * *` | 每天 18:00 巡检 |
+| 每周版本发布检查 | `0 16 * * 5` | 每周五 16:00 |
+
+<div class="qw-callout qw-callout-tip">
+<div class="qw-callout-title">最佳实践</div>
+
+多个任务建议错开执行时间（如每隔 15 分钟），避免资源竞争。任务描述建议使用 prompt 文件（`--prompt-file`）管理，方便版本控制和复用。
+</div>
+
+---
+
+## 常见问题与排查
+
+### Q1：登录时无法打开浏览器
+
+**原因：** 服务器无图形界面，`xdg-open` 无法启动浏览器。
+
+**解决：** 使用 Token 方式登录，在本地浏览器完成授权后将 Token 输入服务器终端。
+
+### Q2：Web 控制台看不到已创建的自动任务
+
+**原因：** QoderWake v0.0.16 前端 UI 存在已知 Bug，"自动任务"标签页始终弹出创建对话框，不显示已有任务列表。
+
+**解决：** 通过 API 验证任务是否正常创建（`GET /api/triggers`），任务数据正确但前端显示异常。可通过 CLI 管理任务，或等待官方修复。
+
+### Q3：自动化任务执行失败
+
+**原因：** CLI 创建的任务默认权限为 `fileSystem: read`、`network: false`、`runCommands: false`。
+
+**解决：** 执行 `qoderwake automation update` 设置完整权限（见第 8 节）。
+
+### Q4：产物文件无法访问
+
+**原因：** 无头服务器缺少 `xdg-open` 或跨域头未正确配置。
+
+**解决：** 安装 xdg-open 包装脚本 + 配置 Nginx 反向代理覆盖 Origin/Referer 头（见第 6、7 节）。
+
+### Q5：project create 报 unknown option
+
+**原因：** 使用了错误的参数名 `--workspace-path`。
+
+**解决：** 改用 `--path` 参数。
+
+### Q6：automation update 报缺少参数
+
+**原因：** 未指定 `--automation-id`。
+
+**解决：** 必须通过 `--automation-id <ID>` 指定要更新的任务。
+
+### Q7：无法通过 CLI 修改任务模型
+
+**原因：** `automation update` 不支持通过 `--model` 或 `--pull-config-json` 修改模型配置。
+
+**解决：** 需在 Web UI 中手动选择模型，或通过 API 直接修改。
+
+### Q8：automation list 报错
+
+**原因：** 未指定 `--waker-id` 参数，或使用了不支持的 `--format` 参数。
+
+**解决：** 必须指定 `--waker-id`，不支持 `--format` 参数。
+
+---
+
+## CLI 命令速查表
+
+### 服务管理
+
+| 命令 | 说明 |
+|------|------|
+| `qoderwake start --port 19822` | 启动服务 |
+| `qoderwake stop` | 停止服务 |
+| `qoderwake --version` | 查看版本 |
+
+### 认证
+
+| 命令 | 说明 |
+|------|------|
+| `qoderwake login` | 登录（Token 方式） |
+| `qoderwake whoami` | 查看当前账号 |
+
+### Waker 管理
+
+| 命令 | 说明 |
+|------|------|
+| `qoderwake waker list` | 列出所有 Waker |
+| `qoderwake waker update identity --waker-id <ID> --name "名称"` | 更新 Waker 身份 |
+| `qoderwake waker update bible --waker-id <ID> --content "..."` | 更新知识库 |
+
+### 项目管理
+
+| 命令 | 说明 |
+|------|------|
+| `qoderwake project create --name "名称" --path /path --waker-id <ID>` | 创建项目 |
+
+### 自动化任务
+
+| 命令 | 说明 |
+|------|------|
+| `qoderwake automation create schedule --waker-id <ID> --name "名称" --cron "..." --timezone "Asia/Shanghai" --prompt-file /path/to/prompt.md` | 创建定时任务 |
+| `qoderwake automation update --automation-id <ID> --file-system read-write --run-commands true --network true` | 更新任务权限 |
+| `qoderwake automation list --waker-id <ID>` | 查看任务列表 |
+
+<div class="qw-callout qw-callout-warn">
+<div class="qw-callout-title">命令使用注意</div>
+
+- 子命令必须放在主命令之后（如 `automation create schedule`）
+- 所有参数必须放在子命令之后
+- `automation update` 必须指定 `--automation-id`
+- `automation list` 必须指定 `--waker-id`
+- `project create` 使用 `--path` 而非 `--workspace-path`
+</div>
+
+</div>
