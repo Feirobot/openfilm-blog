@@ -10,6 +10,7 @@ export async function GET(context) {
     title: "Openfilm",
     description: "Notes, essays, and experiments from Openfilm.",
     site: context.site,
+    customData: `<lastBuildDate>${(posts.length > 0 ? posts[0].data.pubDate : new Date()).toUTCString()}</lastBuildDate>`,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
