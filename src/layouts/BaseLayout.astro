@@ -241,6 +241,19 @@ const otherLang = lang === "zh" ? "en" : "zh";
     color: var(--accent-dark);
   }
 
+  article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+
+  article h1, article h2, article h3 {
+    margin-top: 2rem;
+  }
+
   @media (max-width: 620px) {
     .site-header {
       align-items: flex-start;
