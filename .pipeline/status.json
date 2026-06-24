@@ -1,8 +1,25 @@
 {
-  "article": "src/content/posts/film-photography-community-culture-zh.mdx",
-  "translated_article": "src/content/posts/film-photography-community-culture-en.mdx",
-  "stage": "published",
-  "updated_at": "2026-06-22T06:10:00+08:00",
-  "published_url": "https://openfilm.cc/zh/posts/film-photography-community-culture-zh/",
-  "commit_hash": "8410aa83d963bceb5ae275b8e9ce2d9a8e66f412"
+  "article": "src/content/posts/darkroom-silver-gelatin-printing-art-zh.mdx",
+  "stage": "images_generated",
+  "updated_at": "2026-06-25T10:38:00+08:00",
+  "images": [
+    "public/images/darkroom-silver-gelatin-printing-art-1.png",
+    "public/images/darkroom-silver-gelatin-printing-art-2.png",
+    "public/images/darkroom-silver-gelatin-printing-art-3.png"
+  ],
+  "retry_count": 0,
+  "history": [
+    {
+      "stage": "draft_created",
+      "at": "2026-06-25T06:00:00+08:00",
+      "by": "胶片编辑",
+      "note": "新文章创作: 《暗房印相：银盐工艺的手工照片之美》"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-06-25T10:38:00+08:00",
+      "by": "画师",
+      "note": "生成 3 张 Notion 风格插画"
+    }
+  ]
 }
