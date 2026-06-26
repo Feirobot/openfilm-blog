@@ -1,31 +1,32 @@
 {
-  "article": "src/content/posts/black-white-film-art-selection-zh.mdx",
+  "article": "src/content/posts/film-photography-personal-archive-zh.mdx",
   "stage": "images_generated",
-  "updated_at": "2026-06-26T22:18:00+08:00",
+  "updated_at": "2026-06-26T23:19:55+08:00",
   "images": [
-    "https://media.openfilm.cc/images/black-white-film-art-selection/1782483401-1.jpg",
-    "https://media.openfilm.cc/images/black-white-film-art-selection/1782483427-2.jpg",
-    "https://media.openfilm.cc/images/black-white-film-art-selection/1782483431-3.jpg"
+    "/images/film-photography-personal-archive-1.png",
+    "/images/film-photography-personal-archive-2.png",
+    "/images/film-photography-personal-archive-3.png"
   ],
   "images_local": [
-    "public/images/black-white-film-art-selection-1.jpg",
-    "public/images/black-white-film-art-selection-2.jpg",
-    "public/images/black-white-film-art-selection-3.jpg"
+    "public/images/film-photography-personal-archive-1.png",
+    "public/images/film-photography-personal-archive-2.png",
+    "public/images/film-photography-personal-archive-3.png"
   ],
-  "r2_upload_status": "success",
+  "r2_upload_status": "failed",
+  "r2_error": "无可用 R2 上传工具（Cloudflare MCP 仅提供 authenticate，无 r2_put_object；本地无 aws/r2/wrangler/s3cmd CLI）",
   "retry_count": 0,
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-06-25T18:00:00+08:00",
+      "at": "2026-06-26T23:00:00+08:00",
       "by": "胶片编辑",
-      "note": "新文章创作: 《黑白胶片的选择与美学：在灰度中发现永恒》"
+      "note": "新文章创作: 《胶片摄影与个人记忆档案：在数字时代保存真实的自己》"
     },
     {
       "stage": "images_generated",
-      "at": "2026-06-26T22:18:00+08:00",
+      "at": "2026-06-26T23:19:55+08:00",
       "by": "画师",
-      "note": "生成 3 张 Notion 信息图插画（胶片选择、区域曝光法、暗房印相），已通过 Cloudflare Workers AI (flux-1-schnell) 生成并上传至 R2"
+      "note": "生成 3 张 Notion 信息图插画，R2 上传失败（无可用工具），使用本地存储"
     }
   ]
 }
