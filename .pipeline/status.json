@@ -1,19 +1,23 @@
 {
   "article": "src/content/posts/film-photography-personal-archive-zh.mdx",
-  "stage": "images_generated",
-  "updated_at": "2026-06-26T23:19:55+08:00",
+  "translated_article": "src/content/posts/film-photography-personal-archive-en.mdx",
+  "stage": "published",
+  "updated_at": "2026-06-26T23:36:38+08:00",
   "images": [
-    "/images/film-photography-personal-archive-1.png",
-    "/images/film-photography-personal-archive-2.png",
-    "/images/film-photography-personal-archive-3.png"
-  ],
-  "images_local": [
     "public/images/film-photography-personal-archive-1.png",
     "public/images/film-photography-personal-archive-2.png",
     "public/images/film-photography-personal-archive-3.png"
   ],
-  "r2_upload_status": "failed",
-  "r2_error": "无可用 R2 上传工具（Cloudflare MCP 仅提供 authenticate，无 r2_put_object；本地无 aws/r2/wrangler/s3cmd CLI）",
+  "r2_upload_status": "success",
+  "r2_bucket": "openfilm",
+  "r2_images": [
+    "images/film-photography-personal-archive-1.png",
+    "images/film-photography-personal-archive-2.png",
+    "images/film-photography-personal-archive-3.png"
+  ],
+  "published_url": "https://openfilm.cc/zh/posts/film-photography-personal-archive-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-photography-personal-archive-en/",
+  "commit_hash": "de3c341fc85119675a7c63de0bbe3c59ead6c955",
   "retry_count": 0,
   "history": [
     {
@@ -27,6 +31,18 @@
       "at": "2026-06-26T23:19:55+08:00",
       "by": "画师",
       "note": "生成 3 张 Notion 信息图插画，R2 上传失败（无可用工具），使用本地存储"
+    },
+    {
+      "stage": "published",
+      "at": "2026-06-26T23:36:38+08:00",
+      "by": "启航",
+      "note": "翻译+发布成功，中英文双语上线"
+    },
+    {
+      "stage": "r2_uploaded",
+      "at": "2026-06-27T00:03:00+08:00",
+      "by": "启航",
+      "note": "通过 wrangler CLI 上传 3 张插画到 R2 bucket openfilm"
     }
   ]
 }
