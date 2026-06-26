@@ -1,35 +1,31 @@
 {
-  "article": "src/content/posts/toy-camera-lofi-photography-aesthetic-zh.mdx",
-  "translated_article": "src/content/posts/toy-camera-lofi-photography-aesthetic-en.mdx",
-  "stage": "published",
-  "updated_at": "2026-06-25T12:26:00+08:00",
+  "article": "src/content/posts/black-white-film-art-selection-zh.mdx",
+  "stage": "images_generated",
+  "updated_at": "2026-06-26T22:18:00+08:00",
   "images": [
-    "public/images/toy-camera-lofi-photography-aesthetic-1.png",
-    "public/images/toy-camera-lofi-photography-aesthetic-2.png",
-    "public/images/toy-camera-lofi-photography-aesthetic-3.png"
+    "https://media.openfilm.cc/images/black-white-film-art-selection/1782483401-1.jpg",
+    "https://media.openfilm.cc/images/black-white-film-art-selection/1782483427-2.jpg",
+    "https://media.openfilm.cc/images/black-white-film-art-selection/1782483431-3.jpg"
   ],
-  "published_url": "https://openfilm.cc/zh/posts/toy-camera-lofi-photography-aesthetic-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/toy-camera-lofi-photography-aesthetic-en/",
-  "commit_hash": "9d0d60fc36e84aaaa7043bca3940f3315d78dca9",
+  "images_local": [
+    "public/images/black-white-film-art-selection-1.jpg",
+    "public/images/black-white-film-art-selection-2.jpg",
+    "public/images/black-white-film-art-selection-3.jpg"
+  ],
+  "r2_upload_status": "success",
   "retry_count": 0,
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-06-25T14:30:00+08:00",
+      "at": "2026-06-25T18:00:00+08:00",
       "by": "胶片编辑",
-      "note": "新文章创作: 《玩具相机与 Lo-Fi 美学：不完美的胶片革命》"
+      "note": "新文章创作: 《黑白胶片的选择与美学：在灰度中发现永恒》"
     },
     {
       "stage": "images_generated",
-      "at": "2026-06-25T04:20:00+08:00",
+      "at": "2026-06-26T22:18:00+08:00",
       "by": "画师",
-      "note": "生成 3 张 Notion 信息图插画，已上传至 R2"
-    },
-    {
-      "stage": "published",
-      "at": "2026-06-25T12:26:00+08:00",
-      "by": "启航",
-      "note": "翻译+发布成功，中英文双语上线"
+      "note": "生成 3 张 Notion 信息图插画（胶片选择、区域曝光法、暗房印相），已通过 Cloudflare Workers AI (flux-1-schnell) 生成并上传至 R2"
     }
   ]
 }
