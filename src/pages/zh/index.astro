@@ -1,15 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { postCategory, postHref, publishedPostsForLang } from "../../lib/posts";
 
 const lang = "zh";
-const posts = (await getCollection("posts"))
-  .filter((post) => {
-    const id = post.id.toLowerCase();
-    const isZh = id.endsWith("-zh") || !id.includes("-en");
-    return !post.data.draft && isZh;
-  })
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const PAGE_SIZE = 8;
+const posts = publishedPostsForLang(await getCollection("posts"), lang);
+const featured = posts[0];
+const latestPosts = posts.slice(0, PAGE_SIZE);
+const totalPages = Math.ceil(posts.length / PAGE_SIZE);
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("zh-CN", {
@@ -17,34 +16,114 @@ const formatDate = (date: Date) =>
     month: "long",
     day: "numeric"
   }).format(date);
-
-const postSlug = (id: string) => id.replace(/\.mdx?$/, "");
 ---
 
-<BaseLayout lang={lang}>
-  <section>
-    <h1>Openfilm</h1>
-    <p class="lede">
-      关于胶片、媒体、工具以及值得细细品味的事物的笔记、随笔与实验。
-    </p>
+<BaseLayout lang={lang} alternatePath="/en/">
+  <section class="hero page-shell" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <div>
+        <p class="kicker">专题 / 胶片与日常</p>
+        <h1 id="page-title">胶片摄影的<br />当代入口。</h1>
+        <p class="lede">
+          胶片选择、相机维护、暗房工艺与影像社群，被整理成一本有路径、有触感的在线影像杂志。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#latest">开始阅读</a>
+          <a class="button" href="#columns">浏览栏目</a>
+        </div>
+      </div>
+      <p class="meta">胶片、工具、暗房与影像文化笔记。</p>
+    </div>
+
+    {featured && (
+      <a class="hero-aside" href={postHref(featured, lang)} aria-label={`精选文章：${featured.data.title}`}>
+        <img class="hero-image" src="/images/film-photography-personal-archive-2.png" alt="桌面上的胶片相机和拍摄笔记" />
+        <div class="featured">
+          <p class="meta">精选 / {formatDate(featured.data.pubDate)}</p>
+          <h2>{featured.data.title}</h2>
+          <p>{featured.data.description}</p>
+        </div>
+      </a>
+    )}
   </section>
 
-  <section class="post-list" aria-label="最新文章">
-    {
-      posts.map((post) => (
-        <a class="post-card" href={`/zh/posts/${postSlug(post.id)}/`}>
-          <span class="meta">{formatDate(post.data.pubDate)}</span>
-          <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          {post.data.tags.length > 0 && (
-            <div class="tags">
-              {post.data.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          )}
+  <section class="section-row" id="latest" aria-labelledby="latest-title">
+    <div class="section-label">
+      <h2 id="latest-title">Latest</h2>
+      <p>先给读者一个明确选择：学技巧、挑工具、理解文化，或进入暗房。</p>
+    </div>
+
+    <div class="post-list">
+      {latestPosts.map((post, index) => (
+        <a class="post-card" href={postHref(post, lang)}>
+          <span class="post-number">{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <span class="meta">{formatDate(post.data.pubDate)}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </div>
+          <span class="category-mark">{postCategory(post, lang)}</span>
         </a>
-      ))
-    }
+      ))}
+      {totalPages > 1 && (
+        <nav class="pagination" aria-label="文章分页">
+          <span class="meta">第 1 页 / 共 {totalPages} 页</span>
+          <div class="page-links">
+            {Array.from({ length: totalPages }, (_, index) => {
+              const page = index + 1;
+              const href = page === 1 ? "/zh/#latest" : `/zh/page/${page}/#latest`;
+              return (
+                <a class="page-link" href={href} aria-current={page === 1 ? "page" : undefined}>
+                  {page}
+                </a>
+              );
+            })}
+          </div>
+          <a class="button" href="/zh/page/2/#latest">下一页</a>
+        </nav>
+      )}
+    </div>
+  </section>
+
+  <section class="section-row" id="columns" aria-labelledby="columns-title">
+    <div class="section-label">
+      <h2 id="columns-title">Columns</h2>
+      <p>用栏目替代单纯文章堆叠，让首页更像有编辑判断的影像出版物。</p>
+    </div>
+
+    <div class="topics">
+      <article class="topic">
+        <strong>01</strong>
+        <h3>Film Stock</h3>
+        <p>胶片选择、过期胶片、色彩倾向与 ISO 场景。</p>
+      </article>
+      <article class="topic">
+        <strong>02</strong>
+        <h3>Camera Desk</h3>
+        <p>相机购买、维修保养、扫描与随身工具。</p>
+      </article>
+      <article class="topic">
+        <strong>03</strong>
+        <h3>Darkroom</h3>
+        <p>冲洗变量、古典工艺、手工印相和实验流程。</p>
+      </article>
+      <article class="topic">
+        <strong>04</strong>
+        <h3>Culture</h3>
+        <p>社群、复兴、一次性相机与反算法审美。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <div>
+      <p class="kicker">Weekly roll</p>
+      <h2>一封更像暗房记录的邮件。</h2>
+      <p>一篇文章、一支胶片、一个拍摄练习。让读者每周都有理由重新拿起相机。</p>
+    </div>
+    <form class="newsletter-form">
+      <input type="email" aria-label="邮箱地址" placeholder="you@example.com" />
+      <button class="button" type="submit">订阅</button>
+    </form>
   </section>
 </BaseLayout>

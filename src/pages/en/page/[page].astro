@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { postCategory, postHref, publishedPostsForLang } from "../../../lib/posts";
+
+const lang = "en";
+const PAGE_SIZE = 8;
+
+export async function getStaticPaths() {
+  const pageSize = 8;
+  const posts = publishedPostsForLang(await getCollection("posts"), "en");
+  const totalPages = Math.ceil(posts.length / pageSize);
+
+  return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => {
+    const page = index + 2;
+    return {
+      params: { page: String(page) },
+      props: { page, totalPages }
+    };
+  });
+}
+
+const { page, totalPages } = Astro.props;
+const allPosts = await getCollection("posts");
+const posts = publishedPostsForLang(allPosts, lang);
+const zhTotalPages = Math.ceil(publishedPostsForLang(allPosts, "zh").length / PAGE_SIZE);
+const pagePosts = posts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+const previousHref = page === 2 ? "/en/#latest" : `/en/page/${page - 1}/#latest`;
+const nextHref = page < totalPages ? `/en/page/${page + 1}/#latest` : "";
+const alternatePath = page <= zhTotalPages ? `/zh/page/${page}/` : "/zh/";
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date);
+---
+
+<BaseLayout lang={lang} title={`Posts page ${page} | Openfilm`} alternatePath={alternatePath}>
+  <section class="section-row" id="latest" aria-labelledby="latest-title">
+    <div class="section-label">
+      <h1 id="latest-title">Latest</h1>
+      <p>Page {page}, 8 posts per page. Keep browsing film, tools, darkroom, and visual culture notes.</p>
+    </div>
+
+    <div class="post-list">
+      {pagePosts.map((post, index) => (
+        <a class="post-card" href={postHref(post, lang)}>
+          <span class="post-number">{String((page - 1) * PAGE_SIZE + index + 1).padStart(2, "0")}</span>
+          <div>
+            <span class="meta">{formatDate(post.data.pubDate)}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </div>
+          <span class="category-mark">{postCategory(post, lang)}</span>
+        </a>
+      ))}
+
+      <nav class="pagination" aria-label="Post pagination">
+        <a class="button" href={previousHref}>Previous</a>
+        <span class="meta">Page {page} of {totalPages}</span>
+        <div class="page-links">
+          {Array.from({ length: totalPages }, (_, index) => {
+            const pageNumber = index + 1;
+            const href = pageNumber === 1 ? "/en/#latest" : `/en/page/${pageNumber}/#latest`;
+            return (
+              <a class="page-link" href={href} aria-current={pageNumber === page ? "page" : undefined}>
+                {pageNumber}
+              </a>
+            );
+          })}
+        </div>
+        {nextHref ? <a class="button" href={nextHref}>Next</a> : <span class="button" aria-disabled="true">Last page</span>}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>
