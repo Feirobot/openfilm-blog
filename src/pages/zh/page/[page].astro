@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { postCategory, postHref, publishedPostsForLang } from "../../../lib/posts";
+
+const lang = "zh";
+const PAGE_SIZE = 8;
+
+export async function getStaticPaths() {
+  const pageSize = 8;
+  const posts = publishedPostsForLang(await getCollection("posts"), "zh");
+  const totalPages = Math.ceil(posts.length / pageSize);
+
+  return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => {
+    const page = index + 2;
+    return {
+      params: { page: String(page) },
+      props: { page, totalPages }
+    };
+  });
+}
+
+const { page, totalPages } = Astro.props;
+const allPosts = await getCollection("posts");
+const posts = publishedPostsForLang(allPosts, lang);
+const enTotalPages = Math.ceil(publishedPostsForLang(allPosts, "en").length / PAGE_SIZE);
+const pagePosts = posts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+const previousHref = page === 2 ? "/zh/#latest" : `/zh/page/${page - 1}/#latest`;
+const nextHref = page < totalPages ? `/zh/page/${page + 1}/#latest` : "";
+const alternatePath = page <= enTotalPages ? `/en/page/${page}/` : "/en/";
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date);
+---
+
+<BaseLayout lang={lang} title={`文章第 ${page} 页 | Openfilm`} alternatePath={alternatePath}>
+  <section class="section-row" id="latest" aria-labelledby="latest-title">
+    <div class="section-label">
+      <h1 id="latest-title">Latest</h1>
+      <p>第 {page} 页，每页 8 篇文章。继续浏览胶片、工具、暗房与影像文化笔记。</p>
+    </div>
+
+    <div class="post-list">
+      {pagePosts.map((post, index) => (
+        <a class="post-card" href={postHref(post, lang)}>
+          <span class="post-number">{String((page - 1) * PAGE_SIZE + index + 1).padStart(2, "0")}</span>
+          <div>
+            <span class="meta">{formatDate(post.data.pubDate)}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </div>
+          <span class="category-mark">{postCategory(post, lang)}</span>
+        </a>
+      ))}
+
+      <nav class="pagination" aria-label="文章分页">
+        <a class="button" href={previousHref}>上一页</a>
+        <span class="meta">第 {page} 页 / 共 {totalPages} 页</span>
+        <div class="page-links">
+          {Array.from({ length: totalPages }, (_, index) => {
+            const pageNumber = index + 1;
+            const href = pageNumber === 1 ? "/zh/#latest" : `/zh/page/${pageNumber}/#latest`;
+            return (
+              <a class="page-link" href={href} aria-current={pageNumber === page ? "page" : undefined}>
+                {pageNumber}
+              </a>
+            );
+          })}
+        </div>
+        {nextHref ? <a class="button" href={nextHref}>下一页</a> : <span class="button" aria-disabled="true">已到末页</span>}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

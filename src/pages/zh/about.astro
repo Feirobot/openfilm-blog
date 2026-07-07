@@ -2,14 +2,25 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout lang="zh" title="关于 | Openfilm" description="关于 Openfilm 博客">
-  <article>
-    <h1>关于</h1>
-    <p>
-      Openfilm 是一个独立博客，用于记录关于胶片、媒体和工具的笔记、随笔与实验。
-    </p>
-    <p>
-      你可以在 <code>src/pages/zh/about.astro</code> 编辑此页面。
-    </p>
-  </article>
+<BaseLayout lang="zh" title="关于 | Openfilm" description="关于 Openfilm 博客" alternatePath="/en/about/">
+  <section class="about-grid">
+    <article class="about-card">
+      <p class="kicker">About Openfilm</p>
+      <h1>关于</h1>
+      <p>
+        Openfilm 是一个围绕胶片摄影、相机工具、暗房工艺与影像文化展开的独立博客。
+        它关心的不只是器材参数，也关心图像如何被保存、观看、交换，以及为什么模拟摄影在今天仍然有意义。
+      </p>
+      <p>
+        这里的文章会把胶片选择、拍摄方法、冲洗变量和影像社群放在同一个语境里讨论，
+        让读者既能获得实用路径，也能理解胶片摄影背后的文化动机。
+      </p>
+    </article>
+
+    <aside class="about-aside">
+      <p class="kicker">Editorial focus</p>
+      <p>Film stock / Camera desk / Darkroom / Culture</p>
+      <p>从一卷胶片开始，进入材料、工具和观看方式共同组成的影像世界。</p>
+    </aside>
+  </section>
 </BaseLayout>

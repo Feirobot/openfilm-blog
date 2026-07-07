@@ -1,26 +1,22 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { alternatePostHref, postLang, postSlug } from "../../../lib/posts";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
-  
-  // Filter by filename suffix instead of lang field
-  const enPosts = posts.filter((post) => {
-    const id = post.id.toLowerCase();
-    const isEn = id.endsWith('-en');
-    const isNotDraft = !post.data.draft;
-    return isEn && isNotDraft;
-  });
+  const enPosts = posts.filter((post) => postLang(post) === "en" && !post.data.draft);
 
   return enPosts.map((post) => ({
-    params: { slug: post.id.replace(/\.mdx?$/, "") },
-    props: { post }
+    params: { slug: postSlug(post.id) },
+    props: { post, allPosts: posts }
   }));
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await render(post);
+const alternatePath = alternatePostHref(post, allPosts, "zh");
+
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("en", {
     year: "numeric",
@@ -29,11 +25,27 @@ const formatDate = (date: Date) =>
   }).format(date);
 ---
 
-<BaseLayout lang="en" title={`${post.data.title} | Openfilm`} description={post.data.description}>
-  <article>
-    <p class="meta">{formatDate(post.data.pubDate)}</p>
-    <h1>{post.data.title}</h1>
-    <p class="lede">{post.data.description}</p>
-    <Content />
-  </article>
+<BaseLayout lang="en" title={`${post.data.title} | Openfilm`} description={post.data.description} alternatePath={alternatePath}>
+  <section class="content-page">
+    <aside class="content-rail">
+      <p class="kicker">Article</p>
+      <p class="meta">{formatDate(post.data.pubDate)}</p>
+      {post.data.tags.length > 0 && (
+        <div class="tag-list">
+          {post.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </aside>
+
+    <article>
+      <p class="meta">Openfilm / Film, tools, darkroom, and visual culture</p>
+      <h1>{post.data.title}</h1>
+      <p class="lede">{post.data.description}</p>
+      <Content />
+      <div class="article-footer">
+        <a class="button" href="/en/">Back to posts</a>
+        <a class="button" href={alternatePath}>Read another language</a>
+      </div>
+    </article>
+  </section>
 </BaseLayout>

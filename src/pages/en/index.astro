@@ -1,15 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { postCategory, postHref, publishedPostsForLang } from "../../lib/posts";
 
 const lang = "en";
-const posts = (await getCollection("posts"))
-  .filter((post) => {
-    const id = post.id.toLowerCase();
-    const isEn = id.endsWith("-en");
-    return !post.data.draft && isEn;
-  })
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const PAGE_SIZE = 8;
+const posts = publishedPostsForLang(await getCollection("posts"), lang);
+const featured = posts[0];
+const latestPosts = posts.slice(0, PAGE_SIZE);
+const totalPages = Math.ceil(posts.length / PAGE_SIZE);
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("en", {
@@ -17,35 +16,114 @@ const formatDate = (date: Date) =>
     month: "long",
     day: "numeric"
   }).format(date);
-
-const postSlug = (id: string) => id.replace(/\.mdx?$/, "");
 ---
 
-<BaseLayout lang={lang}>
-  <section>
-    <h1>Openfilm</h1>
-    <p class="lede">
-      Notes, essays, and experiments on film, media, tools, and the things worth
-      looking at twice.
-    </p>
+<BaseLayout lang={lang} alternatePath="/zh/">
+  <section class="hero page-shell" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <div>
+        <p class="kicker">Feature / Film and everyday life</p>
+        <h1 id="page-title">A contemporary<br />entry into film.</h1>
+        <p class="lede">
+          Film stocks, camera care, darkroom craft, and visual culture, edited into a tactile online magazine with a clear reading path.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#latest">Start reading</a>
+          <a class="button" href="#columns">Browse columns</a>
+        </div>
+      </div>
+      <p class="meta">Notes on film, tools, darkroom work, and image culture.</p>
+    </div>
+
+    {featured && (
+      <a class="hero-aside" href={postHref(featured, lang)} aria-label={`Featured article: ${featured.data.title}`}>
+        <img class="hero-image" src="/images/film-photography-personal-archive-2.png" alt="A film camera and shooting notebook on a desk" />
+        <div class="featured">
+          <p class="meta">Featured / {formatDate(featured.data.pubDate)}</p>
+          <h2>{featured.data.title}</h2>
+          <p>{featured.data.description}</p>
+        </div>
+      </a>
+    )}
   </section>
 
-  <section class="post-list" aria-label="Latest posts">
-    {
-      posts.map((post) => (
-        <a class="post-card" href={`/en/posts/${postSlug(post.id)}/`}>
-          <span class="meta">{formatDate(post.data.pubDate)}</span>
-          <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          {post.data.tags.length > 0 && (
-            <div class="tags">
-              {post.data.tags.map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
-          )}
+  <section class="section-row" id="latest" aria-labelledby="latest-title">
+    <div class="section-label">
+      <h2 id="latest-title">Latest</h2>
+      <p>Choose a path first: learn technique, pick tools, understand culture, or step into the darkroom.</p>
+    </div>
+
+    <div class="post-list">
+      {latestPosts.map((post, index) => (
+        <a class="post-card" href={postHref(post, lang)}>
+          <span class="post-number">{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <span class="meta">{formatDate(post.data.pubDate)}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+          </div>
+          <span class="category-mark">{postCategory(post, lang)}</span>
         </a>
-      ))
-    }
+      ))}
+      {totalPages > 1 && (
+        <nav class="pagination" aria-label="Post pagination">
+          <span class="meta">Page 1 of {totalPages}</span>
+          <div class="page-links">
+            {Array.from({ length: totalPages }, (_, index) => {
+              const page = index + 1;
+              const href = page === 1 ? "/en/#latest" : `/en/page/${page}/#latest`;
+              return (
+                <a class="page-link" href={href} aria-current={page === 1 ? "page" : undefined}>
+                  {page}
+                </a>
+              );
+            })}
+          </div>
+          <a class="button" href="/en/page/2/#latest">Next</a>
+        </nav>
+      )}
+    </div>
+  </section>
+
+  <section class="section-row" id="columns" aria-labelledby="columns-title">
+    <div class="section-label">
+      <h2 id="columns-title">Columns</h2>
+      <p>Columns make the homepage feel edited, not simply stacked.</p>
+    </div>
+
+    <div class="topics">
+      <article class="topic">
+        <strong>01</strong>
+        <h3>Film Stock</h3>
+        <p>Film choices, expired rolls, color character, and ISO scenarios.</p>
+      </article>
+      <article class="topic">
+        <strong>02</strong>
+        <h3>Camera Desk</h3>
+        <p>Buying cameras, maintenance, scanning, and practical field tools.</p>
+      </article>
+      <article class="topic">
+        <strong>03</strong>
+        <h3>Darkroom</h3>
+        <p>Processing variables, historical methods, hand printing, and experiments.</p>
+      </article>
+      <article class="topic">
+        <strong>04</strong>
+        <h3>Culture</h3>
+        <p>Communities, revival, disposable cameras, and anti-algorithm aesthetics.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <div>
+      <p class="kicker">Weekly roll</p>
+      <h2>An email that feels like darkroom notes.</h2>
+      <p>One essay, one film stock, and one shooting exercise to make readers pick up a camera again.</p>
+    </div>
+    <form class="newsletter-form">
+      <input type="email" aria-label="Email address" placeholder="you@example.com" />
+      <button class="button" type="submit">Subscribe</button>
+    </form>
   </section>
 </BaseLayout>
