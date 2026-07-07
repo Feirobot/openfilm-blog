@@ -175,9 +175,33 @@ workflow:
         isInIteration: false
         isInLoop: false
         sourceType: code
-        targetType: end
-      id: openfilm-update-task-state-source-openfilm-editor-end-target
+        targetType: llm
+      id: openfilm-update-task-state-source-openfilm-review-submit-agent-target
       source: openfilm-update-task-state
+      sourceHandle: source
+      target: openfilm-review-submit-agent
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: openfilm-review-submit-agent-source-openfilm-parse-review-submit-target
+      source: openfilm-review-submit-agent
+      sourceHandle: source
+      target: openfilm-parse-review-submit
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: openfilm-parse-review-submit-source-openfilm-editor-end-target
+      source: openfilm-parse-review-submit
       sourceHandle: source
       target: openfilm-editor-end
       targetHandle: target
@@ -813,7 +837,7 @@ workflow:
           enabled: false
           variable_selector: []
         desc: 将中文初稿整理为双语内容、SEO 字段和配图 brief；不用工具，避免 Agent 插件层不稳定。
-        model:
+        model: &id001
           completion_params: {}
           mode: chat
           name: deepseek-v4-pro
@@ -910,10 +934,45 @@ workflow:
         desc: 返回主工作流阶段性结果：任务状态、避重索引、编辑结果、翻译配图结果，供后续校验提交智能体继续使用。
         outputs:
         - value_selector:
-          - openfilm-update-task-state
+          - openfilm-parse-review-submit
           - task_state
           value_type: string
           variable: task_state
+        - value_selector:
+          - openfilm-parse-review-submit
+          - review_json
+          value_type: string
+          variable: review_result
+        - value_selector:
+          - openfilm-parse-review-submit
+          - safe_to_publish
+          value_type: string
+          variable: safe_to_publish
+        - value_selector:
+          - openfilm-parse-review-submit
+          - review_score
+          value_type: string
+          variable: review_score
+        - value_selector:
+          - openfilm-parse-review-submit
+          - final_decision
+          value_type: string
+          variable: final_decision
+        - value_selector:
+          - openfilm-parse-review-submit
+          - blocking_issues_json
+          value_type: string
+          variable: blocking_issues_json
+        - value_selector:
+          - openfilm-parse-review-submit
+          - suggested_fixes_json
+          value_type: string
+          variable: suggested_fixes_json
+        - value_selector:
+          - openfilm-parse-review-submit
+          - review_parse_error
+          value_type: string
+          variable: review_parse_error
         - value_selector:
           - openfilm-existing-posts
           - existing_posts
@@ -1015,10 +1074,10 @@ workflow:
       height: 118
       id: openfilm-editor-end
       position:
-        x: 1680
+        x: 2240
         y: 402
       positionAbsolute:
-        x: 1680
+        x: 2240
         y: 402
       selected: false
       sourcePosition: right
@@ -1070,6 +1129,107 @@ workflow:
         y: 402
       positionAbsolute:
         x: 1400
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 审核文章完整性、重复风险、术语一致性、来源可靠性和是否允许进入 GitHub 提交阶段。
+        model: *id001
+        prompt_template:
+        - id: review-submit-system
+          role: system
+          text: "你是 Openfilm 的“校验提交 Agent”。你的职责是审核已经完成编辑与翻译配图的博客任务，判断是否可以进入 GitHub 提交阶段。\n\n你只做审核与提交建议，不执行 GitHub 提交、不调用外部发布动作、不修改正文。\n\n审核标准：\n1. 选题不得与已有文章明显重复；如果 slug 与 existing_posts 中已有 slug 相同，必须判定不可发布。\n2. 中文正文和英文正文都必须完整，不能是占位符、摘要替代正文或明显截断。\n3. 中文正文应符合 Openfilm 风格：结构清晰、摄影术语准确、不是营销文案，不使用夸张标题党。\n4. 英文翻译应保持事实、结构和术语一致，不应新增未经来源支持的事实。\n5. 来源至少应有 3 条，并且来源用途说明要能支撑文章中的专业判断。\n6. 风险标记如果涉及事实不确定、价格、器材兼容性、化学流程、安全事项，必须进入人工复核；可以给出 safe_to_publish=false。\n7. SEO、slug、封面 prompt、alt 文本应存在且与文章内容一致。\n8. 如果 parser error 不为空，必须判定不可发布。\n\n输出必须是 JSON，不要输出 JSON 之外的解释。格式如下：\n{\n  \"agent\": \"review_submit\",\n  \"status\": \"review_done\",\n  \"safe_to_publish\": false,\n  \"review_score\": 0,\n  \"final_decision\": \"\",\n  \"blocking_issues\": [],\n  \"suggested_fixes\": [],\n  \"terminology_checks\": [\n    {\n      \"term\": \"\",\n      \"status\": \"ok|needs_review\",\n      \"note\": \"\"\n    }\n  ],\n  \"source_checks\": [\n    {\n      \"title\": \"\",\n      \"status\": \"ok|weak|needs_verification\"\
+            ,\n      \"note\": \"\"\n    }\n  ],\n  \"publish_plan\": {\n    \"branch\": \"\",\n    \"zh_path\": \"\",\n    \"en_path\": \"\",\n    \"commit_message\": \"\"\n  },\n  \"human_review_required\": true,\n  \"review_notes\": \"\"\n}\n\nreview_score 使用 0-100 分。只有没有 blocking_issues、parser error 为空、正文完整、slug 不重复、来源可靠时，safe_to_publish 才能为 true。"
+        - id: review-submit-user
+          role: user
+          text: '请审核以下 Openfilm 博客任务状态，并给出是否允许进入 GitHub 提交阶段的 JSON 结果。
+
+
+            任务状态：
+
+            {{#openfilm-update-task-state.task_state#}}
+
+
+            已有文章索引：
+
+            {{#openfilm-existing-posts.existing_posts#}}
+
+            '
+        selected: false
+        title: 校验提交 Agent
+        type: llm
+        vision:
+          enabled: false
+      height: 132
+      id: openfilm-review-submit-agent
+      position:
+        x: 1680
+        y: 402
+      positionAbsolute:
+        x: 1680
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\n\ndef strip_think(text: str) -> str:\n    text = re.sub(r'<think>[\\s\\S]*?</think>', '', text or '', flags=re.IGNORECASE).strip()\n    text = re.sub(r'^```(?:json)?\\s*', '', text).strip()\n    text = re.sub(r'\\s*```$', '', text).strip()\n    return text\n\n\ndef extract_json(text: str):\n    cleaned = strip_think(text)\n    try:\n        return json.loads(cleaned), cleaned, ''\n    except Exception as e:\n        parse_error = str(e)\n    match = re.search(r'\\{[\\s\\S]*\\}', cleaned)\n    if match:\n        candidate = match.group(0)\n        try:\n            return json.loads(candidate), candidate, ''\n        except Exception as e:\n            parse_error = str(e)\n    return {}, cleaned, parse_error\n\n\ndef loads(text, default):\n    if not text:\n        return default\n    try:\n        return json.loads(text)\n    except Exception:\n        return default\n\n\ndef dumps(value):\n    return json.dumps(value, ensure_ascii=False)\n\n\ndef\
+          \ main(review_text: str = '', task_state: str = '') -> dict:\n    review, cleaned, parse_error = extract_json(review_text)\n    state = loads(task_state, {})\n\n    safe_to_publish = bool(review.get('safe_to_publish', False)) if isinstance(review, dict) else False\n    blocking_issues = review.get('blocking_issues', []) if isinstance(review, dict) else []\n    human_review_required = bool(review.get('human_review_required', True)) if isinstance(review, dict) else True\n\n    steps = state.setdefault('steps', {})\n    steps['review_submit'] = 'done' if not parse_error else 'error'\n\n    state['review'] = review if review else {\n        'agent': 'review_submit',\n        'status': 'review_parse_error',\n        'safe_to_publish': False,\n        'review_score': 0,\n        'final_decision': '审核输出解析失败，需要人工检查。',\n        'blocking_issues': ['review_parse_error'],\n        'suggested_fixes': ['检查校验提交 Agent 输出是否为合法 JSON。'],\n        'human_review_required': True,\n        'review_notes':\
+          \ cleaned,\n    }\n    state.setdefault('errors', {})['review_parse_error'] = parse_error\n\n    if parse_error:\n        state['status'] = 'review_error'\n        state['current_agent'] = 'human_review'\n    elif safe_to_publish and not blocking_issues and not human_review_required:\n        state['status'] = 'review_passed'\n        state['current_agent'] = 'github_submit'\n    else:\n        state['status'] = 'needs_revision'\n        state['current_agent'] = 'human_review'\n\n    return {\n        'task_state': dumps(state),\n        'review_json': dumps(review) if review else cleaned,\n        'safe_to_publish': str(safe_to_publish).lower(),\n        'review_score': str(review.get('review_score', 0)) if isinstance(review, dict) else '0',\n        'final_decision': str(review.get('final_decision', '')) if isinstance(review, dict) else '',\n        'blocking_issues_json': dumps(blocking_issues),\n        'suggested_fixes_json': dumps(review.get('suggested_fixes', [])) if isinstance(review,\
+          \ dict) else dumps([]),\n        'review_parse_error': parse_error,\n    }\n"
+        code_language: python3
+        desc: 解析校验提交 Agent 的审核 JSON，并把审核结论写回统一任务状态。
+        outputs:
+          blocking_issues_json:
+            children: null
+            type: string
+          final_decision:
+            children: null
+            type: string
+          review_json:
+            children: null
+            type: string
+          review_parse_error:
+            children: null
+            type: string
+          review_score:
+            children: null
+            type: string
+          safe_to_publish:
+            children: null
+            type: string
+          suggested_fixes_json:
+            children: null
+            type: string
+          task_state:
+            children: null
+            type: string
+        selected: false
+        title: 解析校验提交结果
+        type: code
+        variables:
+        - value_selector:
+          - openfilm-review-submit-agent
+          - text
+          variable: review_text
+        - value_selector:
+          - openfilm-update-task-state
+          - task_state
+          variable: task_state
+      height: 82
+      id: openfilm-parse-review-submit
+      position:
+        x: 1960
+        y: 402
+      positionAbsolute:
+        x: 1960
         y: 402
       selected: false
       sourcePosition: right
