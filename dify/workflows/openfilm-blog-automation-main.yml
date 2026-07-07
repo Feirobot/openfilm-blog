@@ -139,7 +139,7 @@ workflow:
         isInIteration: false
         isInLoop: false
         sourceType: code
-        targetType: agent
+        targetType: llm
       id: 1783350100000-source-openfilm-translator-visual-target
       source: '1783350100000'
       sourceHandle: source
@@ -150,7 +150,7 @@ workflow:
     - data:
         isInIteration: false
         isInLoop: false
-        sourceType: agent
+        sourceType: llm
         targetType: code
       id: openfilm-translator-visual-source-openfilm-parse-translator-visual-target
       source: openfilm-translator-visual
@@ -861,76 +861,63 @@ workflow:
       type: custom
       width: 242
     - data:
-        agent_parameters:
-          instruction:
-            type: constant
-            value: |-
-              你是 Openfilm 的翻译与视觉编辑，负责把“胶片编辑”节点产出的中文初稿整理为可发布的双语内容，并生成配图与 SEO 信息。
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 将中文初稿整理为双语内容、SEO 字段和配图 brief；不用工具，避免 Agent 插件层不稳定。
+        model:
+          completion_params: {}
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: translator-visual-system
+          role: system
+          text: |-
+            你是 Openfilm 的翻译与视觉编辑，负责把“胶片编辑”节点产出的中文初稿整理为可发布的双语内容，并生成配图与 SEO 信息。
 
-              你的职责：
-              1. 保留中文文章的结构、事实、来源和术语，不要新增未经来源支持的事实。
-              2. 生成自然、准确、适合摄影博客的英文版本。不要逐字硬译，要保持 Openfilm 的编辑语气。
-              3. 统一中英文标题、slug、摘要、SEO 描述和标签。
-              4. 生成封面图 brief 和正文配图建议，用于后续图片生成或人工选图。
-              5. 不负责事实校验、GitHub 提交或发布。
+            你的职责：
+            1. 保留中文文章的结构、事实、来源和术语，不要新增未经来源支持的事实。
+            2. 生成自然、准确、适合摄影博客的英文版本。不要逐字硬译，要保持 Openfilm 的编辑语气。
+            3. 统一中英文标题、slug、摘要、SEO 描述和标签。
+            4. 生成封面图 brief 和正文配图建议，用于后续图片生成或人工选图。
+            5. 不负责事实校验、GitHub 提交或发布。
 
-              输出必须是 JSON，不要输出 JSON 之外的解释。格式如下：
-              {
-                "agent": "translator_visual",
-                "status": "translator_visual_done",
-                "zh_title": "",
-                "en_title": "",
-                "slug": "",
-                "zh_summary": "",
-                "en_summary": "",
-                "zh_markdown": "",
-                "en_markdown": "",
-                "seo": {
-                  "zh_description": "",
-                  "en_description": "",
-                  "keywords": []
-                },
-                "visual_brief": {
-                  "cover_prompt": "",
-                  "cover_alt_zh": "",
-                  "cover_alt_en": "",
-                  "style_notes": "",
-                  "inline_image_ideas": []
-                },
-                "translation_notes": "",
-                "risk_flags": []
-              }
-          maximum_iterations:
-            type: constant
-            value: 3
-          model:
-            type: constant
-            value:
-              completion_params: {}
-              mode: chat
-              model: deepseek-v4-pro
-              model_type: llm
-              provider: langgenius/deepseek/deepseek
-              type: model-selector
-          query:
-            type: constant
-            value: "{{#1783350100000.translator_input#}}"
-          tools:
-            type: constant
-            value: []
-        agent_strategy_label: FunctionCalling
-        agent_strategy_name: function_calling
-        agent_strategy_provider_name: langgenius/agent/agent
-        meta:
-          minimum_dify_version: 1.7.0
-          version: 0.0.2
-        output_schema: {}
-        plugin_unique_identifier: langgenius/agent:0.0.40@d00a70e81bfb28fadd52cba7fd7a1f7c344c67b051e4a2e356a06c690736a7c4
+            输出必须是 JSON，不要输出 JSON 之外的解释。格式如下：
+            {
+              "agent": "translator_visual",
+              "status": "translator_visual_done",
+              "zh_title": "",
+              "en_title": "",
+              "slug": "",
+              "zh_summary": "",
+              "en_summary": "",
+              "zh_markdown": "",
+              "en_markdown": "",
+              "seo": {
+                "zh_description": "",
+                "en_description": "",
+                "keywords": []
+              },
+              "visual_brief": {
+                "cover_prompt": "",
+                "cover_alt_zh": "",
+                "cover_alt_en": "",
+                "style_notes": "",
+                "inline_image_ideas": []
+              },
+              "translation_notes": "",
+              "risk_flags": []
+            }
+        - id: translator-visual-user
+          role: user
+          text: '{{#1783350100000.translator_input#}}'
         selected: false
         title: 翻译配图
-        tool_node_version: '2'
-        type: agent
-      height: 188
+        type: llm
+        vision:
+          enabled: false
+      height: 132
       id: openfilm-translator-visual
       position:
         x: 840
