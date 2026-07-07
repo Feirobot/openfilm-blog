@@ -538,12 +538,20 @@ const switchPath = alternatePath || `/${otherLang}/`;
     text-underline-offset: 3px;
   }
 
-  article img {
+  article img:not(.no-zoom):not([src*="/live-photo/"]) {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 1.6rem auto;
     border: 10px solid var(--ink);
+  }
+
+  article .live-photo .icon img {
+    max-width: none;
+    height: 22px;
+    display: inline-block;
+    margin: 0;
+    border: 0;
   }
 
   article code {
@@ -754,7 +762,7 @@ const switchPath = alternatePath || `/${otherLang}/`;
       font-size: 2rem;
     }
 
-    article img {
+    article img:not(.no-zoom):not([src*="/live-photo/"]) {
       border-width: 6px;
     }
   }
