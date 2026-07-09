@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260709-201917",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/large-format-field-photography-guide-zh.mdx",
   "translated_article": "src/content/posts/large-format-field-photography-guide-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-09T22:30:00+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-09T20:33:00+08:00",
   "retry_count": 0,
   "images": [
     "https://media.openfilm.cc/images/large-format-field-photography-guide/1783599946521-1.svg",
@@ -20,6 +20,9 @@
     "public/images/large-format-field-photography-guide-3.svg"
   ],
   "r2_upload_status": "success",
+  "published_url": "https://openfilm.cc/zh/posts/large-format-field-photography-guide-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/large-format-field-photography-guide-en/",
+  "commit_hash": "ab760bb",
   "history": [
     {
       "stage": "draft_created",
@@ -38,6 +41,12 @@
       "at": "2026-07-09T22:30:00+08:00",
       "by": "画师",
       "note": "生成 3 张 Notion 风格 SVG 信息图插画（ImageGen 返回 provider_error，降级为手写 SVG）。图1：毛玻璃对焦——倒置影像与对焦流程；图2：Camera Movements——平移/摇摆与沙姆普flug 原理示意；图3：区域系统——Zone 0-IX 影调放置与独立显影控制。三张 SVG 均已上传 R2（openfilm bucket），公开 URL 已插入中英文文章对应章节。R2 上传状态：success。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-09T20:33:00+08:00",
+      "by": "启航",
+      "note": "校验通过：中英文文章 frontmatter 完整（draft=false），3 张 SVG 图片本地存在，Astro 构建成功（66 页）。提交 ab760bb，推送至 main。"
     }
   ]
 }
