@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260710-093000",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/contact-sheet-workflow-zh.mdx",
   "translated_article": "src/content/posts/contact-sheet-workflow-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_0e49b354967e4f3f",
-  "updated_at": "2026-07-10T10:45:00+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-10T11:00:00+08:00",
   "images": [
     "https://media.openfilm.cc/images/contact-sheet-workflow/20260710-1.webp",
     "https://media.openfilm.cc/images/contact-sheet-workflow/20260710-2.webp",
@@ -21,6 +21,9 @@
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
   "retry_count": 0,
+  "published_url": "https://openfilm.cc/zh/posts/contact-sheet-workflow-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/contact-sheet-workflow-en/",
+  "commit_hash": "1e632f1",
   "history": [
     {
       "stage": "draft_created",
@@ -39,6 +42,12 @@
       "at": "2026-07-10T10:45:00+08:00",
       "by": "画师",
       "note": "生成 3 张 Notion 风格扁平信息图插画并上传至 Cloudflare R2。图1（1:1 方形 hero）：接触印相工作流全流程示意图（底片准备→排列→曝光→显影→评估）。图2（16:9）：暗房接触印相操作流程（安全灯、底片排列、相纸接触、曝光、显影）。图3（16:9）：从模拟到数字的延续与变异（物理接触印相 vs 数字浏览器网格）。所有图片已转换为 WebP 格式（quality 80，最长边≤1600px），上传至 R2 路径 images/contact-sheet-workflow/20260710-{1,2,3}.webp，公开 URL 验证通过（HTTP 200，Content-Type: image/webp）。图片已插入中英文文章对应位置。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-10T11:00:00+08:00",
+      "by": "启航",
+      "note": "校验+构建+发布成功。Astro 构建 68 页面通过（6.90s）。Git 提交 1e632f1，推送时远端有同消息不同哈希的提交（rebase 遗留），执行 git rebase 对齐后推送成功。部署验证：中文页面 HTTP 200、英文页面 HTTP 200、RSS 包含 contact-sheet-workflow 中英文条目、3 张图片均 HTTP 200。workflow_state → completed，stage → published。"
     }
   ]
 }
