@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 530" font-family="'SF Pro Display', 'Helvetica Neue', Arial, sans-serif">
+  <rect width="800" height="530" fill="#FAF8F5" rx="16"/>
+
+  <!-- Title area -->
+  <text x="400" y="42" text-anchor="middle" font-size="18" font-weight="600" fill="#37352F">Ground Glass Focusing</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#9B9A97">The inverted image strips away meaning, leaving only shape and tone</text>
+
+  <!-- Camera body -->
+  <rect x="240" y="120" width="320" height="200" rx="8" fill="#E8E4DE" stroke="#37352F" stroke-width="2"/>
+  <!-- Front standard (lens) -->
+  <rect x="210" y="170" width="30" height="100" rx="4" fill="#D4CFC7" stroke="#37352F" stroke-width="2"/>
+  <circle cx="225" cy="220" r="28" fill="#C8C2B8" stroke="#37352F" stroke-width="2"/>
+  <circle cx="225" cy="220" r="16" fill="#A8A298" stroke="#37352F" stroke-width="1.5"/>
+  <circle cx="225" cy="220" r="6" fill="#37352F"/>
+  <!-- Rear standard (ground glass) -->
+  <rect x="560" y="145" width="12" height="150" rx="2" fill="#D4CFC7" stroke="#37352F" stroke-width="2"/>
+
+  <!-- Ground glass screen -->
+  <rect x="580" y="130" width="160" height="180" rx="6" fill="#2F3437" stroke="#37352F" stroke-width="2"/>
+  <!-- Inverted landscape on ground glass -->
+  <clipPath id="ggClip"><rect x="586" y="136" width="148" height="168" rx="3"/></clipPath>
+  <g clip-path="url(#ggClip)">
+    <!-- Sky (at bottom because inverted) -->
+    <rect x="586" y="220" width="148" height="84" fill="#B3CDE0"/>
+    <!-- Ground (at top because inverted) -->
+    <rect x="586" y="136" width="148" height="84" fill="#8B9E6B"/>
+    <!-- Inverted mountains (pointing down) -->
+    <polygon points="586,220 620,170 660,220" fill="#7A8A6A"/>
+    <polygon points="640,220 690,155 734,220" fill="#6B7D5E"/>
+    <!-- Inverted trees (pointing down) -->
+    <polygon points="610,220 618,190 626,220" fill="#5C6E50"/>
+    <polygon points="700,220 708,195 716,220" fill="#5C6E50"/>
+    <!-- Inverted sun/moon -->
+    <circle cx="710" cy="280" r="14" fill="#F2E6C9" opacity="0.9"/>
+  </g>
+  <!-- "Upside down" indicator arrows -->
+  <path d="M660 115 L660 100 L650 108" fill="none" stroke="#E03E3E" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M660 115 L660 100 L670 108" fill="none" stroke="#E03E3E" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="660" y="95" text-anchor="middle" font-size="10" fill="#E03E3E" font-weight="500">inverted</text>
+
+  <!-- Loupe -->
+  <rect x="530" y="260" width="30" height="50" rx="4" fill="#37352F" opacity="0.85"/>
+  <rect x="534" y="256" width="22" height="8" rx="2" fill="#37352F"/>
+  <line x1="545" y1="310" x2="545" y2="330" stroke="#37352F" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- Photographer eye -->
+  <ellipse cx="545" cy="345" rx="18" ry="10" fill="none" stroke="#37352F" stroke-width="1.5"/>
+  <circle cx="545" cy="345" r="5" fill="#37352F"/>
+
+  <!-- Focus-first workflow steps -->
+  <g transform="translate(60, 390)">
+    <rect width="200" height="110" rx="8" fill="#FFFFFF" stroke="#E8E4DE" stroke-width="1.5"/>
+    <text x="100" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#37352F">Focusing Workflow</text>
+    <circle cx="24" cy="48" r="8" fill="#E03E3E" opacity="0.15"/>
+    <text x="24" y="52" text-anchor="middle" font-size="10" font-weight="600" fill="#E03E3E">1</text>
+    <text x="40" y="52" font-size="11" fill="#37352F">Aim camera at scene</text>
+    <circle cx="24" cy="70" r="8" fill="#E03E3E" opacity="0.15"/>
+    <text x="24" y="74" text-anchor="middle" font-size="10" font-weight="600" fill="#E03E3E">2</text>
+    <text x="40" y="74" font-size="11" fill="#37352F">Check focus with loupe</text>
+    <circle cx="24" cy="92" r="8" fill="#E03E3E" opacity="0.15"/>
+    <text x="24" y="96" text-anchor="middle" font-size="10" font-weight="600" fill="#E03E3E">3</text>
+    <text x="40" y="96" font-size="11" fill="#37352F">Then adjust composition</text>
+  </g>
+
+  <!-- Key insight box -->
+  <g transform="translate(300, 390)">
+    <rect width="440" height="110" rx="8" fill="#FFF9E6" stroke="#F0E6C0" stroke-width="1.5"/>
+    <text x="20" y="26" font-size="12" font-weight="600" fill="#37352F">Why inverted?</text>
+    <text x="20" y="48" font-size="11" fill="#6B6A67">The upside-down image removes semantic meaning from</text>
+    <text x="20" y="66" font-size="11" fill="#6B6A67">the subject. You stop seeing "a tree" or "a person" and</text>
+    <text x="20" y="84" font-size="11" fill="#6B6A67">start seeing only shapes, lines, and tonal relationships.</text>
+    <text x="20" y="102" font-size="11" fill="#6B6A67">Your geometric judgment becomes extraordinarily sharp.</text>
+  </g>
+
+  <!-- Film size comparison -->
+  <g transform="translate(60, 130)">
+    <rect width="130" height="80" rx="8" fill="#FFFFFF" stroke="#E8E4DE" stroke-width="1.5"/>
+    <text x="65" y="20" text-anchor="middle" font-size="11" font-weight="600" fill="#37352F">Film Area</text>
+    <!-- 35mm frame -->
+    <rect x="16" y="32" width="24" height="16" rx="1" fill="#E8E4DE" stroke="#37352F" stroke-width="1"/>
+    <text x="28" y="62" text-anchor="middle" font-size="9" fill="#9B9A97">35mm</text>
+    <!-- 4x5 frame -->
+    <rect x="56" y="28" width="60" height="44" rx="2" fill="#D4CFC7" stroke="#37352F" stroke-width="1.5"/>
+    <text x="86" y="84" text-anchor="middle" font-size="9" fill="#9B9A97">4x5 inch</text>
+    <text x="100" y="22" font-size="10" font-weight="600" fill="#E03E3E">16x</text>
+  </g>
+</svg>

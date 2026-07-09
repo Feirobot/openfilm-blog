@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 530" font-family="'SF Pro Display', 'Helvetica Neue', Arial, sans-serif">
+  <rect width="800" height="530" fill="#FAF8F5" rx="16"/>
+
+  <!-- Title -->
+  <text x="400" y="42" text-anchor="middle" font-size="18" font-weight="600" fill="#37352F">Camera Movements</text>
+  <text x="400" y="64" text-anchor="middle" font-size="13" fill="#9B9A97">Front and rear standards move independently — unique to large format</text>
+
+  <!-- === SHIFT diagram (left) === -->
+  <g transform="translate(40, 90)">
+    <rect width="340" height="200" rx="10" fill="#FFFFFF" stroke="#E8E4DE" stroke-width="1.5"/>
+    <text x="170" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#37352F">Shift (Translation)</text>
+
+    <!-- Camera body side view -->
+    <rect x="100" y="60" width="140" height="80" rx="4" fill="#E8E4DE" stroke="#37352F" stroke-width="1.5"/>
+    <!-- Front standard - shifted up -->
+    <rect x="85" y="45" width="15" height="60" rx="2" fill="#B3CDE0" stroke="#37352F" stroke-width="1.5"/>
+    <!-- Lens -->
+    <circle cx="82" cy="75" r="12" fill="#C8C2B8" stroke="#37352F" stroke-width="1.5"/>
+    <circle cx="82" cy="75" r="5" fill="#37352F"/>
+    <!-- Rear standard -->
+    <rect x="240" y="60" width="10" height="80" rx="2" fill="#D4CFC7" stroke="#37352F" stroke-width="1.5"/>
+
+    <!-- Shift arrow -->
+    <line x1="92" y1="110" x2="92" y2="50" stroke="#2D9BF0" stroke-width="2" stroke-dasharray="4,3"/>
+    <polygon points="92,45 87,55 97,55" fill="#2D9BF0"/>
+    <text x="72" y="135" font-size="10" fill="#2D9BF0" font-weight="500">shift up</text>
+
+    <!-- Building with parallel lines -->
+    <g transform="translate(265, 50)">
+      <rect x="0" y="0" width="50" height="90" fill="none" stroke="#37352F" stroke-width="1"/>
+      <line x1="0" y1="0" x2="0" y2="90" stroke="#37352F" stroke-width="2"/>
+      <line x1="50" y1="0" x2="50" y2="90" stroke="#37352F" stroke-width="2"/>
+      <!-- Parallel indicator -->
+      <text x="25" y="105" text-anchor="middle" font-size="9" fill="#4EAD75" font-weight="500">parallel</text>
+    </g>
+
+    <!-- Result label -->
+    <text x="170" y="185" text-anchor="middle" font-size="10" fill="#6B6A67">Keeps vertical lines parallel in architecture</text>
+  </g>
+
+  <!-- === TILT diagram (right) === -->
+  <g transform="translate(420, 90)">
+    <rect width="340" height="200" rx="10" fill="#FFFFFF" stroke="#E8E4DE" stroke-width="1.5"/>
+    <text x="170" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#37352F">Tilt (Rotation)</text>
+
+    <!-- Camera body side view -->
+    <rect x="80" y="70" width="140" height="70" rx="4" fill="#E8E4DE" stroke="#37352F" stroke-width="1.5"/>
+    <!-- Front standard - tilted -->
+    <g transform="translate(72, 105) rotate(-15)">
+      <rect x="-7" y="-35" width="14" height="70" rx="2" fill="#F9E090" stroke="#37352F" stroke-width="1.5"/>
+    </g>
+    <!-- Lens -->
+    <circle cx="68" cy="100" r="12" fill="#C8C2B8" stroke="#37352F" stroke-width="1.5"/>
+    <circle cx="68" cy="100" r="5" fill="#37352F"/>
+    <!-- Rear standard -->
+    <rect x="220" y="70" width="10" height="70" rx="2" fill="#D4CFC7" stroke="#37352F" stroke-width="1.5"/>
+
+    <!-- Tilt arc arrow -->
+    <path d="M 72 60 A 30 30 0 0 1 60 80" fill="none" stroke="#E03E3E" stroke-width="2"/>
+    <polygon points="58,82 56,72 66,78" fill="#E03E3E"/>
+    <text x="40" y="55" font-size="10" fill="#E03E3E" font-weight="500">tilt</text>
+
+    <!-- Scheimpflug diagram -->
+    <g transform="translate(240, 50)">
+      <!-- Lens plane -->
+      <line x1="10" y1="10" x2="30" y2="100" stroke="#2D9BF0" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="35" y="20" font-size="8" fill="#2D9BF0">lens plane</text>
+      <!-- Film plane -->
+      <line x1="70" y1="10" x2="70" y2="100" stroke="#4EAD75" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="55" y="110" font-size="8" fill="#4EAD75">film</text>
+      <!-- Subject plane -->
+      <line x1="10" y1="100" x2="90" y2="40" stroke="#E03E3E" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="60" y="55" font-size="8" fill="#E03E3E">subject</text>
+      <!-- Convergence point -->
+      <circle cx="20" cy="55" r="4" fill="#37352F" opacity="0.3"/>
+      <text x="5" y="45" font-size="7" fill="#37352F">converge</text>
+    </g>
+
+    <text x="170" y="185" text-anchor="middle" font-size="10" fill="#6B6A67">Scheimpflug: entire subject plane in focus</text>
+  </g>
+
+  <!-- === Field application (bottom) === -->
+  <g transform="translate(40, 310)">
+    <rect width="720" height="190" rx="10" fill="#FFFFFF" stroke="#E8E4DE" stroke-width="1.5"/>
+    <text x="360" y="26" text-anchor="middle" font-size="13" font-weight="600" fill="#37352F">Field Application: Scheimpflug Principle</text>
+
+    <!-- Ground plane tilted -->
+    <polygon points="60,160 200,90 660,90 660,160" fill="#8B9E6B" opacity="0.2"/>
+    <line x1="60" y1="160" x2="660" y2="90" stroke="#8B9E6B" stroke-width="2"/>
+
+    <!-- Camera on tripod -->
+    <g transform="translate(100, 60)">
+      <!-- Tripod legs -->
+      <line x1="30" y1="60" x2="10" y2="110" stroke="#37352F" stroke-width="2"/>
+      <line x1="30" y1="60" x2="50" y2="110" stroke="#37352F" stroke-width="2"/>
+      <line x1="30" y1="60" x2="30" y2="112" stroke="#37352F" stroke-width="2"/>
+      <!-- Camera body -->
+      <rect x="10" y="35" width="40" height="28" rx="3" fill="#E8E4DE" stroke="#37352F" stroke-width="1.5"/>
+      <!-- Tilted front standard -->
+      <g transform="translate(8, 49) rotate(-12)">
+        <rect x="-4" y="-18" width="8" height="36" rx="1" fill="#F9E090" stroke="#37352F" stroke-width="1.5"/>
+      </g>
+      <circle cx="8" cy="47" r="7" fill="#C8C2B8" stroke="#37352F" stroke-width="1"/>
+    </g>
+
+    <!-- Plane of focus (tilted to match ground) -->
+    <line x1="115" y1="107" x2="600" y2="90" stroke="#E03E3E" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="360" y="82" text-anchor="middle" font-size="10" fill="#E03E3E" font-weight="500">plane of focus (tilted to match ground)</text>
+
+    <!-- Near and far labels -->
+    <circle cx="180" cy="140" r="4" fill="#4EAD75"/>
+    <text x="195" y="144" font-size="10" fill="#4EAD75">near — sharp</text>
+    <circle cx="560" cy="98" r="4" fill="#4EAD75"/>
+    <text x="520" y="86" font-size="10" fill="#4EAD75">far — sharp</text>
+
+    <!-- Aperture note -->
+    <g transform="translate(440, 120)">
+      <rect width="240" height="50" rx="6" fill="#FFF9E6" stroke="#F0E6C0" stroke-width="1"/>
+      <text x="120" y="20" text-anchor="middle" font-size="10" font-weight="500" fill="#37352F">Result: sharp from near to far</text>
+      <text x="120" y="38" text-anchor="middle" font-size="10" fill="#6B6A67">at f/16 or f/22 (no diffraction blur)</text>
+    </g>
+  </g>
+</svg>
