@@ -1,52 +1,43 @@
 {
-  "workflow_run_id": "openfilm-20260709-195551",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-metering-techniques-guide-zh.mdx",
-  "translated_article": "src/content/posts/film-metering-techniques-guide-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-09T20:12:00+08:00",
+  "workflow_run_id": "openfilm-20260709-201917",
+  "workflow_state": "running",
+  "article": "src/content/posts/large-format-field-photography-guide-zh.mdx",
+  "translated_article": "src/content/posts/large-format-field-photography-guide-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-09T22:30:00+08:00",
   "retry_count": 0,
   "images": [
-    "https://media.openfilm.cc/images/film-metering-techniques-guide/20260709-1.svg",
-    "https://media.openfilm.cc/images/film-metering-techniques-guide/20260709-2.svg",
-    "https://media.openfilm.cc/images/film-metering-techniques-guide/20260709-3.svg"
+    "https://media.openfilm.cc/images/large-format-field-photography-guide/1783599946521-1.svg",
+    "https://media.openfilm.cc/images/large-format-field-photography-guide/1783599946521-2.svg",
+    "https://media.openfilm.cc/images/large-format-field-photography-guide/1783599946521-3.svg"
   ],
   "images_local": [
-    "public/images/film-metering-techniques-guide-1.svg",
-    "public/images/film-metering-techniques-guide-2.svg",
-    "public/images/film-metering-techniques-guide-3.svg"
+    "public/images/large-format-field-photography-guide-1.svg",
+    "public/images/large-format-field-photography-guide-2.svg",
+    "public/images/large-format-field-photography-guide-3.svg"
   ],
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-metering-techniques-guide-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-metering-techniques-guide-en/",
-  "commit_hash": "84643dc",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-09T19:55:51+08:00",
+      "at": "2026-07-09T20:19:17+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片测光实战：从反射到入射，把曝光交给确定性》。避重检查：已盘点 24 篇已有文章，覆盖扫描、冲洗、选卷、街拍、风光、中画幅、过期片、夜景、人像、器材维护等主题，测光技术尚未覆盖。新文章聚焦反射式/入射式测光原理差异、负片与反转片测光逻辑区别、高反差场景测光决策，与已有文章无重复。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《大画幅实地摄影：当底片面积大了十六倍，一切都不一样了》。避重检查：已盘点 25 篇已有文章，覆盖中画幅入门（medium-format-film-photography-guide-zh）、扫描、冲洗、测光、街拍、风光、旅行等主题。大画幅实地摄影尚未覆盖，新文章聚焦大画幅特有的 movements（平移/摇摆）、沙姆普flug 原理、区域系统单页胶片独立曝光显影，以及大画幅的「慢摄影」节奏和在场感，与中画幅入门文章角度完全不同。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-09T20:00:10+08:00",
+      "at": "2026-07-09T22:35:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译《Film Metering in Practice: From Reflective to Incident — Let Certainty Guide Your Exposure》。翻译遵循信达雅原则，摄影术语统一（reflective/incident metering, negative/reversal film, Zone System 等）。MDX 结构、图片引用、参考资料链接完整保留。双语切换链接已添加。"
+      "note": "完成英文翻译《Large-Format Field Photography: When the Film Area Is Sixteen Times Larger, Everything Changes》。翻译要点：保留所有 MDX 结构和参考资料链接；摄影术语统一（movements→平移/摇摆、ground glass→毛玻璃、sheet film→单页胶片、Zone System→区域系统、Scheimpflug principle→沙姆普flug 原理）；frontmatter 中 title/description/tags 已翻译，日期字段保留原值；中英文文章末尾已添加双语切换链接。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-09T21:10:00+08:00",
+      "at": "2026-07-09T22:30:00+08:00",
       "by": "画师",
-      "note": "生成 3 张 SVG 信息图（ImageGen 降级为手写 SVG）：①反射式 vs 入射式测光原理对比 ②负片 vs 反转片曝光宽容度对比 ③区域系统与高反差场景测光决策。已上传 R2（images/film-metering-techniques-guide/20260709-{1,2,3}.svg），并插入中英文文章对应章节。R2 上传状态：success。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-09T20:12:00+08:00",
-      "by": "启航",
-      "note": "校验通过：中英文文章 frontmatter 完整（draft→false），3 张 SVG 图片本地存在，Astro 构建成功（64 页）。提交 84643dc，推送至 main。"
+      "note": "生成 3 张 Notion 风格 SVG 信息图插画（ImageGen 返回 provider_error，降级为手写 SVG）。图1：毛玻璃对焦——倒置影像与对焦流程；图2：Camera Movements——平移/摇摆与沙姆普flug 原理示意；图3：区域系统——Zone 0-IX 影调放置与独立显影控制。三张 SVG 均已上传 R2（openfilm bucket），公开 URL 已插入中英文文章对应章节。R2 上传状态：success。"
     }
   ]
 }
