@@ -46,7 +46,7 @@
       "stage": "published",
       "at": "2026-07-09T20:33:00+08:00",
       "by": "启航",
-      "note": "校验通过：中英文文章 frontmatter 完整（draft=false），3 张 SVG 图片本地存在，Astro 构建成功（66 页）。提交 ab760bb，推送至 main。"
+      "note": "校验通过：中英文文章 frontmatter 完整（draft=false），3 张 SVG 图片本地存在，Astro 构建成功（66 页）。git push 超时（github.com:443 不可达），降级使用 GitHub MCP API 推送至 main。"
     }
   ]
 }
