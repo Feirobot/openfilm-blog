@@ -9,6 +9,11 @@ const posts = publishedPostsForLang(await getCollection("posts"), lang);
 const featured = posts[0];
 const latestPosts = posts.slice(0, PAGE_SIZE);
 const totalPages = Math.ceil(posts.length / PAGE_SIZE);
+const defaultHeroImage = "https://media.openfilm.cc/images/film-photography-personal-archive/20260710-2.webp";
+const defaultHeroAlt = "A film camera and shooting notebook on a desk";
+const firstMarkdownImage = featured?.body.match(/!\[([^\]]*)\]\((https?:\/\/[^)]+)\)/);
+const heroImage = firstMarkdownImage?.[2] ?? defaultHeroImage;
+const heroAlt = firstMarkdownImage?.[1] || featured?.data.title || defaultHeroAlt;
 
 const formatDate = (date: Date) =>
   new Intl.DateTimeFormat("en", {
@@ -37,7 +42,7 @@ const formatDate = (date: Date) =>
 
     {featured && (
       <a class="hero-aside" href={postHref(featured, lang)} aria-label={`Featured article: ${featured.data.title}`}>
-        <img class="hero-image" src="https://media.openfilm.cc/images/film-photography-personal-archive/20260710-2.webp" alt="A film camera and shooting notebook on a desk" />
+        <img class="hero-image" src={heroImage} alt={heroAlt} />
         <div class="featured">
           <p class="meta">Featured / {formatDate(featured.data.pubDate)}</p>
           <h2>{featured.data.title}</h2>
