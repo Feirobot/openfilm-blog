@@ -7,7 +7,7 @@
   "current_stage": "published",
   "next_stage": null,
   "next_automation": null,
-  "updated_at": "2026-07-09T20:33:00+08:00",
+  "updated_at": "2026-07-09T20:48:00+08:00",
   "retry_count": 0,
   "images": [
     "https://media.openfilm.cc/images/large-format-field-photography-guide/1783599946521-1.svg",
@@ -22,7 +22,7 @@
   "r2_upload_status": "success",
   "published_url": "https://openfilm.cc/zh/posts/large-format-field-photography-guide-zh/",
   "published_url_en": "https://openfilm.cc/en/posts/large-format-field-photography-guide-en/",
-  "commit_hash": "ab760bb",
+  "commit_hash": "ab144e3",
   "history": [
     {
       "stage": "draft_created",
@@ -44,9 +44,9 @@
     },
     {
       "stage": "published",
-      "at": "2026-07-09T20:33:00+08:00",
+      "at": "2026-07-09T20:48:00+08:00",
       "by": "启航",
-      "note": "校验通过：中英文文章 frontmatter 完整（draft=false），3 张 SVG 图片本地存在，Astro 构建成功（66 页）。git push 超时（github.com:443 不可达），降级使用 GitHub MCP API 推送至 main。"
+      "note": "校验通过：中英文文章 frontmatter 完整（draft=false），3 张 SVG 图片本地存在，Astro 构建成功（66 页）。git push 超时（github.com:443 不可达），降级使用 GitHub MCP API 推送至 main（远程提交 ab144e3）。部署验证通过：中英文页面 HTTP 200，RSS 包含新 slug，图片 HTTP 200。"
     }
   ]
 }
