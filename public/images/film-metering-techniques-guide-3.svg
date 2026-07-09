@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 512" width="896" height="512">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+    <linearGradient id="zoneGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="50%" stop-color="#8A8580"/>
+      <stop offset="100%" stop-color="#F5F0EB"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="896" height="512" rx="16" fill="#FAF7F2"/>
+  <!-- Title -->
+  <text x="448" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#2D2A26">Zone System &amp; High-Contrast Metering</text>
+  <!-- === Zone Scale (left side) === -->
+  <!-- Scale bar -->
+  <rect x="100" y="80" width="60" height="400" rx="8" fill="url(#zoneGrad)" opacity="0.9"/>
+  <!-- Zone markers and labels -->
+  <!-- Zone 0 -->
+  <rect x="80" y="460" width="100" height="24" rx="4" fill="none" stroke="#2D2A26" stroke-width="1" opacity="0.3"/>
+  <text x="130" y="477" text-anchor="middle" font-size="11" font-weight="600" fill="#2D2A26">Zone 0</text>
+  <text x="200" y="477" font-size="11" fill="#8A8580">Pure black</text>
+  <!-- Zone III -->
+  <rect x="80" y="370" width="100" height="24" rx="4" fill="none" stroke="#5B7FA5" stroke-width="1.5"/>
+  <text x="130" y="387" text-anchor="middle" font-size="11" font-weight="600" fill="#5B7FA5">Zone III</text>
+  <text x="200" y="387" font-size="11" fill="#5B7FA5">Shadow with detail</text>
+  <!-- Zone V -->
+  <rect x="80" y="270" width="100" height="24" rx="4" fill="none" stroke="#7BAF7B" stroke-width="1.5"/>
+  <text x="130" y="287" text-anchor="middle" font-size="11" font-weight="600" fill="#7BAF7B">Zone V</text>
+  <text x="200" y="287" font-size="11" fill="#7BAF7B">18% middle gray</text>
+  <!-- Zone VII -->
+  <rect x="80" y="170" width="100" height="24" rx="4" fill="none" stroke="#C96B50" stroke-width="1.5"/>
+  <text x="130" y="187" text-anchor="middle" font-size="11" font-weight="600" fill="#C96B50">Zone VII</text>
+  <text x="200" y="187" font-size="11" fill="#C96B50">Highlight with detail</text>
+  <!-- Zone X -->
+  <rect x="80" y="80" width="100" height="24" rx="4" fill="none" stroke="#2D2A26" stroke-width="1" opacity="0.3"/>
+  <text x="130" y="97" text-anchor="middle" font-size="11" font-weight="600" fill="#2D2A26">Zone X</text>
+  <text x="200" y="97" font-size="11" fill="#8A8580">Pure white</text>
+  <!-- Zone placement arrows -->
+  <line x1="165" y1="382" x2="160" y2="382" stroke="#5B7FA5" stroke-width="2" marker-end="none"/>
+  <line x1="165" y1="282" x2="160" y2="282" stroke="#7BAF7B" stroke-width="2"/>
+  <line x1="165" y1="182" x2="160" y2="182" stroke="#C96B50" stroke-width="2"/>
+  <!-- === Decision Tree (right side) === -->
+  <text x="600" y="100" text-anchor="middle" font-size="15" font-weight="600" fill="#2D2A26">High-Contrast Decision</text>
+  <!-- Central question box -->
+  <rect x="470" y="115" width="260" height="44" rx="10" fill="#5B7FA5" opacity="0.12"/>
+  <text x="600" y="135" text-anchor="middle" font-size="12" font-weight="600" fill="#5B7FA5">Save highlights</text>
+  <text x="600" y="150" text-anchor="middle" font-size="12" font-weight="600" fill="#5B7FA5">or save shadows?</text>
+  <!-- Branch lines -->
+  <line x1="530" y1="159" x2="470" y2="195" stroke="#7BAF7B" stroke-width="2"/>
+  <line x1="670" y1="159" x2="730" y2="195" stroke="#C96B50" stroke-width="2"/>
+  <!-- Left branch: Negative film -->
+  <rect x="380" y="195" width="180" height="65" rx="10" fill="#7BAF7B" opacity="0.12" stroke="#7BAF7B" stroke-width="1.5"/>
+  <text x="470" y="215" text-anchor="middle" font-size="12" font-weight="600" fill="#5A8F5A">Negative + Scan</text>
+  <text x="470" y="233" text-anchor="middle" font-size="11" fill="#5A8F5A">Prioritize shadows</text>
+  <text x="470" y="249" text-anchor="middle" font-size="11" fill="#5A8F5A">Meter for shadow area</text>
+  <!-- Right branch: Reversal film -->
+  <rect x="640" y="195" width="180" height="65" rx="10" fill="#C96B50" opacity="0.12" stroke="#C96B50" stroke-width="1.5"/>
+  <text x="730" y="215" text-anchor="middle" font-size="12" font-weight="600" fill="#C96B50">Reversal + Project</text>
+  <text x="730" y="233" text-anchor="middle" font-size="11" fill="#C96B50">Prioritize highlights</text>
+  <text x="730" y="249" text-anchor="middle" font-size="11" fill="#C96B50">Meter for highlight area</text>
+  <!-- Third branch: B&W darkroom -->
+  <line x1="600" y1="159" x2="600" y2="295" stroke="#5B7FA5" stroke-width="2"/>
+  <rect x="510" y="295" width="180" height="65" rx="10" fill="#5B7FA5" opacity="0.12" stroke="#5B7FA5" stroke-width="1.5"/>
+  <text x="600" y="315" text-anchor="middle" font-size="12" font-weight="600" fill="#5B7FA5">B&amp;W + Darkroom</text>
+  <text x="600" y="333" text-anchor="middle" font-size="11" fill="#5B7FA5">Use Zone System</text>
+  <text x="600" y="349" text-anchor="middle" font-size="11" fill="#5B7FA5">Place tones precisely</text>
+  <!-- === Palm Method (bottom) === -->
+  <rect x="360" y="390" width="480" height="90" rx="12" fill="#F0C27A" opacity="0.1" stroke="#F0C27A" stroke-width="1.5"/>
+  <!-- Hand icon -->
+  <text x="395" y="445" font-size="32">✋</text>
+  <!-- Palm method text -->
+  <text x="440" y="418" font-size="13" font-weight="600" fill="#B8943F">Palm Method Fallback</text>
+  <text x="440" y="438" font-size="11" fill="#8A8580">Meter your open palm (close to 18% gray)</text>
+  <text x="440" y="456" font-size="11" fill="#8A8580">when spot metering is unavailable. ±0.3 EV accuracy.</text>
+</svg>

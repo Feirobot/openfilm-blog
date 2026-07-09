@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 896 512" width="896" height="512">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="896" height="512" rx="16" fill="#FAF7F2"/>
+  <!-- Title -->
+  <text x="448" y="48" text-anchor="middle" font-size="22" font-weight="700" fill="#2D2A26">Film Exposure Latitude</text>
+  <!-- Subtitle -->
+  <text x="448" y="74" text-anchor="middle" font-size="14" fill="#8A8580">Negative vs Reversal Film</text>
+  <!-- === Negative Film Section === -->
+  <text x="448" y="130" text-anchor="middle" font-size="16" font-weight="600" fill="#5B7FA5">Color Negative Film</text>
+  <!-- Film strip icon -->
+  <rect x="100" y="116" width="28" height="22" rx="3" fill="#5B7FA5" opacity="0.2"/>
+  <rect x="104" y="119" width="4" height="4" rx="1" fill="#5B7FA5" opacity="0.4"/>
+  <rect x="104" y="131" width="4" height="4" rx="1" fill="#5B7FA5" opacity="0.4"/>
+  <rect x="120" y="119" width="4" height="4" rx="1" fill="#5B7FA5" opacity="0.4"/>
+  <rect x="120" y="131" width="4" height="4" rx="1" fill="#5B7FA5" opacity="0.4"/>
+  <!-- Latitude bar background -->
+  <rect x="120" y="160" width="656" height="50" rx="10" fill="#E8E4DE"/>
+  <!-- Underexposure danger zone -->
+  <rect x="120" y="160" width="110" height="50" rx="10" fill="#E8937A" opacity="0.25"/>
+  <text x="175" y="190" text-anchor="middle" font-size="11" fill="#C96B50">Danger</text>
+  <!-- Safe underexposure -->
+  <rect x="230" y="160" width="110" height="50" fill="#F0C27A" opacity="0.3"/>
+  <text x="285" y="190" text-anchor="middle" font-size="11" fill="#B8943F">-2 stops</text>
+  <!-- Normal exposure -->
+  <rect x="340" y="160" width="110" height="50" fill="#7BAF7B" opacity="0.35"/>
+  <text x="395" y="190" text-anchor="middle" font-size="12" font-weight="600" fill="#5A8F5A">Normal</text>
+  <!-- Safe overexposure 1 -->
+  <rect x="450" y="160" width="110" height="50" fill="#7BAF7B" opacity="0.35"/>
+  <text x="505" y="190" text-anchor="middle" font-size="12" font-weight="600" fill="#5A8F5A">+1 stop</text>
+  <!-- Safe overexposure 2 -->
+  <rect x="560" y="160" width="110" height="50" fill="#7BAF7B" opacity="0.25"/>
+  <text x="615" y="190" text-anchor="middle" font-size="12" fill="#5A8F5A">+2 stops</text>
+  <!-- Safe overexposure 3 -->
+  <rect x="670" y="160" width="106" height="50" rx="10" fill="#7BAF7B" opacity="0.15"/>
+  <text x="723" y="190" text-anchor="middle" font-size="11" fill="#5A8F5A">+3 stops</text>
+  <!-- Wide latitude label -->
+  <text x="448" y="235" text-anchor="middle" font-size="13" fill="#5B7FA5">Wide latitude: -2 to +3 stops</text>
+  <!-- Tip -->
+  <rect x="280" y="250" width="336" height="30" rx="8" fill="#5B7FA5" opacity="0.08"/>
+  <text x="448" y="270" text-anchor="middle" font-size="12" fill="#5B7FA5">Tip: Overexpose by +0.5 EV for better shadow detail</text>
+  <!-- === Reversal Film Section === -->
+  <text x="448" y="330" text-anchor="middle" font-size="16" font-weight="600" fill="#C96B50">Reversal Film (Slide)</text>
+  <!-- Film strip icon -->
+  <rect x="100" y="316" width="28" height="22" rx="3" fill="#C96B50" opacity="0.2"/>
+  <rect x="104" y="319" width="4" height="4" rx="1" fill="#C96B50" opacity="0.4"/>
+  <rect x="104" y="331" width="4" height="4" rx="1" fill="#C96B50" opacity="0.4"/>
+  <rect x="120" y="319" width="4" height="4" rx="1" fill="#C96B50" opacity="0.4"/>
+  <rect x="120" y="331" width="4" height="4" rx="1" fill="#C96B50" opacity="0.4"/>
+  <!-- Latitude bar background -->
+  <rect x="120" y="355" width="656" height="50" rx="10" fill="#E8E4DE"/>
+  <!-- Underexposure danger -->
+  <rect x="120" y="355" width="250" height="50" rx="10" fill="#E8937A" opacity="0.3"/>
+  <text x="245" y="385" text-anchor="middle" font-size="12" fill="#C96B50">Crushed shadows</text>
+  <!-- Narrow safe zone -->
+  <rect x="370" y="355" width="156" height="50" fill="#7BAF7B" opacity="0.35"/>
+  <text x="448" y="385" text-anchor="middle" font-size="13" font-weight="700" fill="#5A8F5A">Safe Zone</text>
+  <!-- Overexposure danger -->
+  <rect x="526" y="355" width="250" height="50" rx="10" fill="#E8937A" opacity="0.3"/>
+  <text x="651" y="385" text-anchor="middle" font-size="12" fill="#C96B50">Blown highlights</text>
+  <!-- Narrow latitude label -->
+  <text x="448" y="430" text-anchor="middle" font-size="13" fill="#C96B50">Narrow latitude: only ±0.5 to ±1 stop</text>
+  <!-- Tip -->
+  <rect x="280" y="445" width="336" height="30" rx="8" fill="#C96B50" opacity="0.08"/>
+  <text x="448" y="465" text-anchor="middle" font-size="12" fill="#C96B50">Tip: Meter for highlights, no room for error</text>
+  <!-- Bracket markers for narrow zone -->
+  <line x1="370" y1="345" x2="370" y2="355" stroke="#5A8F5A" stroke-width="2"/>
+  <line x1="526" y1="345" x2="526" y2="355" stroke="#5A8F5A" stroke-width="2"/>
+  <line x1="370" y1="345" x2="526" y2="345" stroke="#5A8F5A" stroke-width="2"/>
+  <text x="448" y="340" text-anchor="middle" font-size="10" fill="#5A8F5A">±1 stop</text>
+</svg>
