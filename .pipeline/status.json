@@ -1,48 +1,58 @@
 {
-  "article": "src/content/posts/film-photography-personal-archive-zh.mdx",
-  "translated_article": "src/content/posts/film-photography-personal-archive-en.mdx",
+  "workflow_run_id": "openfilm-20260709-190000",
+  "workflow_state": "completed",
+  "article": "src/content/posts/film-travel-photography-guide-zh.mdx",
+  "translated_article": "src/content/posts/film-travel-photography-guide-en.mdx",
   "stage": "published",
-  "updated_at": "2026-06-26T23:36:38+08:00",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-09T19:19:33+08:00",
+  "retry_count": 0,
   "images": [
-    "public/images/film-photography-personal-archive-1.png",
-    "public/images/film-photography-personal-archive-2.png",
-    "public/images/film-photography-personal-archive-3.png"
+    "https://media.openfilm.cc/images/film-travel-photography-guide/1783595346-1.svg",
+    "https://media.openfilm.cc/images/film-travel-photography-guide/1783595346-2.svg",
+    "https://media.openfilm.cc/images/film-travel-photography-guide/1783595346-3.svg"
+  ],
+  "images_local": [
+    "/images/film-travel-photography-guide-1.svg",
+    "/images/film-travel-photography-guide-2.svg",
+    "/images/film-travel-photography-guide-3.svg"
   ],
   "r2_upload_status": "success",
-  "r2_bucket": "openfilm",
-  "r2_images": [
-    "images/film-photography-personal-archive-1.png",
-    "images/film-photography-personal-archive-2.png",
-    "images/film-photography-personal-archive-3.png"
-  ],
-  "published_url": "https://openfilm.cc/zh/posts/film-photography-personal-archive-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-photography-personal-archive-en/",
-  "commit_hash": "de3c341fc85119675a7c63de0bbe3c59ead6c955",
-  "retry_count": 0,
+  "published_url": "https://openfilm.cc/zh/posts/film-travel-photography-guide-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-travel-photography-guide-en/",
+  "commit_hash": "ea8187761c5a9733fcf09fbde766af83e89d535a",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-06-26T23:00:00+08:00",
+      "at": "2026-07-09T19:00:00+08:00",
       "by": "胶片编辑",
-      "note": "新文章创作: 《胶片摄影与个人记忆档案：在数字时代保存真实的自己》"
+      "note": "创建中文草稿《胶片旅行摄影实战手册：选卷、携行、安检与现场管理》，选题为自主选题（topic.json 为空）"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-09T19:03:27+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《The Practical Guide to Film Travel Photography》，添加双语切换链接，流水线推进至 translated"
+    },
+    {
+      "stage": "trigger_failed",
+      "at": "2026-07-09T19:03:45+08:00",
+      "by": "启航",
+      "note": "触发配图自动化 tr_0e49b354967e4f3f 失败：trigger is disabled，译文已保留，需手动启用 trigger 或手动触发下一步"
     },
     {
       "stage": "images_generated",
-      "at": "2026-06-26T23:19:55+08:00",
+      "at": "2026-07-09T19:11:40+08:00",
       "by": "画师",
-      "note": "生成 3 张 Notion 信息图插画，R2 上传失败（无可用工具），使用本地存储"
+      "note": "生成 3 张 SVG 信息图插画（ImageGen API 不可用，使用 SVG 占位图替代），主题：1)胶片选卷与器材准备 2)机场安检与胶片保护 3)胶片旅行仪式。已上传 R2 并插入中英文文章，流水线推进至 images_generated"
     },
     {
       "stage": "published",
-      "at": "2026-06-26T23:36:38+08:00",
+      "at": "2026-07-09T19:19:33+08:00",
       "by": "启航",
-      "note": "翻译+发布成功，中英文双语上线"
-    },
-    {
-      "stage": "r2_uploaded",
-      "at": "2026-06-27T00:03:00+08:00",
-      "by": "启航",
-      "note": "通过 wrangler CLI 上传 3 张插画到 R2 bucket openfilm"
+      "note": "构建成功（61 pages），通过 GitHub MCP 推送文章+图片+双语版本，commit ea81877，流水线完成"
     }
   ]
 }
