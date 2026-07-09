@@ -1,58 +1,52 @@
 {
-  "workflow_run_id": "openfilm-20260709-190000",
+  "workflow_run_id": "openfilm-20260709-195551",
   "workflow_state": "completed",
-  "article": "src/content/posts/film-travel-photography-guide-zh.mdx",
-  "translated_article": "src/content/posts/film-travel-photography-guide-en.mdx",
+  "article": "src/content/posts/film-metering-techniques-guide-zh.mdx",
+  "translated_article": "src/content/posts/film-metering-techniques-guide-en.mdx",
   "stage": "published",
   "current_stage": "published",
   "next_stage": null,
   "next_automation": null,
-  "updated_at": "2026-07-09T19:19:33+08:00",
+  "updated_at": "2026-07-09T20:12:00+08:00",
   "retry_count": 0,
   "images": [
-    "https://media.openfilm.cc/images/film-travel-photography-guide/1783595346-1.svg",
-    "https://media.openfilm.cc/images/film-travel-photography-guide/1783595346-2.svg",
-    "https://media.openfilm.cc/images/film-travel-photography-guide/1783595346-3.svg"
+    "https://media.openfilm.cc/images/film-metering-techniques-guide/20260709-1.svg",
+    "https://media.openfilm.cc/images/film-metering-techniques-guide/20260709-2.svg",
+    "https://media.openfilm.cc/images/film-metering-techniques-guide/20260709-3.svg"
   ],
   "images_local": [
-    "/images/film-travel-photography-guide-1.svg",
-    "/images/film-travel-photography-guide-2.svg",
-    "/images/film-travel-photography-guide-3.svg"
+    "public/images/film-metering-techniques-guide-1.svg",
+    "public/images/film-metering-techniques-guide-2.svg",
+    "public/images/film-metering-techniques-guide-3.svg"
   ],
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-travel-photography-guide-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-travel-photography-guide-en/",
-  "commit_hash": "ea8187761c5a9733fcf09fbde766af83e89d535a",
+  "published_url": "https://openfilm.cc/zh/posts/film-metering-techniques-guide-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-metering-techniques-guide-en/",
+  "commit_hash": "84643dc",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-09T19:00:00+08:00",
+      "at": "2026-07-09T19:55:51+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片旅行摄影实战手册：选卷、携行、安检与现场管理》，选题为自主选题（topic.json 为空）"
+      "note": "创建中文草稿《胶片测光实战：从反射到入射，把曝光交给确定性》。避重检查：已盘点 24 篇已有文章，覆盖扫描、冲洗、选卷、街拍、风光、中画幅、过期片、夜景、人像、器材维护等主题，测光技术尚未覆盖。新文章聚焦反射式/入射式测光原理差异、负片与反转片测光逻辑区别、高反差场景测光决策，与已有文章无重复。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-09T19:03:27+08:00",
+      "at": "2026-07-09T20:00:10+08:00",
       "by": "启航",
-      "note": "完成英文翻译《The Practical Guide to Film Travel Photography》，添加双语切换链接，流水线推进至 translated"
-    },
-    {
-      "stage": "trigger_failed",
-      "at": "2026-07-09T19:03:45+08:00",
-      "by": "启航",
-      "note": "触发配图自动化 tr_0e49b354967e4f3f 失败：trigger is disabled，译文已保留，需手动启用 trigger 或手动触发下一步"
+      "note": "完成英文翻译《Film Metering in Practice: From Reflective to Incident — Let Certainty Guide Your Exposure》。翻译遵循信达雅原则，摄影术语统一（reflective/incident metering, negative/reversal film, Zone System 等）。MDX 结构、图片引用、参考资料链接完整保留。双语切换链接已添加。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-09T19:11:40+08:00",
+      "at": "2026-07-09T21:10:00+08:00",
       "by": "画师",
-      "note": "生成 3 张 SVG 信息图插画（ImageGen API 不可用，使用 SVG 占位图替代），主题：1)胶片选卷与器材准备 2)机场安检与胶片保护 3)胶片旅行仪式。已上传 R2 并插入中英文文章，流水线推进至 images_generated"
+      "note": "生成 3 张 SVG 信息图（ImageGen 降级为手写 SVG）：①反射式 vs 入射式测光原理对比 ②负片 vs 反转片曝光宽容度对比 ③区域系统与高反差场景测光决策。已上传 R2（images/film-metering-techniques-guide/20260709-{1,2,3}.svg），并插入中英文文章对应章节。R2 上传状态：success。"
     },
     {
       "stage": "published",
-      "at": "2026-07-09T19:19:33+08:00",
+      "at": "2026-07-09T20:12:00+08:00",
       "by": "启航",
-      "note": "构建成功（61 pages），通过 GitHub MCP 推送文章+图片+双语版本，commit ea81877，流水线完成"
+      "note": "校验通过：中英文文章 frontmatter 完整（draft→false），3 张 SVG 图片本地存在，Astro 构建成功（64 页）。提交 84643dc，推送至 main。"
     }
   ]
 }
