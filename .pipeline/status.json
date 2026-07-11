@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260711-230000",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/film-rangefinder-camera-guide-zh.mdx",
   "translated_article": "src/content/posts/film-rangefinder-camera-guide-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-12T07:30:00+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-12T07:46:00+08:00",
   "retry_count": 0,
   "images": [],
   "images_local": [
@@ -17,6 +17,9 @@
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "failed",
+  "published_url": "https://openfilm.cc/zh/posts/film-rangefinder-camera-guide-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-rangefinder-camera-guide-en/",
+  "commit_hash": "37ce43c",
   "history": [
     {
       "stage": "draft_created",
@@ -35,6 +38,12 @@
       "at": "2026-07-12T07:30:00+08:00",
       "by": "画师",
       "note": "ImageGen provider 报错，降级为 SVG 信息图方案。生成 3 张 SVG（旁轴取景器重影合焦、区域对焦超焦距示意图、旁轴光学结构对比），用 sharp 转换为 WebP（质量 82）。R2 上传失败：Cloudflare MCP execute 工具对 >2000 字符的 base64 参数存在截断/编码问题，分块上传+合并解码方案因 R2 存储 text/plain 时修改了数据内容导致 base64 校验失败。3 张 WebP 临时文件已保留，文章正文未插入未验证图片 URL，等待人工上传处理。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-12T07:46:00+08:00",
+      "by": "启航",
+      "note": "构建成功（72 页面，8.21s）。中英文文章 draft 改为 false，3 张 WebP 插画复制到 public/images/。Git 提交 37ce43c 并推送至 main。文章正文未引用图片（R2 上传失败遗留），图片仅作为本地备份。"
     }
   ]
 }
