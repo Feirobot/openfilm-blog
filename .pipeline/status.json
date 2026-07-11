@@ -1,53 +1,53 @@
 {
-  "workflow_run_id": "openfilm-20260710-093000",
+  "workflow_run_id": "openfilm-20260710-150000",
   "workflow_state": "completed",
-  "article": "src/content/posts/contact-sheet-workflow-zh.mdx",
-  "translated_article": "src/content/posts/contact-sheet-workflow-en.mdx",
+  "article": "src/content/posts/darkroom-bw-printmaking-zh.mdx",
+  "translated_article": "src/content/posts/darkroom-bw-printmaking-en.mdx",
   "stage": "published",
   "current_stage": "published",
   "next_stage": null,
   "next_automation": null,
-  "updated_at": "2026-07-10T11:00:00+08:00",
-  "images": [
-    "https://media.openfilm.cc/images/contact-sheet-workflow/20260710-1.webp",
-    "https://media.openfilm.cc/images/contact-sheet-workflow/20260710-2.webp",
-    "https://media.openfilm.cc/images/contact-sheet-workflow/20260710-3.webp"
-  ],
-  "images_local": [
-    "/tmp/openfilm-images/contact-sheet-workflow/20260710-1.webp",
-    "/tmp/openfilm-images/contact-sheet-workflow/20260710-2.webp",
-    "/tmp/openfilm-images/contact-sheet-workflow/20260710-3.webp"
-  ],
-  "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
+  "updated_at": "2026-07-11T22:25:00+08:00",
   "retry_count": 0,
-  "published_url": "https://openfilm.cc/zh/posts/contact-sheet-workflow-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/contact-sheet-workflow-en/",
-  "commit_hash": "1e632f1",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-10T09:30:00+08:00",
+      "at": "2026-07-10T15:00:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《接触印相工作流：从暗房到数字时代，摄影师如何编辑自己的底片》。避重检查：已盘点 27 篇已有文章，覆盖中画幅入门（medium-format-film-photography-guide-zh）、大画幅（large-format-field-photography-guide-zh）、扫描（film-scanning-complete-guide-zh）、冲洗（home-film-developing-guide-zh）、增感/减感/交叉冲洗（film-push-pull-cross-processing-guide-zh）、测光（film-metering-techniques-guide-zh）、街拍（film-street-photography-guide-zh）、风光（film-landscape-photography-guide-zh）、旅行（film-travel-photography-guide-zh）、夜景（film-night-photography-guide-zh）、人像（film-portrait-photography-guide-zh）、多重曝光（film-multiple-exposure-creative-guide-zh）、过期胶片（expired-film-photography-guide-zh）、红外（infrared-film-photography-guide-zh）、胶片型号（film-stock-guide-2026-zh）、相机维护维修（film-camera-maintenance-repair-zh）、傻瓜相机（compact-film-camera-buying-guide-zh）、社区文化（film-photography-community-culture-zh）、个人档案（film-photography-personal-archive-zh）、黑白选择（black-white-film-art-selection-zh）、替代工艺（alternative-process-photography-revival-zh）、胶片复兴（film-photography-revival-2026-zh）、夏季摄影（summer-film-photography-guide-zh）、一次性相机（disposable-camera-processing-crisis-zh）、Live Photos（live-photos-introduction-zh）。接触印相（Contact Sheet）工作流尚未覆盖，新文章聚焦暗房接触印相的完整操作流程（底片准备→排列→曝光→显影）、密度与反差的阅读方法、蜡笔/编号标注系统、接触印相作为编辑方法论（延迟判断→寻找关联→接受淘汰）、数字时代 RAW 浏览器中接触印相思维的延续与变异、以及接触印相的文化意义（Mary Ellen Mark、Josef Sudek 的编辑实践）。与暗房冲洗（home-film-developing-guide-zh）角度不同：冲洗文章讲底片化学处理，本文讲底片处理后的编辑筛选工作流。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《暗房黑白放相工艺：从底片到相纸的影调翻译》。避重检查：已盘点 27 篇已有文章，覆盖中画幅入门（medium-format-film-photography-guide-zh）、大画幅（large-format-field-photography-guide-zh）、扫描（film-scanning-complete-guide-zh）、冲洗（home-film-developing-guide-zh）、增感/减感/交叉冲洗（film-push-pull-cross-processing-guide-zh）、测光（film-metering-techniques-guide-zh）、街拍（film-street-photography-guide-zh）、风光（film-landscape-photography-guide-zh）、旅行（film-travel-photography-guide-zh）、夜景（film-night-photography-guide-zh）、人像（film-portrait-photography-guide-zh）、多重曝光（film-multiple-exposure-creative-guide-zh）、过期胶片（expired-film-photography-guide-zh）、红外（infrared-film-photography-guide-zh）、胶片型号（film-stock-guide-2026-zh）、相机维护维修（film-camera-maintenance-repair-zh）、傻瓜相机（compact-film-camera-buying-guide-zh）、社区文化（film-photography-community-culture-zh）、个人档案（film-photography-personal-archive-zh）、黑白选择（black-white-film-art-selection-zh）、替代工艺（alternative-process-photography-revival-zh）、胶片复兴（film-photography-revival-2026-zh）、夏季摄影（summer-film-photography-guide-zh）、一次性相机（disposable-camera-processing-crisis-zh）、Live Photos（live-photos-introduction-zh）、接触印相工作流（contact-sheet-workflow-zh）。暗房黑白放相（从底片到相纸的放大印相全流程）尚未覆盖。与冲洗文章（home-film-developing-guide-zh）角度不同：冲洗讲底片的化学处理，本文讲底片处理后通过放大机印放到相纸的完整工艺（放大机光学、相纸选择、试条法、遮挡与加光、显影阅读、审美决策）。与接触印相（contact-sheet-workflow-zh）角度不同：接触印相讲底片编辑筛选工作流，本文讲放大印相的创作工艺。与替代工艺（alternative-process-photography-revival-zh）角度不同：替代工艺讲银版/蓝晒/铂金等非标准工艺，本文讲经典银盐放大印相。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-10T02:15:42+08:00",
+      "at": "2026-07-11T05:12:04+08:00",
       "by": "启航",
-      "note": "完成英文翻译《The Contact Sheet Workflow: From Darkroom to Digital Age — How Photographers Edit Their Own Negatives》。翻译原则：信（忠实原文）、达（表达流畅）、雅（文采贴合）。摄影术语统一：接触印相→contact sheet、暗房→darkroom、底片→negative、相纸→photographic paper、显影→develop、定影→fix、蜡笔→grease pencil。保留所有 MDX 结构、参考资料格式和引用。中英文版本已互添双语切换链接。"
+      "note": "完成英文翻译《Darkroom B&W Enlargement Printing: Translating Tones from Negative to Paper》。翻译质量自检：摄影术语一致（enlarger/condenser/diffuser/negative carrier/dodging/burning/test strip/Zone System 等），MDX 结构与原文一致，frontmatter 字段完整（title/description/tags 已翻译，日期保留，lang=en，draft=true），双语切换链接已添加。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-10T10:45:00+08:00",
-      "by": "画师",
-      "note": "生成 3 张 Notion 风格扁平信息图插画并上传至 Cloudflare R2。图1（1:1 方形 hero）：接触印相工作流全流程示意图（底片准备→排列→曝光→显影→评估）。图2（16:9）：暗房接触印相操作流程（安全灯、底片排列、相纸接触、曝光、显影）。图3（16:9）：从模拟到数字的延续与变异（物理接触印相 vs 数字浏览器网格）。所有图片已转换为 WebP 格式（quality 80，最长边≤1600px），上传至 R2 路径 images/contact-sheet-workflow/20260710-{1,2,3}.webp，公开 URL 验证通过（HTTP 200，Content-Type: image/webp）。图片已插入中英文文章对应位置。"
+      "at": "2026-07-11T22:21:44+08:00",
+      "by": "Codex recovery",
+      "note": "画师自动化长时间卡在上传/推进阶段；使用其已生成的 3 张 WebP 上传 R2，首图 1:1，已插入中英文文章并推进到 images_generated。"
     },
     {
       "stage": "published",
-      "at": "2026-07-10T11:00:00+08:00",
+      "at": "2026-07-11T22:25:00+08:00",
       "by": "启航",
-      "note": "校验+构建+发布成功。Astro 构建 68 页面通过（6.90s）。Git 提交 1e632f1，推送时远端有同消息不同哈希的提交（rebase 遗留），执行 git rebase 对齐后推送成功。部署验证：中文页面 HTTP 200、英文页面 HTTP 200、RSS 包含 contact-sheet-workflow 中英文条目、3 张图片均 HTTP 200。workflow_state → completed，stage → published。"
+      "note": "校验+构建+发布成功。Astro 构建 70 页全部通过，中英文文章 draft→false，3 张 R2 图片均可访问（HTTP 200）。提交 35a46a6，推送至 main 触发 Cloudflare Pages 部署。"
     }
-  ]
+  ],
+  "published_url": "https://openfilm.cc/zh/posts/darkroom-bw-printmaking-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/darkroom-bw-printmaking-en/",
+  "commit_hash": "35a46a642ae5f1b66de48be4b19d61f13d201189",
+  "images": [
+    "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-1.webp",
+    "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-2.webp",
+    "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-3.webp"
+  ],
+  "images_local": [
+    "/tmp/openfilm-images/darkroom-bw-printmaking/20260711-1.webp",
+    "/tmp/openfilm-images/darkroom-bw-printmaking/20260711-2.webp",
+    "/tmp/openfilm-images/darkroom-bw-printmaking/20260711-3.webp"
+  ],
+  "first_image_aspect": "1:1",
+  "r2_upload_status": "success"
 }
