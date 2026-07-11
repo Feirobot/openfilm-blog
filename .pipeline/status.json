@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260712-160000",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/film-color-temperature-control-zh.mdx",
   "translated_article": "src/content/posts/film-color-temperature-control-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-12T01:22:00+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-12T01:29:05+08:00",
   "retry_count": 0,
   "images": [
     "https://media.openfilm.cc/images/film-color-temperature-control/20260712-1.webp",
@@ -21,6 +21,9 @@
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
+  "published_url": "https://openfilm.cc/zh/posts/film-color-temperature-control-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-color-temperature-control-en/",
+  "commit_hash": "d25f6d6",
   "history": [
     {
       "stage": "draft_created",
@@ -39,6 +42,12 @@
       "at": "2026-07-12T01:22:00+08:00",
       "by": "画师",
       "note": "生成3张Notion风格SVG信息图并转换为WebP：(1)色温标尺1:1方图1200x1200，展示烛光1800K到阴天8000K常见光源；(2)胶片乳剂结构横图1600x900，展示三层感光层与偏色方向；(3)滤镜校正指南横图1600x900，展示80A/85B滤镜与FL-D/FL-W荧光灯校正。全部上传R2成功，公开URL验证200+image/webp。图片已插入中英文文章对应章节。ImageGen provider错误，降级为SVG信息图方案。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-12T01:29:05+08:00",
+      "by": "启航",
+      "note": "翻译+发布成功。Astro 构建 74 页面 8.07s 通过。提交 d25f6d6 推送成功，远端验证同步。中英文页面均返回 200，RSS 已收录新 slug，3 张图片 URL 验证 200。workflow_state → completed。"
     }
   ]
 }
