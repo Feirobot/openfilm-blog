@@ -1,49 +1,44 @@
 {
-  "workflow_run_id": "openfilm-20260711-230000",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-rangefinder-camera-guide-zh.mdx",
-  "translated_article": "src/content/posts/film-rangefinder-camera-guide-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-12T07:46:00+08:00",
+  "workflow_run_id": "openfilm-20260712-160000",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-color-temperature-control-zh.mdx",
+  "translated_article": "src/content/posts/film-color-temperature-control-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-12T01:22:00+08:00",
   "retry_count": 0,
-  "images": [],
+  "images": [
+    "https://media.openfilm.cc/images/film-color-temperature-control/20260712-1.webp",
+    "https://media.openfilm.cc/images/film-color-temperature-control/20260712-2.webp",
+    "https://media.openfilm.cc/images/film-color-temperature-control/20260712-3.webp"
+  ],
   "images_local": [
-    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/openfilm-images/film-rangefinder-camera-guide/01-rangefinder-viewfinder.webp",
-    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/openfilm-images/film-rangefinder-camera-guide/02-zone-focusing.webp",
-    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/openfilm-images/film-rangefinder-camera-guide/03-optical-path.webp"
+    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/film-color-temperature-control/01-color-temp-scale.webp",
+    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/film-color-temperature-control/02-film-emulsion.webp",
+    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/film-color-temperature-control/03-filter-correction.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "failed",
-  "published_url": "https://openfilm.cc/zh/posts/film-rangefinder-camera-guide-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-rangefinder-camera-guide-en/",
-  "commit_hash": "37ce43c",
+  "r2_upload_status": "success",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-11T23:00:00+08:00",
+      "at": "2026-07-12T16:00:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《旁轴相机摄影指南：测距联动、区域对焦与安静的观看方式》。避重检查：已盘点 28 篇已有文章，覆盖中画幅（medium-format-film-photography-guide-zh）、大画幅（large-format-field-photography-guide-zh）、傻瓜相机（compact-film-camera-buying-guide-zh）、相机维护（film-camera-maintenance-repair-zh）、街拍（film-street-photography-guide-zh）、测光（film-metering-techniques-guide-zh）、暗房放相（darkroom-bw-printmaking-zh）、接触印相（contact-sheet-workflow-zh）等。旁轴相机（rangefinder）作为独立相机系统/对焦方式的专题尚未覆盖。与傻瓜相机文章角度不同：傻瓜相机讲便携相机选购，本文讲旁轴测距联动原理、区域对焦技术和旁轴拍摄哲学。与街拍文章角度不同：街拍讲拍摄方法论，本文讲旁轴系统的技术特征和取景体验。与相机维护文章角度不同：本文不涉及维修保养。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《胶片摄影中的色温控制：从光源识别到滤镜校正的完整实践》。避重检查：已盘点 28 篇已有文章，覆盖胶片型号选择（film-stock-guide-2026-zh，按型号推荐色彩特征但不涉及色温原理）、过期胶片（expired-film-photography-guide-zh，讲化学变质导致的色彩偏移）、增感/减感/交叉冲洗（film-push-pull-cross-processing-guide-zh，讲冲洗工艺变量）、扫描（film-scanning-complete-guide-zh，讲数字化路径）、黑白胶片美学（black-white-film-art-selection-zh，讲灰度影调）。色温控制作为独立技术+美学专题尚未覆盖：本文从黑体辐射物理原理出发，讲光源色温识别、80A/85B/FL-D滤镜校正、曝光补偿策略，以及混合光源和偏色作为创作工具的美学判断。与过期胶片文章角度不同：过期胶片讲化学变质导致的不可控偏色，本文讲光源色温与胶片设计色温之间的可控匹配。与胶片型号指南角度不同：型号指南按品牌推荐胶片，本文聚焦色温这一单一技术维度的深度解析。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-12T00:15:00+08:00",
+      "at": "2026-07-12T01:08:48+08:00",
       "by": "启航",
-      "note": "完成英文翻译《A Guide to Rangefinder Cameras: Coupled Metering, Zone Focusing, and the Quiet Way of Seeing》。翻译遵循信达雅原则，摄影术语统一（rangefinder/zone focusing/hyperfocal distance/beam splitter/focus cam/framelines/parallax 等）。MDX 结构、frontmatter、图片引用完整保留。中英文双语切换链接已添加。"
+      "note": "完成英文翻译《Color Temperature Control in Film Photography: A Complete Guide from Light Source Identification to Filter Correction》。翻译原则：信（忠实原文物理概念与数据）、达（英文表达流畅自然）、雅（贴合摄影技术写作风格）。摄影术语统一：色温→color temperature，日光型→daylight-balanced，灯光型→tungsten-balanced，滤镜→filter，曝光补偿→exposure compensation。保留所有参考链接和结构。已添加双语切换链接。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-12T07:30:00+08:00",
+      "at": "2026-07-12T01:22:00+08:00",
       "by": "画师",
-      "note": "ImageGen provider 报错，降级为 SVG 信息图方案。生成 3 张 SVG（旁轴取景器重影合焦、区域对焦超焦距示意图、旁轴光学结构对比），用 sharp 转换为 WebP（质量 82）。R2 上传失败：Cloudflare MCP execute 工具对 >2000 字符的 base64 参数存在截断/编码问题，分块上传+合并解码方案因 R2 存储 text/plain 时修改了数据内容导致 base64 校验失败。3 张 WebP 临时文件已保留，文章正文未插入未验证图片 URL，等待人工上传处理。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-12T07:46:00+08:00",
-      "by": "启航",
-      "note": "构建成功（72 页面，8.21s）。中英文文章 draft 改为 false，3 张 WebP 插画复制到 public/images/。Git 提交 37ce43c 并推送至 main。文章正文未引用图片（R2 上传失败遗留），图片仅作为本地备份。"
+      "note": "生成3张Notion风格SVG信息图并转换为WebP：(1)色温标尺1:1方图1200x1200，展示烛光1800K到阴天8000K常见光源；(2)胶片乳剂结构横图1600x900，展示三层感光层与偏色方向；(3)滤镜校正指南横图1600x900，展示80A/85B滤镜与FL-D/FL-W荧光灯校正。全部上传R2成功，公开URL验证200+image/webp。图片已插入中英文文章对应章节。ImageGen provider错误，降级为SVG信息图方案。"
     }
   ]
 }
