@@ -7,7 +7,7 @@
   "current_stage": "published",
   "next_stage": null,
   "next_automation": null,
-  "updated_at": "2026-07-11T22:25:00+08:00",
+  "updated_at": "2026-07-11T22:26:39+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -33,11 +33,17 @@
       "at": "2026-07-11T22:25:00+08:00",
       "by": "启航",
       "note": "校验+构建+发布成功。Astro 构建 70 页全部通过，中英文文章 draft→false，3 张 R2 图片均可访问（HTTP 200）。提交 35a46a6，推送至 main 触发 Cloudflare Pages 部署。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-11T22:26:39+08:00",
+      "by": "Codex recovery",
+      "note": "第 4 步自动化已创建内容提交 35a46a6，但卡在状态更新/推送阶段；人工补充 published 状态并继续推送验证。"
     }
   ],
   "published_url": "https://openfilm.cc/zh/posts/darkroom-bw-printmaking-zh/",
   "published_url_en": "https://openfilm.cc/en/posts/darkroom-bw-printmaking-en/",
-  "commit_hash": "35a46a642ae5f1b66de48be4b19d61f13d201189",
+  "commit_hash": "35a46a6",
   "images": [
     "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-1.webp",
     "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-2.webp",
