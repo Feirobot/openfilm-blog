@@ -1,59 +1,40 @@
 {
-  "workflow_run_id": "openfilm-20260710-150000",
-  "workflow_state": "completed",
-  "article": "src/content/posts/darkroom-bw-printmaking-zh.mdx",
-  "translated_article": "src/content/posts/darkroom-bw-printmaking-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-11T22:26:39+08:00",
+  "workflow_run_id": "openfilm-20260711-230000",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-rangefinder-camera-guide-zh.mdx",
+  "translated_article": "src/content/posts/film-rangefinder-camera-guide-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-12T07:30:00+08:00",
   "retry_count": 0,
+  "images": [],
+  "images_local": [
+    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/openfilm-images/film-rangefinder-camera-guide/01-rangefinder-viewfinder.webp",
+    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/openfilm-images/film-rangefinder-camera-guide/02-zone-focusing.webp",
+    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/openfilm-images/film-rangefinder-camera-guide/03-optical-path.webp"
+  ],
+  "first_image_aspect": "1:1",
+  "r2_upload_status": "failed",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-10T15:00:00+08:00",
+      "at": "2026-07-11T23:00:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《暗房黑白放相工艺：从底片到相纸的影调翻译》。避重检查：已盘点 27 篇已有文章，覆盖中画幅入门（medium-format-film-photography-guide-zh）、大画幅（large-format-field-photography-guide-zh）、扫描（film-scanning-complete-guide-zh）、冲洗（home-film-developing-guide-zh）、增感/减感/交叉冲洗（film-push-pull-cross-processing-guide-zh）、测光（film-metering-techniques-guide-zh）、街拍（film-street-photography-guide-zh）、风光（film-landscape-photography-guide-zh）、旅行（film-travel-photography-guide-zh）、夜景（film-night-photography-guide-zh）、人像（film-portrait-photography-guide-zh）、多重曝光（film-multiple-exposure-creative-guide-zh）、过期胶片（expired-film-photography-guide-zh）、红外（infrared-film-photography-guide-zh）、胶片型号（film-stock-guide-2026-zh）、相机维护维修（film-camera-maintenance-repair-zh）、傻瓜相机（compact-film-camera-buying-guide-zh）、社区文化（film-photography-community-culture-zh）、个人档案（film-photography-personal-archive-zh）、黑白选择（black-white-film-art-selection-zh）、替代工艺（alternative-process-photography-revival-zh）、胶片复兴（film-photography-revival-2026-zh）、夏季摄影（summer-film-photography-guide-zh）、一次性相机（disposable-camera-processing-crisis-zh）、Live Photos（live-photos-introduction-zh）、接触印相工作流（contact-sheet-workflow-zh）。暗房黑白放相（从底片到相纸的放大印相全流程）尚未覆盖。与冲洗文章（home-film-developing-guide-zh）角度不同：冲洗讲底片的化学处理，本文讲底片处理后通过放大机印放到相纸的完整工艺（放大机光学、相纸选择、试条法、遮挡与加光、显影阅读、审美决策）。与接触印相（contact-sheet-workflow-zh）角度不同：接触印相讲底片编辑筛选工作流，本文讲放大印相的创作工艺。与替代工艺（alternative-process-photography-revival-zh）角度不同：替代工艺讲银版/蓝晒/铂金等非标准工艺，本文讲经典银盐放大印相。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《旁轴相机摄影指南：测距联动、区域对焦与安静的观看方式》。避重检查：已盘点 28 篇已有文章，覆盖中画幅（medium-format-film-photography-guide-zh）、大画幅（large-format-field-photography-guide-zh）、傻瓜相机（compact-film-camera-buying-guide-zh）、相机维护（film-camera-maintenance-repair-zh）、街拍（film-street-photography-guide-zh）、测光（film-metering-techniques-guide-zh）、暗房放相（darkroom-bw-printmaking-zh）、接触印相（contact-sheet-workflow-zh）等。旁轴相机（rangefinder）作为独立相机系统/对焦方式的专题尚未覆盖。与傻瓜相机文章角度不同：傻瓜相机讲便携相机选购，本文讲旁轴测距联动原理、区域对焦技术和旁轴拍摄哲学。与街拍文章角度不同：街拍讲拍摄方法论，本文讲旁轴系统的技术特征和取景体验。与相机维护文章角度不同：本文不涉及维修保养。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-11T05:12:04+08:00",
+      "at": "2026-07-12T00:15:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译《Darkroom B&W Enlargement Printing: Translating Tones from Negative to Paper》。翻译质量自检：摄影术语一致（enlarger/condenser/diffuser/negative carrier/dodging/burning/test strip/Zone System 等），MDX 结构与原文一致，frontmatter 字段完整（title/description/tags 已翻译，日期保留，lang=en，draft=true），双语切换链接已添加。"
+      "note": "完成英文翻译《A Guide to Rangefinder Cameras: Coupled Metering, Zone Focusing, and the Quiet Way of Seeing》。翻译遵循信达雅原则，摄影术语统一（rangefinder/zone focusing/hyperfocal distance/beam splitter/focus cam/framelines/parallax 等）。MDX 结构、frontmatter、图片引用完整保留。中英文双语切换链接已添加。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-11T22:21:44+08:00",
-      "by": "Codex recovery",
-      "note": "画师自动化长时间卡在上传/推进阶段；使用其已生成的 3 张 WebP 上传 R2，首图 1:1，已插入中英文文章并推进到 images_generated。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-11T22:25:00+08:00",
-      "by": "启航",
-      "note": "校验+构建+发布成功。Astro 构建 70 页全部通过，中英文文章 draft→false，3 张 R2 图片均可访问（HTTP 200）。提交 35a46a6，推送至 main 触发 Cloudflare Pages 部署。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-11T22:26:39+08:00",
-      "by": "Codex recovery",
-      "note": "第 4 步自动化已创建内容提交 35a46a6，但卡在状态更新/推送阶段；人工补充 published 状态并继续推送验证。"
+      "at": "2026-07-12T07:30:00+08:00",
+      "by": "画师",
+      "note": "ImageGen provider 报错，降级为 SVG 信息图方案。生成 3 张 SVG（旁轴取景器重影合焦、区域对焦超焦距示意图、旁轴光学结构对比），用 sharp 转换为 WebP（质量 82）。R2 上传失败：Cloudflare MCP execute 工具对 >2000 字符的 base64 参数存在截断/编码问题，分块上传+合并解码方案因 R2 存储 text/plain 时修改了数据内容导致 base64 校验失败。3 张 WebP 临时文件已保留，文章正文未插入未验证图片 URL，等待人工上传处理。"
     }
-  ],
-  "published_url": "https://openfilm.cc/zh/posts/darkroom-bw-printmaking-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/darkroom-bw-printmaking-en/",
-  "commit_hash": "35a46a6",
-  "images": [
-    "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-1.webp",
-    "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-2.webp",
-    "https://media.openfilm.cc/images/darkroom-bw-printmaking/20260711-3.webp"
-  ],
-  "images_local": [
-    "/tmp/openfilm-images/darkroom-bw-printmaking/20260711-1.webp",
-    "/tmp/openfilm-images/darkroom-bw-printmaking/20260711-2.webp",
-    "/tmp/openfilm-images/darkroom-bw-printmaking/20260711-3.webp"
-  ],
-  "first_image_aspect": "1:1",
-  "r2_upload_status": "success"
+  ]
 }
