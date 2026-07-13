@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260714-170500",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/film-negative-archival-storage-zh.mdx",
   "translated_article": "src/content/posts/film-negative-archival-storage-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-14T01:43:40+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-14T02:13:26+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -27,6 +27,12 @@
       "at": "2026-07-14T01:43:40+08:00",
       "by": "画师",
       "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-14T02:13:26+08:00",
+      "by": "启航",
+      "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 8f5d467。"
     }
   ],
   "images": [
@@ -38,5 +44,8 @@
     "/root/AIwork/openfilm-blog/.pipeline/generated/film-negative-archival-storage/20260714-2.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success"
+  "r2_upload_status": "success",
+  "published_url": "https://openfilm.cc/zh/posts/film-negative-archival-storage-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-negative-archival-storage-en/",
+  "commit_hash": "8f5d467"
 }
