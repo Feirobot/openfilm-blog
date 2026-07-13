@@ -58,6 +58,7 @@ def validate_references(text: str, heading: str, path: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--defer-push", action="store_true", help="operator recovery: commit locally and push externally")
     parser.add_argument("--check-references", nargs=2, metavar=("ZH_ARTICLE", "EN_ARTICLE"))
     args = parser.parse_args()
     if args.check_references:
@@ -123,7 +124,10 @@ def main() -> None:
             run(["git", "commit", "-m", f"content: 新增文章《{title}》（含双语版本）"])
             content_committed = True
             content_commit = run(["git", "rev-parse", "--short", "HEAD"], capture=True)
-        run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
+        if args.defer_push:
+            print(json.dumps({"push": "deferred", "phase": "content"}))
+        else:
+            run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
     except Exception:
         if not content_committed:
             for path, text in originals.items():
@@ -161,7 +165,10 @@ def main() -> None:
     run(["git", "add", "--", ".pipeline/status.json", ".pipeline/topic.json"])
     if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO).returncode != 0:
         run(["git", "commit", "-m", f"chore: 完成工作流 {status.get('workflow_run_id', '')}"])
-    run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
+    if args.defer_push:
+        print(json.dumps({"push": "deferred", "phase": "state"}))
+    else:
+        run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
     print(json.dumps({"ok": True, "stage": "published", "commit": content_commit,
                       "zh_url": zh_url, "en_url": en_url, "rss": "verified"}, ensure_ascii=False))
 
