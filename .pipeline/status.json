@@ -1,41 +1,41 @@
 {
-  "workflow_run_id": "openfilm-20260714-170048",
+  "workflow_run_id": "openfilm-20260714-170500",
   "workflow_state": "running",
-  "article": "src/content/posts/film-grain-aesthetics-zh.mdx",
-  "translated_article": "src/content/posts/film-grain-aesthetics-en.mdx",
+  "article": "src/content/posts/film-negative-archival-storage-zh.mdx",
+  "translated_article": "src/content/posts/film-negative-archival-storage-en.mdx",
   "stage": "images_generated",
   "current_stage": "images_generated",
   "next_stage": "published",
   "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-14T01:07:32+08:00",
+  "updated_at": "2026-07-14T01:43:40+08:00",
   "retry_count": 0,
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-14T01:00:48+08:00",
+      "at": "2026-07-14T17:05:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片颗粒美学：从乳剂结构到视觉风格的选择与控制》。避重检查：盘点 32 篇已有文章。最相近文章：film-latitude-exposure-guide-zh（宽容度与曝光策略，仅附带提及颗粒）、black-white-film-art-selection-zh（黑白胶片美学，聚焦影调而非颗粒物理）、film-push-pull-cross-processing-guide-zh（冲洗工艺，侧重迫冲操作不涉及颗粒机理）、home-film-developing-guide-zh（家庭冲洗流程，不涉及颗粒控制变量）、film-scanning-complete-guide-zh（扫描方案对比，不涉及颗粒再现参数）。颗粒作为独立专题尚未覆盖：本文从卤化银晶体生长机制切入，拆解 T-grain 技术原理、颗粒与分辨率的博弈关系、曝光-冲洗-扫描三环节对颗粒的塑造机制，以及颗粒作为有意识视觉语言的美学价值。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《胶片底片的物理保存与长期档案管理：让银盐影像活过下个世纪》。避重检查：盘点 33 篇已有文章。最相近文章：film-photography-personal-archive-zh（个人记忆档案，侧重拍摄习惯与数字归档管理，不涉及底片物理保存化学）、darkroom-bw-printmaking-zh（暗房黑白放相，聚焦印相工艺不涉及存储）、film-scanning-complete-guide-zh（扫描方案对比，不涉及保存策略）。底片物理保存作为独立专题尚未覆盖：本文从片基材料化学（醋酸综合症、聚酯片基）切入，拆解温湿度控制（ISO 18902 标准）、封装材料选择（PAT 认证）、醋酸综合症监测（A-D Strip）、操作规范，以及物理保存与数字备份的双轨制策略。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-14T09:05:00+08:00",
+      "at": "2026-07-14T22:30:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译。译文保留全部 MDX 结构和摄影术语对照，参考资料 6 条 URL 原样保留、描述已翻译。双语切换链接已就位。"
+      "note": "完成英文翻译。译文保留全部 MDX 结构、图片引用和代码块，frontmatter 已翻译（title/description/tags），设置 lang:en、draft:true。参考资料 6 条完整保留 URL 并翻译描述文字。中英文版本均已添加双语切换链接。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-14T01:07:32+08:00",
+      "at": "2026-07-14T01:43:40+08:00",
       "by": "画师",
       "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-grain-aesthetics/20260714-1.webp",
-    "https://media.openfilm.cc/images/film-grain-aesthetics/20260714-2.webp"
+    "https://media.openfilm.cc/images/film-negative-archival-storage/20260714-1.webp",
+    "https://media.openfilm.cc/images/film-negative-archival-storage/20260714-2.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-grain-aesthetics/20260714-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-grain-aesthetics/20260714-2.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-negative-archival-storage/20260714-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-negative-archival-storage/20260714-2.webp"
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success"
