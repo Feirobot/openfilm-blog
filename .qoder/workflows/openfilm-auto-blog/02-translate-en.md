@@ -19,19 +19,20 @@
 2. 创建英文文章 `{same-slug-without-zh}-en.mdx`。
 3. 保留 MDX import、组件、图片语法和代码块结构。
 4. 翻译 frontmatter 中的 `title`、`description`、`tags`；保留日期字段；英文版设置 `lang: "en"`，`draft: true`。
-5. 在中文文章末尾补充英文入口：
+5. 将中文 `## 参考资料` 翻译为英文 `## References`：保留原始 URL，翻译每条链接的描述文字，并严格保留 `- [Description](https://...)` 格式和 3-7 条数量。
+6. 在中文文章末尾补充英文入口：
 
 ```markdown
 > [Read in English](/en/posts/{english-slug-en}/)
 ```
 
-6. 在英文文章末尾补充中文入口：
+7. 在英文文章末尾补充中文入口：
 
 ```markdown
 > [阅读中文版本](/zh/posts/{chinese-slug}/)
 ```
 
-7. 更新 `.pipeline/status.json`：
+8. 更新 `.pipeline/status.json`：
    - 保留 `workflow_run_id`
    - 保持 `workflow_state`: `running`
    - 增加 `translated_article`

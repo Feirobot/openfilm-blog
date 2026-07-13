@@ -44,7 +44,20 @@
 1. 在 `src/content/posts/` 创建 `{english-slug}-zh.mdx`。
 2. Frontmatter 必须包含 `title`、`description`、`pubDate`、`updatedDate`、`draft: true`、`tags`、`lang: "zh"`。
 3. 正文必须是原创中文文章，建议 1000-1800 字，结构清晰，有技术细节和人文视角。
-4. 末尾必须包含 `## 参考资料`，列出至少 2 个来源 URL。
+4. 末尾必须包含 `## 参考资料`，并严格使用以下格式列出 3-7 条参考资料：
+
+```markdown
+## 参考资料
+
+- [来源名称或资料标题](https://example.com/direct-source)
+- [来源名称或资料标题](https://example.com/direct-source)
+- [来源名称或资料标题](https://example.com/direct-source)
+```
+
+   - 每条必须是 `- [描述文字](https://完整链接)`，不得使用裸 URL、编号列表或脚注格式。
+   - 描述文字应写清机构、作者或资料标题，不能只写“来源”“参考链接”。
+   - 优先使用厂商技术文档、博物馆/档案馆、摄影机构、原始访谈或专业出版物的直接页面。
+   - 不得列入正文未实际参考的链接，也不得为了凑数重复同一来源。
 5. 不创建英文版，不生成图片，不提交 Git。
 6. 创建或更新 `.pipeline/status.json`：
    - `workflow_run_id`: 本轮 ID

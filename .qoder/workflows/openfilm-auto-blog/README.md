@@ -9,6 +9,8 @@
 
 Stage tool-call budgets are 18, 10, 20, and 6. A fixed helper failure must stop the stage; agents may not explore an alternative toolchain.
 
+Reference sections use `## 参考资料` / `## References` followed by 3-7 unordered Markdown links in the exact form `- [descriptive title](https://direct-source)`.
+
 This workflow is implemented as one scheduled QoderWake automation plus three
 API-triggered automations coordinated by
 `/root/AIwork/openfilm-blog/.pipeline/status.json`.

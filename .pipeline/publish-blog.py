@@ -43,19 +43,41 @@ def frontmatter(text: str) -> tuple[str, str]:
     return match.group(0), title.group(1).strip('"\'')
 
 
+def validate_references(text: str, heading: str, path: Path) -> None:
+    match = re.search(rf"(?ms)^## {re.escape(heading)}\s*\n(.*?)(?=^## |^> |\Z)", text)
+    if not match:
+        raise RuntimeError(f"missing ## {heading} in {path}")
+    entries = [line.strip() for line in match.group(1).splitlines() if line.strip()]
+    if not 3 <= len(entries) <= 7:
+        raise RuntimeError(f"{path} must contain 3-7 references, found {len(entries)}")
+    pattern = re.compile(r"^- \[[^\]]+\]\(https://[^\s)]+\)$")
+    invalid = [line for line in entries if not pattern.fullmatch(line)]
+    if invalid:
+        raise RuntimeError(f"invalid reference format in {path}: {invalid[0]}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--check-references", nargs=2, metavar=("ZH_ARTICLE", "EN_ARTICLE"))
     args = parser.parse_args()
+    if args.check_references:
+        for filename, heading in zip(args.check_references, ("参考资料", "References")):
+            path = Path(filename)
+            validate_references(path.read_text(encoding="utf-8"), heading, path)
+        print(json.dumps({"ok": True, "references": "valid", "articles": 2}))
+        return
     status = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
     if status.get("workflow_state") != "running" or status.get("stage") != "images_generated":
         raise SystemExit("stage gate rejected: expected running/images_generated")
     article = REPO / status["article"]
     translated = REPO / status["translated_article"]
-    for path in (article, translated):
+    for path, heading in ((article, "参考资料"), (translated, "References")):
         if not path.is_file():
             raise SystemExit(f"missing article: {path}")
-        frontmatter(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        frontmatter(text)
+        validate_references(text, heading, path)
     images = status.get("images", [])
     if not images or not all(url.startswith("https://media.openfilm.cc/") for url in images):
         raise SystemExit("verified R2 images are required")
