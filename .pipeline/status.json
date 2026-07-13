@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260713-231808",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/film-latitude-exposure-guide-zh.mdx",
   "translated_article": "src/content/posts/film-latitude-exposure-guide-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-13T23:35:00+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-13T23:40:00+08:00",
   "retry_count": 0,
   "images": [
     "https://media.openfilm.cc/images/film-latitude-exposure-guide/20260713-1.webp",
@@ -21,6 +21,9 @@
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
+  "published_url": "https://openfilm.cc/zh/posts/film-latitude-exposure-guide-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/film-latitude-exposure-guide-en/",
+  "commit_hash": "284b684",
   "history": [
     {
       "stage": "draft_created",
@@ -39,6 +42,12 @@
       "at": "2026-07-13T23:35:00+08:00",
       "by": "画师",
       "note": "生成 3 张 Notion 风格信息图插画并上传至 R2。图1（1:1 方图）：胶片特性曲线（H&D 曲线），展示趾部、直线部、肩部三个区域。图2（16:9）：负片与反转片曝光策略对比，左侧彩色负片「保护暗部」vs 右侧反转片「保护高光」。图3（16:9）：宽容度传递链，曝光→冲洗→扫描→后期四环节信息衰减。ImageGen 返回 provider 错误，降级为 SVG 信息图后用 sharp 栅格化为 WebP（质量 82）。通过部署临时 Worker（openfilm-img-upload）+ 自定义域名（img.openfilm.cc）中转 base64 数据完成 R2 上传。所有图片已验证 HTTP 200 + Content-Type: image/webp。图片已插入中英文文章对应章节。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-13T23:40:00+08:00",
+      "by": "启航",
+      "note": "校验+构建+发布成功。Astro 构建 76 页面全部通过。Git 推送 284b684 至 main，Cloudflare Pages 部署验证通过。中英文页面 HTTP 200，RSS 已包含新 slug，3 张插画 HTTP 200。workflow_state → completed。"
     }
   ]
 }
