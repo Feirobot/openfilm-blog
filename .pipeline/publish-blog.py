@@ -169,6 +169,7 @@ def main() -> None:
         print(json.dumps({"push": "deferred", "phase": "state"}))
     else:
         run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
+        run(["python3", ".pipeline/workflow-lock.py", "release", "--run-id", status["workflow_run_id"]])
     print(json.dumps({"ok": True, "stage": "published", "commit": content_commit,
                       "zh_url": zh_url, "en_url": en_url, "rss": "verified"}, ensure_ascii=False))
 

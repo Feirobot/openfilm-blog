@@ -3,6 +3,7 @@
 ## Fixed tool path (2026-07-14)
 
 - `.pipeline/trigger-next.sh`: checks the stage, repairs trigger bindings, and starts only the next stage.
+- `.pipeline/workflow-lock.py`: atomically acquires the whole-run lock before topic selection and releases it only after the final state push.
 - `.pipeline/publish-media.js`: converts sources to WebP with sharp, uploads directly to R2, and verifies public objects without printing credentials.
 - `.pipeline/insert-blog-images.py`: inserts bilingual images idempotently and advances the state to `images_generated`.
 - `.pipeline/publish-blog.py`: performs the build, scoped staging, standard Git push, deployment checks, and final state commit.

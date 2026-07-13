@@ -10,13 +10,11 @@
 
 ## 状态门禁
 
-1. 读取 `/root/AIwork/openfilm-blog/.pipeline/status.json`。
-2. 如果文件不存在，视为 `idle`，可以开始新文章。
-3. 仅当满足以下条件之一时，才允许开始新一轮：
-   - `workflow_state` 不存在、`idle`、`completed` 或 `failed`
-   - `stage` 是 `idle` 或上一轮已经是 `published`
-4. 如果 `workflow_state` 是 `running`，或 `stage` 是 `draft_created`、`translated`、`images_generated`、`validating`、`published_pending` 等进行中状态，直接输出“当前工作流仍在运行，跳过本次定时触发”，不要修改文件。
-5. 开始新一轮时生成 `workflow_run_id`，格式建议：`openfilm-YYYYMMDD-HHMMSS`。
+1. 进入项目后第一条命令必须是 `python3 .pipeline/workflow-lock.py acquire`，不得先检索选题或读取文章。
+2. 该命令通过原子目录锁防止两个入口同时启动，并立即把状态写为 `workflow_state: running`、`stage: initializing`。
+3. 命令退出码为 3 或返回 `workflow_locked` / `status_running` 时，直接输出“当前工作流仍在运行，跳过本次触发”，不要修改任何文件。
+4. 获取成功后，从 `.pipeline/status.json` 读取脚本生成的 `workflow_run_id`，必须在整轮中沿用，不得自行生成或替换。
+5. 工作流锁由最终发布脚本在状态成功推送后释放；任何中间阶段不得删除 `.pipeline/workflow.lock/`。
 
 ## 输入
 
@@ -59,8 +57,8 @@
    - 优先使用厂商技术文档、博物馆/档案馆、摄影机构、原始访谈或专业出版物的直接页面。
    - 不得列入正文未实际参考的链接，也不得为了凑数重复同一来源。
 5. 不创建英文版，不生成图片，不提交 Git。
-6. 创建或更新 `.pipeline/status.json`：
-   - `workflow_run_id`: 本轮 ID
+6. 更新 `.pipeline/status.json`，保留锁脚本已经写入的 history 和以下字段：
+   - `workflow_run_id`: 锁脚本生成的本轮 ID
    - `workflow_state`: `running`
    - `article`: 中文文章路径
    - `stage`: `draft_created`
