@@ -131,4 +131,3 @@ timeout 75s .pipeline/trigger-next.sh translate
 - 选题来源
 - 当前 stage
 - 下一步：等待 `启航` 翻译
-

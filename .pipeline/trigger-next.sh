@@ -34,4 +34,3 @@ python3 "$REPO_DIR/.pipeline/repair-qoderwake-triggers.py" >/dev/null
 timeout 60s "$QODERWAKE" automation run-now \
   --waker-id "$waker" \
   --automation-id "$automation"
-

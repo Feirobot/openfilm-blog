@@ -63,4 +63,3 @@ Runtime notes:
 - Run the repair script immediately after every `qoderwake-cn automation update`.
 - External commands in stage prompts have explicit time limits. Timeouts must be
   recorded in status history and must not leave a run waiting indefinitely.
-

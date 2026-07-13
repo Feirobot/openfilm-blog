@@ -55,4 +55,3 @@ python3 .pipeline/insert-blog-images.py \
 ## 完成输出
 
 仅报告图片数量、首图比例、R2 验证结果、当前 stage 和下一阶段，不输出任何凭据或账户标识。
-

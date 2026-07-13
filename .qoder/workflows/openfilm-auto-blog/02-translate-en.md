@@ -69,4 +69,3 @@ timeout 75s .pipeline/trigger-next.sh illustrate
 - 翻译质量自检结果
 - 当前 stage
 - 下一步：等待 `画师` 配图
-

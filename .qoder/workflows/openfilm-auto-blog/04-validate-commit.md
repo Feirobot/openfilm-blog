@@ -33,4 +33,3 @@ timeout 22m python3 .pipeline/publish-blog.py
 ## 完成输出
 
 仅报告构建结果、内容提交哈希、推送结果、中英文 URL、RSS 验证结果和当前 stage。
-
