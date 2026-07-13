@@ -1,53 +1,42 @@
 {
-  "workflow_run_id": "openfilm-20260714-120000",
-  "workflow_state": "completed",
-  "article": "src/content/posts/darkroom-color-printing-ra4-zh.mdx",
-  "translated_article": "src/content/posts/darkroom-color-printing-ra4-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-14T00:23:46+08:00",
+  "workflow_run_id": "openfilm-20260714-170048",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-grain-aesthetics-zh.mdx",
+  "translated_article": "src/content/posts/film-grain-aesthetics-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-14T01:07:32+08:00",
   "retry_count": 0,
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-14T12:00:00+08:00",
+      "at": "2026-07-14T01:00:48+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《暗房彩色放大指南：用 RA-4 工艺在家制作彩色照片》。避重检查：盘点 31 篇已有文章。最近似文章：darkroom-bw-printmaking-zh（黑白暗房放大，不涉及 RA-4 彩色工艺）、film-color-temperature-control-zh（拍摄时色温控制，不涉及暗房放大滤色）、film-scanning-complete-guide-zh（扫描工作流，不涉及暗房化学）、home-film-developing-guide-zh（底片冲洗，不涉及相纸放大）、contact-sheet-workflow-zh（接触印相工作流，仅涉及筛选不涉及放大）。RA-4 彩色放大作为独立暗房工艺专题尚未覆盖：本文从黑白→彩色的暗房改造切入，详解 RA-4 三步化学流程（显影/漂白定影/水洗）、偏色控制的滤色片原理与补色修正口诀、从负片到相纸的完整放大工作流，以及银盐彩色放大的独特审美价值。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《胶片颗粒美学：从乳剂结构到视觉风格的选择与控制》。避重检查：盘点 32 篇已有文章。最相近文章：film-latitude-exposure-guide-zh（宽容度与曝光策略，仅附带提及颗粒）、black-white-film-art-selection-zh（黑白胶片美学，聚焦影调而非颗粒物理）、film-push-pull-cross-processing-guide-zh（冲洗工艺，侧重迫冲操作不涉及颗粒机理）、home-film-developing-guide-zh（家庭冲洗流程，不涉及颗粒控制变量）、film-scanning-complete-guide-zh（扫描方案对比，不涉及颗粒再现参数）。颗粒作为独立专题尚未覆盖：本文从卤化银晶体生长机制切入，拆解 T-grain 技术原理、颗粒与分辨率的博弈关系、曝光-冲洗-扫描三环节对颗粒的塑造机制，以及颗粒作为有意识视觉语言的美学价值。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-14T14:32:00+08:00",
+      "at": "2026-07-14T09:05:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译《A Guide to Darkroom Color Enlargement: Making Color Prints at Home with the RA-4 Process》。翻译质量自检：摄影术语一致（darkroom/enlargement/developer/bleach-fix/color coupler/filter pack/test strip 等）；MDX 结构与图片引用完整保留；frontmatter 字段完整（title/description/tags 已翻译，日期保留，lang 设为 en，draft 为 true）；双语切换链接已添加至中英文文章末尾。"
+      "note": "完成英文翻译。译文保留全部 MDX 结构和摄影术语对照，参考资料 6 条 URL 原样保留、描述已翻译。双语切换链接已就位。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-14T00:21:35+08:00",
+      "at": "2026-07-14T01:07:32+08:00",
       "by": "画师",
-      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-14T00:23:46+08:00",
-      "by": "启航",
-      "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 294fb9d。"
+      "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/darkroom-color-printing-ra4/20260714-1.webp",
-    "https://media.openfilm.cc/images/darkroom-color-printing-ra4/20260714-2.webp",
-    "https://media.openfilm.cc/images/darkroom-color-printing-ra4/20260714-3.webp"
+    "https://media.openfilm.cc/images/film-grain-aesthetics/20260714-1.webp",
+    "https://media.openfilm.cc/images/film-grain-aesthetics/20260714-2.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-color-printing-ra4/20260714-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-color-printing-ra4/20260714-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-color-printing-ra4/20260714-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-grain-aesthetics/20260714-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-grain-aesthetics/20260714-2.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/darkroom-color-printing-ra4-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/darkroom-color-printing-ra4-en/",
-  "commit_hash": "294fb9d"
+  "r2_upload_status": "success"
 }
