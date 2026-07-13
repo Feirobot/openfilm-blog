@@ -1,53 +1,44 @@
 {
-  "workflow_run_id": "openfilm-20260713-231808",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-latitude-exposure-guide-zh.mdx",
-  "translated_article": "src/content/posts/film-latitude-exposure-guide-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-13T23:40:00+08:00",
+  "workflow_run_id": "openfilm-20260714-120000",
+  "workflow_state": "running",
+  "article": "src/content/posts/darkroom-color-printing-ra4-zh.mdx",
+  "translated_article": "src/content/posts/darkroom-color-printing-ra4-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-14T00:21:35+08:00",
   "retry_count": 0,
-  "images": [
-    "https://media.openfilm.cc/images/film-latitude-exposure-guide/20260713-1.webp",
-    "https://media.openfilm.cc/images/film-latitude-exposure-guide/20260713-2.webp",
-    "https://media.openfilm.cc/images/film-latitude-exposure-guide/20260713-3.webp"
-  ],
-  "images_local": [
-    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/film-latitude-images/characteristic-curve.webp",
-    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/film-latitude-images/negative-vs-reversal.webp",
-    "/root/.qoder-cn/tmp/-root-AIwork-openfilm-blog/film-latitude-images/latitude-chain.webp"
-  ],
-  "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-latitude-exposure-guide-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-latitude-exposure-guide-en/",
-  "commit_hash": "284b684",
   "history": [
     {
       "stage": "draft_created",
-      "at": "2026-07-13T23:18:08+08:00",
+      "at": "2026-07-14T12:00:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片宽容度实战：从负片到反转片，掌握胶片能记录的亮度范围》。避重检查：已盘点 30 篇已有文章。最近似文章：film-metering-techniques-guide-zh（测光技术，聚焦如何测量光线，不涉及胶片乳剂能记录的亮度范围）、film-stock-guide-2026-zh（按型号推荐胶片，不涉及宽容度物理原理和曝光策略差异）、expired-film-photography-guide-zh（过期胶片化学变质，不涉及宽容度概念）、film-color-temperature-control-zh（色温控制，不涉及亮度范围）、film-push-pull-cross-processing-guide-zh（冲洗工艺变量，仅简提宽容度影响但不作为主题）。宽容度作为独立技术+美学专题尚未覆盖：本文从特性曲线物理原理出发，讲彩色负片/反转片/黑白胶片的宽容度差异、负片「宁过勿欠」vs 反转片「保护高光」的曝光策略、扫描后期的「二次宽容度」，以及宽容度限制的审美价值。与测光文章角度不同：测光讲如何测量光线，宽容度讲胶片能记录多大亮度范围。与胶片型号指南角度不同：型号指南按品牌推荐胶片，本文聚焦宽容度这一单一技术维度的深度解析。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《暗房彩色放大指南：用 RA-4 工艺在家制作彩色照片》。避重检查：盘点 31 篇已有文章。最近似文章：darkroom-bw-printmaking-zh（黑白暗房放大，不涉及 RA-4 彩色工艺）、film-color-temperature-control-zh（拍摄时色温控制，不涉及暗房放大滤色）、film-scanning-complete-guide-zh（扫描工作流，不涉及暗房化学）、home-film-developing-guide-zh（底片冲洗，不涉及相纸放大）、contact-sheet-workflow-zh（接触印相工作流，仅涉及筛选不涉及放大）。RA-4 彩色放大作为独立暗房工艺专题尚未覆盖：本文从黑白→彩色的暗房改造切入，详解 RA-4 三步化学流程（显影/漂白定影/水洗）、偏色控制的滤色片原理与补色修正口诀、从负片到相纸的完整放大工作流，以及银盐彩色放大的独特审美价值。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-13T23:30:00+08:00",
+      "at": "2026-07-14T14:32:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译《Film Latitude in Practice: From Negative to Reversal Film, Mastering the Brightness Range Film Can Record》。翻译遵循信达雅原则，摄影术语准确（latitude/characteristic curve/toe/shoulder/exposure/push-pull processing 等），保留全部 MDX 结构、参考链接和代码格式。双语切换链接已添加到中英文版本末尾。"
+      "note": "完成英文翻译《A Guide to Darkroom Color Enlargement: Making Color Prints at Home with the RA-4 Process》。翻译质量自检：摄影术语一致（darkroom/enlargement/developer/bleach-fix/color coupler/filter pack/test strip 等）；MDX 结构与图片引用完整保留；frontmatter 字段完整（title/description/tags 已翻译，日期保留，lang 设为 en，draft 为 true）；双语切换链接已添加至中英文文章末尾。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-13T23:35:00+08:00",
+      "at": "2026-07-14T00:21:35+08:00",
       "by": "画师",
-      "note": "生成 3 张 Notion 风格信息图插画并上传至 R2。图1（1:1 方图）：胶片特性曲线（H&D 曲线），展示趾部、直线部、肩部三个区域。图2（16:9）：负片与反转片曝光策略对比，左侧彩色负片「保护暗部」vs 右侧反转片「保护高光」。图3（16:9）：宽容度传递链，曝光→冲洗→扫描→后期四环节信息衰减。ImageGen 返回 provider 错误，降级为 SVG 信息图后用 sharp 栅格化为 WebP（质量 82）。通过部署临时 Worker（openfilm-img-upload）+ 自定义域名（img.openfilm.cc）中转 base64 数据完成 R2 上传。所有图片已验证 HTTP 200 + Content-Type: image/webp。图片已插入中英文文章对应章节。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-13T23:40:00+08:00",
-      "by": "启航",
-      "note": "校验+构建+发布成功。Astro 构建 76 页面全部通过。Git 推送 284b684 至 main，Cloudflare Pages 部署验证通过。中英文页面 HTTP 200，RSS 已包含新 slug，3 张插画 HTTP 200。workflow_state → completed。"
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
-  ]
+  ],
+  "images": [
+    "https://media.openfilm.cc/images/darkroom-color-printing-ra4/20260714-1.webp",
+    "https://media.openfilm.cc/images/darkroom-color-printing-ra4/20260714-2.webp",
+    "https://media.openfilm.cc/images/darkroom-color-printing-ra4/20260714-3.webp"
+  ],
+  "images_local": [
+    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-color-printing-ra4/20260714-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-color-printing-ra4/20260714-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-color-printing-ra4/20260714-3.webp"
+  ],
+  "first_image_aspect": "1:1",
+  "r2_upload_status": "success"
 }
