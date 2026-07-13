@@ -23,7 +23,6 @@ def run(command: list[str], timeout: int = 600, capture: bool = False) -> str:
 
 
 def http_ok(url: str, contains: str | None = None) -> bool:
-    content_committed = False
     try:
         request = urllib.request.Request(url, headers={"User-Agent": "OpenFilm-Pipeline/1.0"})
         with urllib.request.urlopen(request, timeout=30) as response:
@@ -87,18 +86,43 @@ def main() -> None:
 
     originals = {path: path.read_text(encoding="utf-8") for path in (article, translated)}
     _, title = frontmatter(originals[article])
+    draft_states = [bool(re.search(r"(?m)^draft:\s*true\s*$", text)) for text in originals.values()]
+    if all(draft_states):
+        resume_existing_commit = False
+    elif not any(draft_states):
+        resume_existing_commit = True
+    else:
+        raise RuntimeError("mixed draft states; both bilingual articles must agree")
+
+    content_committed = resume_existing_commit
     try:
-        for path, text in originals.items():
-            updated, count = re.subn(r"(?m)^draft:\s*true\s*$", "draft: false", text, count=1)
-            if count != 1:
-                raise RuntimeError(f"expected draft: true in {path}")
-            path.write_text(updated, encoding="utf-8")
-        run(["npm", "install", "--no-audit", "--no-fund"], timeout=600)
-        run(["npm", "run", "build"], timeout=600)
-        run(["git", "add", "--", status["article"], status["translated_article"], ".pipeline/status.json", ".pipeline/topic.json"])
-        run(["git", "commit", "-m", f"content: 新增文章《{title}》（含双语版本）"])
-        content_committed = True
-        content_commit = run(["git", "rev-parse", "--short", "HEAD"], capture=True)
+        if resume_existing_commit:
+            clean = subprocess.run(["git", "diff", "--quiet", "--", status["article"],
+                                    status["translated_article"]], cwd=REPO).returncode == 0
+            if not clean:
+                raise RuntimeError("draft is false but article files have uncommitted changes")
+            article_commit = run(["git", "log", "-1", "--format=%H", "--", status["article"]], capture=True)
+            translated_commit = run(["git", "log", "-1", "--format=%H", "--", status["translated_article"]], capture=True)
+            if not article_commit or article_commit != translated_commit:
+                raise RuntimeError("bilingual articles were not committed together")
+            content_commit = article_commit[:7]
+            print(json.dumps({"resume": True, "content_commit": content_commit}))
+        else:
+            for path, text in originals.items():
+                updated, count = re.subn(r"(?m)^draft:\s*true\s*$", "draft: false", text, count=1)
+                if count != 1:
+                    raise RuntimeError(f"expected draft: true in {path}")
+                path.write_text(updated, encoding="utf-8")
+            run(["npm", "install", "--no-audit", "--no-fund"], timeout=600)
+            run(["npm", "run", "build"], timeout=600)
+            run(["git", "add", "--", status["article"], status["translated_article"],
+                 ".pipeline/status.json", ".pipeline/topic.json"])
+            staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO).returncode
+            if staged == 0:
+                raise RuntimeError("no staged content changes after preparing publication")
+            run(["git", "commit", "-m", f"content: 新增文章《{title}》（含双语版本）"])
+            content_committed = True
+            content_commit = run(["git", "rev-parse", "--short", "HEAD"], capture=True)
         run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
     except Exception:
         if not content_committed:
@@ -135,7 +159,8 @@ def main() -> None:
     STATUS_PATH.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     TOPIC_PATH.write_text('{"topic": null}\n', encoding="utf-8")
     run(["git", "add", "--", ".pipeline/status.json", ".pipeline/topic.json"])
-    run(["git", "commit", "-m", f"chore: 完成工作流 {status.get('workflow_run_id', '')}"])
+    if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=REPO).returncode != 0:
+        run(["git", "commit", "-m", f"chore: 完成工作流 {status.get('workflow_run_id', '')}"])
     run(["timeout", "3m", ".pipeline/push-with-verify.sh", "2"], timeout=200)
     print(json.dumps({"ok": True, "stage": "published", "commit": content_commit,
                       "zh_url": zh_url, "en_url": en_url, "rss": "verified"}, ensure_ascii=False))

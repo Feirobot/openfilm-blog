@@ -7,6 +7,8 @@
 - `.pipeline/insert-blog-images.py`: inserts bilingual images idempotently and advances the state to `images_generated`.
 - `.pipeline/publish-blog.py`: performs the build, scoped staging, standard Git push, deployment checks, and final state commit.
 
+`publish-blog.py` supports resuming after the bilingual article commit: when both articles are already `draft: false`, clean, and were committed together, it reuses that content commit and continues from push/deployment verification.
+
 Stage tool-call budgets are 18, 10, 20, and 6. A fixed helper failure must stop the stage; agents may not explore an alternative toolchain.
 
 Reference sections use `## 参考资料` / `## References` followed by 3-7 unordered Markdown links in the exact form `- [descriptive title](https://direct-source)`.
