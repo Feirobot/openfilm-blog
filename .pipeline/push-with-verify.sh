@@ -18,6 +18,13 @@ push_and_verify() {
     LOCAL_HEAD=$(git rev-parse HEAD)
     echo "本地 HEAD: $LOCAL_HEAD"
 
+    # 断点续跑时远端引用可能已经与本地一致，无需再访问网络。
+    CURRENT_AHEAD=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo "unknown")
+    if [ "$CURRENT_AHEAD" = "0" ]; then
+        echo "远端引用已与本地同步，跳过重复推送"
+        return 0
+    fi
+
     # 执行推送（带超时）
     if timeout 180 git push origin main 2>&1; then
         echo "推送命令执行成功"
