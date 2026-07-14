@@ -1,51 +1,48 @@
 {
-  "workflow_run_id": "openfilm-20260714-170500",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-negative-archival-storage-zh.mdx",
-  "translated_article": "src/content/posts/film-negative-archival-storage-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-14T02:13:26+08:00",
+  "workflow_run_id": "openfilm-20260715-010022",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-lens-optics-classic-designs-zh.mdx",
+  "translated_article": "src/content/posts/film-lens-optics-classic-designs-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-15T01:09:08+08:00",
   "retry_count": 0,
   "history": [
     {
-      "stage": "draft_created",
-      "at": "2026-07-14T17:05:00+08:00",
+      "stage": "initializing",
+      "at": "2026-07-15T01:00:22+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片底片的物理保存与长期档案管理：让银盐影像活过下个世纪》。避重检查：盘点 33 篇已有文章。最相近文章：film-photography-personal-archive-zh（个人记忆档案，侧重拍摄习惯与数字归档管理，不涉及底片物理保存化学）、darkroom-bw-printmaking-zh（暗房黑白放相，聚焦印相工艺不涉及存储）、film-scanning-complete-guide-zh（扫描方案对比，不涉及保存策略）。底片物理保存作为独立专题尚未覆盖：本文从片基材料化学（醋酸综合症、聚酯片基）切入，拆解温湿度控制（ISO 18902 标准）、封装材料选择（PAT 认证）、醋酸综合症监测（A-D Strip）、操作规范，以及物理保存与数字备份的双轨制策略。选题为自主选题（topic.json 为空）。"
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-15T01:05:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《胶片摄影中的镜头光学：经典设计如何塑造影像风格》。避重检查：盘点 34 篇已有文章，最相近文章包括 film-rangefinder-camera-guide-zh（旁轴相机指南，聚焦测距联动与区域对焦，不涉及镜头光学设计）、medium-format-film-photography-guide-zh（中画幅入门，聚焦画幅差异与机型对比）、compact-film-camera-buying-guide-zh（紧凑型相机选购，不涉及光学结构分析）、film-grain-aesthetics-zh（颗粒美学，聚焦乳剂结构不涉及镜头光学）。镜头光学设计（双高斯、松纳、天塞结构、镀膜代际差异、像差与焦外成像）作为独立专题尚未覆盖。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-14T22:30:00+08:00",
+      "at": "2026-07-15T01:12:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译。译文保留全部 MDX 结构、图片引用和代码块，frontmatter 已翻译（title/description/tags），设置 lang:en、draft:true。参考资料 6 条完整保留 URL 并翻译描述文字。中英文版本均已添加双语切换链接。"
+      "note": "完成英文翻译《Lens Optics in Film Photography: How Classic Designs Shape Image Character》。翻译质量自检：摄影术语一致（Double Gauss/Sonnar/Tessar、球差/慧差/像散、H-D 曲线等），MDX 结构完整保留，Frontmatter 字段完整（lang 设为 en，draft 为 true），参考资料 6 条链接及描述全部翻译并保留原始 URL，中英文双语切换链接已添加。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-14T01:43:40+08:00",
+      "at": "2026-07-15T01:09:08+08:00",
       "by": "画师",
       "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-14T02:13:26+08:00",
-      "by": "启航",
-      "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 8f5d467。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-negative-archival-storage/20260714-1.webp",
-    "https://media.openfilm.cc/images/film-negative-archival-storage/20260714-2.webp"
+    "https://media.openfilm.cc/images/film-lens-optics-classic-designs/20260715-1.webp",
+    "https://media.openfilm.cc/images/film-lens-optics-classic-designs/20260715-2.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-negative-archival-storage/20260714-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-negative-archival-storage/20260714-2.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-lens-optics-classic-designs/20260715-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-lens-optics-classic-designs/20260715-2.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-negative-archival-storage-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-negative-archival-storage-en/",
-  "commit_hash": "8f5d467"
+  "r2_upload_status": "success"
 }
