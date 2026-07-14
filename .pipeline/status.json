@@ -1,57 +1,48 @@
 {
-  "workflow_run_id": "openfilm-20260715-012615",
-  "workflow_state": "completed",
-  "article": "src/content/posts/darkroom-enlarger-optics-guide-zh.mdx",
-  "translated_article": "src/content/posts/darkroom-enlarger-optics-guide-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-15T01:38:01+08:00",
+  "workflow_run_id": "openfilm-20260715-013908",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-chemistry-environmental-impact-zh.mdx",
+  "translated_article": "src/content/posts/film-chemistry-environmental-impact-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-15T01:46:14+08:00",
   "retry_count": 0,
   "history": [
     {
       "stage": "initializing",
-      "at": "2026-07-15T01:26:15+08:00",
+      "at": "2026-07-15T01:39:08+08:00",
       "by": "胶片编辑",
       "note": "已获取原子工作流锁，开始新一轮选题与写作。"
     },
     {
       "stage": "draft_created",
-      "at": "2026-07-15T01:28:00+08:00",
+      "at": "2026-07-15T01:42:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《暗房放大机：从聚光到扩散，理解底片到相纸的光学桥梁》。避重检查：盘点 35 篇已有文章，最相近文章包括 darkroom-bw-printmaking-zh（暗房黑白放相工艺，聚焦放大印相操作流程如试条法、遮挡加光、相纸反差控制，不涉及放大机设备本身的光学设计）、darkroom-color-printing-ra4-zh（暗房彩色放大 RA-4 工艺，聚焦化学流程和偏色校正，不涉及放大机照明系统对比）、contact-sheet-workflow-zh（接触印相工作流，不涉及放大投影）。暗房放大机作为独立设备专题尚未覆盖：本文从聚光式与扩散式照明哲学的根本差异切入，拆解 Callier 效应、放大镜头光学（天塞/海利亚结构）、光源代际（卤素→CCFL→LED）、调焦校准与光学校正等具体技术点。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《胶片摄影的环境代价：化学药品的生态影响与可持续实践》。避重检查：盘点 36 篇已有文章，最相近文章包括 home-film-developing-guide-zh（在家冲洗，聚焦操作流程和温度控制，不涉及化学品环境归趋）、darkroom-color-printing-ra4-zh（RA-4 工艺，聚焦化学流程和偏色校正，不涉及废液处理）、film-push-pull-cross-processing-guide-zh（迫冲迫减交叉冲洗，聚焦风格变量，不涉及环保）、summer-film-photography-guide-zh（夏日保存，不涉及化学品环境影响）。胶片化学药品的环境影响作为独立专题尚未覆盖：本文从 C-41/E-6 化学成分（CD-4 芳香胺、EDTA 螯合剂、对苯二酚）切入，拆解银回收技术（电解法/金属置换法）、可持续替代显影液（Caffenol、Rodinal 长寿命配方、无对苯二酚配方）、废液分类收集规范和冲洗实验室责任实践，兼具技术深度和人文反思。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-15T01:35:00+08:00",
+      "at": "2026-07-15T01:50:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译《The Darkroom Enlarger: From Condenser to Diffusion — Understanding the Optical Bridge from Negative to Print》。翻译覆盖全部章节（基本光路、聚光/扩散对比、放大镜头、光源系统、调焦校准、选购考量、结语、参考资料5条）。摄影术语一致性通过，MDX结构完整保留，双语切换链接已添加。"
+      "note": "完成英文翻译《The Environmental Cost of Film Photography: The Ecological Impact of Darkroom Chemicals and Sustainable Practices》。翻译覆盖全部章节（C-41/E-6成分、黑白冲洗、银回收、Caffenol与替代显影液、制造与包装足迹、冲洗实验室责任、个人实践策略、结语、参考资料5条）。摄影术语一致性通过，MDX结构完整保留，双语切换链接已添加。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-15T01:35:18+08:00",
+      "at": "2026-07-15T01:46:14+08:00",
       "by": "画师",
       "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-15T01:38:01+08:00",
-      "by": "启航",
-      "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 17f3b43。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/darkroom-enlarger-optics-guide/20260715-1.webp",
-    "https://media.openfilm.cc/images/darkroom-enlarger-optics-guide/20260715-2.webp"
+    "https://media.openfilm.cc/images/film-chemistry-environmental-impact/20260715-1.webp",
+    "https://media.openfilm.cc/images/film-chemistry-environmental-impact/20260715-2.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-enlarger-optics-guide/20260715-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/darkroom-enlarger-optics-guide/20260715-2.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-chemistry-environmental-impact/20260715-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-chemistry-environmental-impact/20260715-2.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/darkroom-enlarger-optics-guide-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/darkroom-enlarger-optics-guide-en/",
-  "commit_hash": "17f3b43"
+  "r2_upload_status": "success"
 }
