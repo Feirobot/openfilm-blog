@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260716-010015",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-scan-color-inversion-workflow-zh.mdx",
-  "translated_article": "src/content/posts/film-scan-color-inversion-workflow-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-16T01:26:05+08:00",
+  "workflow_run_id": "openfilm-20260716-013707",
+  "workflow_state": "running",
+  "article": "src/content/posts/bw-film-developer-comparison-zh.mdx",
+  "translated_article": "src/content/posts/bw-film-developer-comparison-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-16T01:47:18+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -69,19 +69,40 @@
       "at": "2026-07-16T01:26:05+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 db047a6。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-16T01:37:07+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-16T01:42:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《黑白显影液图鉴：从 D-76 到 Rodinal，理解每种冲洗液的化学个性》。避重检查：盘点 37 篇已有文章，最相近文章包括 home-film-developing-guide-zh（在家冲洗，聚焦黑白/C-41/E-6 三大工艺的操作流程和温度控制，不涉及不同显影液配方的对比分析）、film-push-pull-cross-processing-guide-zh（迫冲迫减交叉冲洗，聚焦冲洗时间/温度/工艺变量的风格效果，不涉及显影液本身的化学配方差异）、film-grain-aesthetics-zh（颗粒美学，聚焦乳剂结构和曝光/扫描变量，不涉及显影液对颗粒的影响）、film-chemistry-environmental-impact-zh（环境影响，聚焦废液处理和可持续实践，不涉及显影液配方对比）。黑白显影液配方系统对比作为独立专题尚未覆盖：本文从显影液四类核心成分（显影剂/促进剂/保护剂/抑制剂）切入，拆解八款经典显影液（D-76、HC-110、XTOL、Rodinal、Ilfosol 3、DD-X、Pyrocat-HD、Caffenol）的配方逻辑和视觉特征，提供基于创作意图的选择框架，兼具化学深度和实践指导价值。选题为自主选题（topic.json 为空）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-16T01:48:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《A Field Guide to Black-and-White Developers: From D-76 to Rodinal, Understanding the Chemical Personality of Each Formula》。翻译覆盖全部章节（四类核心变量、八款显影液拆解：D-76/ID-11、HC-110、XTOL、Rodinal、Ilfosol 3、DD-X、Pyrocat-HD、Caffenol，选择框架、结语、参考资料6条）。摄影术语一致性通过（developer/grain/acutance/edge effect/stand development/staining developer/compensating effect 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-16T01:47:18+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-scan-color-inversion-workflow/20260716-1.webp",
-    "https://media.openfilm.cc/images/film-scan-color-inversion-workflow/20260716-2.webp"
+    "https://media.openfilm.cc/images/bw-film-developer-comparison/20260716-1.webp",
+    "https://media.openfilm.cc/images/bw-film-developer-comparison/20260716-2.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-scan-color-inversion-workflow/20260716-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-scan-color-inversion-workflow/20260716-2.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/bw-film-developer-comparison/20260716-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/bw-film-developer-comparison/20260716-2.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-scan-color-inversion-workflow-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-scan-color-inversion-workflow-en/",
-  "commit_hash": "db047a6"
+  "r2_upload_status": "success"
 }
