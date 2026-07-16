@@ -1,117 +1,50 @@
 {
-  "workflow_run_id": "openfilm-20260716-013707",
-  "workflow_state": "completed",
-  "article": "src/content/posts/bw-film-developer-comparison-zh.mdx",
-  "translated_article": "src/content/posts/bw-film-developer-comparison-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-16T01:49:23+08:00",
+  "workflow_run_id": "openfilm-20260717-010017",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-reciprocity-failure-schwarzschild-zh.mdx",
+  "translated_article": "src/content/posts/film-reciprocity-failure-schwarzschild-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-17T01:10:34+08:00",
   "retry_count": 0,
   "history": [
     {
       "stage": "initializing",
-      "at": "2026-07-15T01:39:08+08:00",
+      "at": "2026-07-17T01:00:17+08:00",
       "by": "胶片编辑",
       "note": "已获取原子工作流锁，开始新一轮选题与写作。"
     },
     {
       "stage": "draft_created",
-      "at": "2026-07-15T01:42:00+08:00",
+      "at": "2026-07-17T01:08:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片摄影的环境代价：化学药品的生态影响与可持续实践》。避重检查：盘点 36 篇已有文章，最相近文章包括 home-film-developing-guide-zh（在家冲洗，聚焦操作流程和温度控制，不涉及化学品环境归趋）、darkroom-color-printing-ra4-zh（RA-4 工艺，聚焦化学流程和偏色校正，不涉及废液处理）、film-push-pull-cross-processing-guide-zh（迫冲迫减交叉冲洗，聚焦风格变量，不涉及环保）、summer-film-photography-guide-zh（夏日保存，不涉及化学品环境影响）。胶片化学药品的环境影响作为独立专题尚未覆盖：本文从 C-41/E-6 化学成分（CD-4 芳香胺、EDTA 螯合剂、对苯二酚）切入，拆解银回收技术（电解法/金属置换法）、可持续替代显影液（Caffenol、Rodinal 长寿命配方、无对苯二酚配方）、废液分类收集规范和冲洗实验室责任实践，兼具技术深度和人文反思。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《胶片倒易律失效与 Schwarzschild 校正：长曝光背后的物理真相》。避重检查：盘点 39 篇已有文章，最相近文章包括 film-night-photography-guide-zh（夜景指南，约 400 字简述倒易律失效和 3 款胶片示例，未涉及 Schwarzschild 方程、彩色偏移机制、短曝光倒易律和系统化校正工作流）、film-metering-techniques-guide-zh（测光指南，聚焦反射/入射测光和补偿策略，不涉及倒易律失效的数学模型）、film-latitude-exposure-guide-zh（宽容度指南，聚焦乳剂可记录亮度范围，不涉及长曝光效率衰减）、infrared-film-photography-guide-zh（红外摄影，涉及长曝光但未讨论倒易律失效物理）。倒易律失效与 Schwarzschild 校正作为独立深度专题尚未覆盖：本文从卤化银晶体量子效率的物理机制切入，引入 Schwarzschild 经验方程（E=I×t^p）量化校正，拆解 9 款主流胶片的 p 值对比表、彩色胶片三层乳剂差异化衰减导致的色彩偏移（Portra 偏绿/Ektar 偏青洋红/Pro 400H 偏橙）、CC 滤镜预校正策略、六步校正工作流、创意应用（故意延长曝光/利用偏色/选择性感光）和短曝光 HIRF 边界讨论。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
-      "at": "2026-07-15T01:50:00+08:00",
+      "at": "2026-07-17T01:15:00+08:00",
       "by": "启航",
-      "note": "完成英文翻译《The Environmental Cost of Film Photography: The Ecological Impact of Darkroom Chemicals and Sustainable Practices》。翻译覆盖全部章节（C-41/E-6成分、黑白冲洗、银回收、Caffenol与替代显影液、制造与包装足迹、冲洗实验室责任、个人实践策略、结语、参考资料5条）。摄影术语一致性通过，MDX结构完整保留，双语切换链接已添加。"
+      "note": "完成英文翻译《Reciprocity Failure and Schwarzschild Correction in Film Photography: The Physics Behind Long Exposures》。翻译覆盖全部章节（倒易律失效物理根源、Schwarzschild 方程、9 款胶片 p 值对比表、彩色偏移机制与 CC 滤镜策略、六步校正工作流、创意应用、短曝光 HIRF 边界、结语、参考资料 5 条）。摄影术语一致性通过（reciprocity failure/Schwarzschild coefficient/latent image speck/LIRF/HIRF/CC filter/color shift 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
     },
     {
       "stage": "images_generated",
-      "at": "2026-07-15T01:46:14+08:00",
+      "at": "2026-07-17T01:10:34+08:00",
       "by": "画师",
-      "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-15T01:47:52+08:00",
-      "by": "启航",
-      "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 430d639。"
-    },
-    {
-      "stage": "initializing",
-      "at": "2026-07-16T01:00:15+08:00",
-      "by": "胶片编辑",
-      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
-    },
-    {
-      "stage": "draft_created",
-      "at": "2026-07-16T01:05:00+08:00",
-      "by": "胶片编辑",
-      "note": "创建中文草稿《胶片扫描后的色彩反转与调色工作流：从橙色蒙版到输出级影像》。避重检查：盘点 36 篇已有文章，最相近文章包括 film-scanning-complete-guide-zh（扫描完全指南，聚焦四种硬件路径对比，不涉及扫描后的色彩反转与调色）、film-color-temperature-control-zh（色温控制，聚焦拍摄端光源识别和滤镜校正，不涉及扫描后处理）、darkroom-color-printing-ra4-zh（RA-4 暗房彩色放大，聚焦光学放大工艺而非数字扫描工作流）、film-grain-aesthetics-zh（颗粒美学，聚焦乳剂结构和视觉风格，不涉及色彩管理）。胶片扫描后的色彩反转与调色工作流作为独立专题尚未覆盖：本文从彩色负片橙色蒙版的物理原理切入，拆解三条反转路径（驱动自动反转、手动黑白点反转、Negative Lab Pro 等专用插件）、ICC 配置与 IT8 校准、色彩空间选择策略、曲线分离调色与 HSL 局部调整、软打样与输出一致性控制、批量处理策略，兼具技术深度和工作流实践价值。选题为自主选题（topic.json 为空）。"
-    },
-    {
-      "stage": "translated",
-      "at": "2026-07-16T01:15:00+08:00",
-      "by": "启航",
-      "note": "完成英文翻译《Color Inversion and Grading Workflow After Film Scanning: From the Orange Mask to Output-Ready Images》。翻译覆盖全部章节（橙色蒙版原理、三条反转路径、ICC配置与IT8校准、色彩空间选择、基础校正与风格化调色、输出一致性、批量处理策略、结语、参考资料6条）。摄影术语一致性通过（film/scanner/ICC profile/soft proofing/HSL/LUT等），MDX结构完整保留，双语切换链接已添加并修正为-en后缀slug。"
-    },
-    {
-      "stage": "images_generated",
-      "at": "2026-07-16T01:09:14+08:00",
-      "by": "画师",
-      "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-16T01:26:05+08:00",
-      "by": "启航",
-      "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 db047a6。"
-    },
-    {
-      "stage": "initializing",
-      "at": "2026-07-16T01:37:07+08:00",
-      "by": "胶片编辑",
-      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
-    },
-    {
-      "stage": "draft_created",
-      "at": "2026-07-16T01:42:00+08:00",
-      "by": "胶片编辑",
-      "note": "创建中文草稿《黑白显影液图鉴：从 D-76 到 Rodinal，理解每种冲洗液的化学个性》。避重检查：盘点 37 篇已有文章，最相近文章包括 home-film-developing-guide-zh（在家冲洗，聚焦黑白/C-41/E-6 三大工艺的操作流程和温度控制，不涉及不同显影液配方的对比分析）、film-push-pull-cross-processing-guide-zh（迫冲迫减交叉冲洗，聚焦冲洗时间/温度/工艺变量的风格效果，不涉及显影液本身的化学配方差异）、film-grain-aesthetics-zh（颗粒美学，聚焦乳剂结构和曝光/扫描变量，不涉及显影液对颗粒的影响）、film-chemistry-environmental-impact-zh（环境影响，聚焦废液处理和可持续实践，不涉及显影液配方对比）。黑白显影液配方系统对比作为独立专题尚未覆盖：本文从显影液四类核心成分（显影剂/促进剂/保护剂/抑制剂）切入，拆解八款经典显影液（D-76、HC-110、XTOL、Rodinal、Ilfosol 3、DD-X、Pyrocat-HD、Caffenol）的配方逻辑和视觉特征，提供基于创作意图的选择框架，兼具化学深度和实践指导价值。选题为自主选题（topic.json 为空）。"
-    },
-    {
-      "stage": "translated",
-      "at": "2026-07-16T01:48:00+08:00",
-      "by": "启航",
-      "note": "完成英文翻译《A Field Guide to Black-and-White Developers: From D-76 to Rodinal, Understanding the Chemical Personality of Each Formula》。翻译覆盖全部章节（四类核心变量、八款显影液拆解：D-76/ID-11、HC-110、XTOL、Rodinal、Ilfosol 3、DD-X、Pyrocat-HD、Caffenol，选择框架、结语、参考资料6条）。摄影术语一致性通过（developer/grain/acutance/edge effect/stand development/staining developer/compensating effect 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
-    },
-    {
-      "stage": "images_generated",
-      "at": "2026-07-16T01:47:18+08:00",
-      "by": "画师",
-      "note": "固定媒体工具完成 2 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
-    },
-    {
-      "stage": "published",
-      "at": "2026-07-16T01:49:23+08:00",
-      "by": "启航",
-      "note": "固定发布工具完成构建、推送及中英文页面、RSS、2 张图片验证。内容提交 bf60548。"
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/bw-film-developer-comparison/20260716-1.webp",
-    "https://media.openfilm.cc/images/bw-film-developer-comparison/20260716-2.webp"
+    "https://media.openfilm.cc/images/film-reciprocity-failure-schwarzschild/20260717-1.webp",
+    "https://media.openfilm.cc/images/film-reciprocity-failure-schwarzschild/20260717-2.webp",
+    "https://media.openfilm.cc/images/film-reciprocity-failure-schwarzschild/20260717-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/bw-film-developer-comparison/20260716-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/bw-film-developer-comparison/20260716-2.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-reciprocity-failure-schwarzschild/20260717-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-reciprocity-failure-schwarzschild/20260717-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-reciprocity-failure-schwarzschild/20260717-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/bw-film-developer-comparison-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/bw-film-developer-comparison-en/",
-  "commit_hash": "bf60548"
+  "r2_upload_status": "success"
 }
