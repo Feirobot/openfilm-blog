@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260717-010017",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-reciprocity-failure-schwarzschild-zh.mdx",
-  "translated_article": "src/content/posts/film-reciprocity-failure-schwarzschild-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-17T01:15:13+08:00",
+  "workflow_run_id": "openfilm-20260718-010015",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-camera-shutter-mechanics-zh.mdx",
+  "translated_article": "src/content/posts/film-camera-shutter-mechanics-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-18T01:07:51+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -39,21 +39,42 @@
       "at": "2026-07-17T01:15:13+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 a6a4663。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-18T01:00:15+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-18T01:08:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《胶片相机的快门机械：焦平面、镜间与快门系统的物理逻辑》。避重检查：盘点 40 篇已有文章，最相近文章包括 film-camera-maintenance-repair-zh（相机维护与修理，聚焦保养和 CLA 服务，不涉及快门系统的机械原理拆解）、film-lens-optics-classic-designs-zh（镜头光学，讨论光学结构与镀膜，不涉及快门叶片和同步机制）、film-rangefinder-camera-guide-zh（旁轴相机指南，讨论测距联动机构，不涉及快门类型对比）、darkroom-enlarger-optics-guide-zh（放大机光学，与相机快门无关）。快门机械作为独立深度专题尚未覆盖：本文从焦平面快门的布帘到金属帘演进、横走与纵走的行程差异、狭缝曝光机制、镜间快门的叶片结构、X 同步与 FP 同步的物理约束、快门精度与老化漂移检测、快门振动与机震控制、反光镜预升、T/B 门长曝光等角度系统展开，并讨论快门类型对拍摄哲学的影响（安静 vs 精确、街头 vs 运动场）。选题为自主选题（topic.json 为空）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-18T01:15:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Focal Plane, Leaf Shutter, and the Physics of Shutter Systems in Film Cameras》。翻译覆盖全部章节（焦平面快门布帘到金属帘演进、镜间快门叶片结构、X/FP 同步物理约束、快门精度与老化漂移、快门振动与机震控制、T/B 门长曝光、快门作为时间哲学、参考资料 5 条）。摄影术语一致性通过（focal plane shutter/leaf shutter/horizontal-travel/vertical-travel/X-sync/FP-sync/mirror slap/mirror lock-up/escapement 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-18T01:07:51+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-reciprocity-failure-schwarzschild/20260717-1.webp",
-    "https://media.openfilm.cc/images/film-reciprocity-failure-schwarzschild/20260717-2.webp",
-    "https://media.openfilm.cc/images/film-reciprocity-failure-schwarzschild/20260717-3.webp"
+    "https://media.openfilm.cc/images/film-camera-shutter-mechanics/20260718-1.webp",
+    "https://media.openfilm.cc/images/film-camera-shutter-mechanics/20260718-2.webp",
+    "https://media.openfilm.cc/images/film-camera-shutter-mechanics/20260718-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-reciprocity-failure-schwarzschild/20260717-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-reciprocity-failure-schwarzschild/20260717-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-reciprocity-failure-schwarzschild/20260717-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-shutter-mechanics/20260718-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-shutter-mechanics/20260718-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-shutter-mechanics/20260718-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-reciprocity-failure-schwarzschild-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-reciprocity-failure-schwarzschild-en/",
-  "commit_hash": "a6a4663"
+  "r2_upload_status": "success"
 }
