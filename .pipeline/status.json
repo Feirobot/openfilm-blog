@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260720-191111",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-camera-viewfinder-systems-zh.mdx",
-  "translated_article": "src/content/posts/film-camera-viewfinder-systems-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-20T19:31:02+08:00",
+  "workflow_run_id": "openfilm-20260721-010019",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-camera-advance-mechanism-zh.mdx",
+  "translated_article": "src/content/posts/film-camera-advance-mechanism-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-21T01:09:00+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -99,21 +99,42 @@
       "at": "2026-07-20T19:31:02+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 44dbab1。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-21T01:00:19+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-21T01:05:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《胶片相机的过片机构：从旋钮到拨杆到电动卷片的机械演进》。避重检查：盘点 42 篇已有文章，最相近文章包括 film-camera-shutter-mechanics-zh（快门机械，讨论焦平面/镜间快门类型、同步机制和精度，不涉及过片拨杆/旋钮/电动卷片的机械结构）、film-camera-viewfinder-systems-zh（取景器系统，讨论取景光路，不涉及过片机构）、film-camera-maintenance-repair-zh（相机维护，涉及 CLA 和一般保养，不涉及过片棘轮/联动上弦/双重曝光防止的机械拆解）、compact-film-camera-buying-guide-zh（选购指南，不涉及机械原理）。过片机构作为独立深度专题尚未覆盖：本文从旋钮卷片的收片轴扭矩与帧间距物理约束、拨杆过片的棘轮与齿轮比放大、过片与快门上弦的凸轮-棘爪联动、双重曝光防止的机械互锁、电动卷片的离心调速与电子停位、中画幅过片特殊性（曲柄/卷片窗/自动停位）、收片轴卷绕直径变化的物理问题、棘轮磨损与弹簧疲劳的维护诊断等角度系统展开，并讨论过片节奏对拍摄哲学的影响（手动间隙的呼吸感 vs 电动连拍的惯性流）。选题为自主选题（topic.json 为空）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-21T01:15:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Film Advance Mechanisms: The Mechanical Evolution from Knob to Lever to Motor Drive》。翻译覆盖全部章节（旋钮卷片物理约束、拨杆过片棘轮与齿轮比、凸轮-棘爪联动上弦与双重曝光防止、电动卷片离心调速与电子停位、中画幅曲柄/卷片窗/自动停位、收片轴卷绕直径物理、棘轮磨损与弹簧疲劳维护、过片节奏与拍摄哲学、参考资料 5 条）。摄影术语一致性通过（knob winding/rapid-wind lever/take-up spool/ratchet/cam-and-pawl/motor drive/centrifugal governor/multiple-exposure prevention/red window/auto-stop/frame spacing 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-21T01:09:00+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-camera-viewfinder-systems/20260720-1.webp",
-    "https://media.openfilm.cc/images/film-camera-viewfinder-systems/20260720-2.webp",
-    "https://media.openfilm.cc/images/film-camera-viewfinder-systems/20260720-3.webp"
+    "https://media.openfilm.cc/images/film-camera-advance-mechanism/20260721-1.webp",
+    "https://media.openfilm.cc/images/film-camera-advance-mechanism/20260721-2.webp",
+    "https://media.openfilm.cc/images/film-camera-advance-mechanism/20260721-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-viewfinder-systems/20260720-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-viewfinder-systems/20260720-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-viewfinder-systems/20260720-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-advance-mechanism/20260721-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-advance-mechanism/20260721-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-advance-mechanism/20260721-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-camera-viewfinder-systems-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-camera-viewfinder-systems-en/",
-  "commit_hash": "44dbab1"
+  "r2_upload_status": "success"
 }
