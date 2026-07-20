@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260718-010015",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-camera-shutter-mechanics-zh.mdx",
-  "translated_article": "src/content/posts/film-camera-shutter-mechanics-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-18T01:10:22+08:00",
+  "workflow_run_id": "openfilm-20260720-191111",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-camera-viewfinder-systems-zh.mdx",
+  "translated_article": "src/content/posts/film-camera-viewfinder-systems-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-20T19:18:57+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -69,21 +69,42 @@
       "at": "2026-07-18T01:10:22+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 e8556e2。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-20T19:11:11+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-20T19:12:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《胶片相机的取景器系统：从腰平磨砂玻璃到棱镜取景的物理逻辑》。避重检查：盘点 41 篇已有文章，最相近文章包括 film-rangefinder-camera-guide-zh（旁轴相机指南，聚焦测距联动机构和黄斑对焦，仅约 200 字提及旁轴取景器亮线框，未系统拆解取景器光路）、film-lens-optics-classic-designs-zh（镜头光学，讨论镜头光学结构，不涉及取景器系统）、film-camera-shutter-mechanics-zh（快门机械，讨论快门类型，不涉及取景器）、darkroom-enlarger-optics-guide-zh（放大机光学，与相机取景器无关）、film-camera-maintenance-repair-zh（相机维护，涉及取景器清洁但不涉及光学设计）。取景器系统作为独立深度专题尚未覆盖：本文从大画幅磨砂玻璃（菲涅尔透镜组合、沙姆定律可视化）、双反腰平取景器（视差补偿、左右颠倒构图）、五棱镜头平取景器（放大倍率、视野率、反射面镀膜差异）、旁轴光学取景器（亮线框、基线长度与对焦精度、自动视差补偿）四大类系统展开，并讨论取景器类型对拍摄哲学的影响（腰平隐蔽性、SLR 透明直觉、旁轴超额视野）。选题为自主选题（topic.json 为空）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-20T19:20:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Viewfinder Systems in Film Cameras: From Waist-Level Ground Glass to Prism Viewfinding》。翻译覆盖全部章节（磨砂玻璃与菲涅尔透镜、腰平取景器视差与左右颠倒、五棱镜放大倍率与视野率、旁轴亮线框与基线对焦、取景器与拍摄哲学、参考资料 5 条）。摄影术语一致性通过（ground glass/Fresnel lens/waist-level finder/pentaprism/rangefinder/brightline frame/parallax compensation/Scheimpflug principle/baseline 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-20T19:18:57+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-camera-shutter-mechanics/20260718-1.webp",
-    "https://media.openfilm.cc/images/film-camera-shutter-mechanics/20260718-2.webp",
-    "https://media.openfilm.cc/images/film-camera-shutter-mechanics/20260718-3.webp"
+    "https://media.openfilm.cc/images/film-camera-viewfinder-systems/20260720-1.webp",
+    "https://media.openfilm.cc/images/film-camera-viewfinder-systems/20260720-2.webp",
+    "https://media.openfilm.cc/images/film-camera-viewfinder-systems/20260720-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-shutter-mechanics/20260718-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-shutter-mechanics/20260718-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-shutter-mechanics/20260718-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-viewfinder-systems/20260720-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-viewfinder-systems/20260720-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-viewfinder-systems/20260720-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-camera-shutter-mechanics-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-camera-shutter-mechanics-en/",
-  "commit_hash": "e8556e2"
+  "r2_upload_status": "success"
 }
