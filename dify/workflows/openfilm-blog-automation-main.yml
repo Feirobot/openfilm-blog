@@ -1,0 +1,1243 @@
+app:
+  description: Openfilm 博客自动化主工作流：定时触发、读取仓库避重、胶片编辑、翻译配图，并为后续校验提交做准备。
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: Openfilm 博客自动化主工作流
+  use_icon_as_answer_icon: false
+dependencies: []
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: code
+      id: 1783342855858-source-1783343112414-target
+      source: '1783342855858'
+      sourceHandle: source
+      target: '1783343112414'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: http-request
+      id: 1783343112414-source-openfilm-repo-tree-target
+      selected: false
+      source: '1783343112414'
+      sourceHandle: source
+      target: openfilm-repo-tree
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: openfilm-repo-tree-source-openfilm-existing-posts-target
+      source: openfilm-repo-tree
+      sourceHandle: source
+      target: openfilm-existing-posts
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: agent
+      id: openfilm-existing-posts-source-1783343400944-target
+      selected: false
+      source: openfilm-existing-posts
+      sourceHandle: source
+      target: '1783343400944'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: code
+      id: 1783343400944-source-openfilm-editor-end-target
+      source: '1783343400944'
+      sourceHandle: source
+      target: openfilm-parse-editor-json
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: openfilm-parse-editor-json-source-openfilm-editor-end-target
+      source: openfilm-parse-editor-json
+      sourceHandle: source
+      target: '1783350100000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1783350100000-source-openfilm-translator-visual-target
+      source: '1783350100000'
+      sourceHandle: source
+      target: openfilm-translator-visual
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: openfilm-translator-visual-source-openfilm-parse-translator-visual-target
+      source: openfilm-translator-visual
+      sourceHandle: source
+      target: openfilm-parse-translator-visual
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: openfilm-parse-translator-visual-source-openfilm-update-task-state-target
+      source: openfilm-parse-translator-visual
+      sourceHandle: source
+      target: openfilm-update-task-state
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: openfilm-update-task-state-source-openfilm-review-submit-agent-target
+      source: openfilm-update-task-state
+      sourceHandle: source
+      target: openfilm-review-submit-agent
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: openfilm-review-submit-agent-source-openfilm-parse-review-submit-target
+      source: openfilm-review-submit-agent
+      sourceHandle: source
+      target: openfilm-parse-review-submit
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: openfilm-parse-review-submit-source-openfilm-editor-end-target
+      source: openfilm-parse-review-submit
+      sourceHandle: source
+      target: openfilm-editor-end
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        frequency: daily
+        mode: visual
+        selected: false
+        timezone: Asia/Shanghai
+        title: 定时触发器
+        type: trigger-schedule
+        visual_config:
+          monthly_days:
+          - 1
+          on_minute: 0
+          time: 4:00 AM
+          weekdays:
+          - sun
+      height: 130
+      id: '1783342855858'
+      position:
+        x: -439.79999999999995
+        y: 381
+      positionAbsolute:
+        x: -439.79999999999995
+        y: 381
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nfrom datetime import datetime, timezone, timedelta\n\n\ndef main(arg1: str = \"\", arg2: str = \"\") -> dict:\n    now = datetime.now(timezone(timedelta(hours=8)))\n    state = {\n        \"job_id\": \"openfilm-\" + now.strftime(\"%Y-%m-%d-%H%M%S\"),\n        \"triggered_at\": now.isoformat(),\n        \"status\": \"started\",\n        \"topic_hint\": \"\",\n        \"content_type\": \"film_editorial\",\n        \"language\": \"zh-CN\",\n        \"word_count\": \"1200-1800\",\n        \"current_agent\": \"film_editor\",\n        \"steps\": {\n            \"editor\": \"pending\",\n            \"translator_visual\": \"pending\",\n            \"review_submit\": \"pending\"\n        }\n    }\n    return {\"result\": json.dumps(state, ensure_ascii=False)}\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1317
+        selected: false
+        title: 初始化任务状态
+        type: code
+        variables: []
+      height: 82
+      id: '1783343112414'
+      position:
+        x: -177.99999999999997
+        y: 402
+      positionAbsolute:
+        x: -177.99999999999997
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: 读取 Feirobot/openfilm-blog 仓库文件树，用于识别已有文章，避免重复选题。
+        headers: 'Accept:application/vnd.github+json
+
+          User-Agent:Dify-Openfilm-Agent'
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: 读取仓库文章列表
+        type: http-request
+        url: https://api.github.com/repos/Feirobot/openfilm-blog/git/trees/main?recursive=1
+        variables: []
+      height: 126
+      id: openfilm-repo-tree
+      position:
+        x: 80
+        y: 402
+      positionAbsolute:
+        x: 80
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\nFALLBACK_PATHS = [\n    'src/content/posts/alternative-process-photography-revival-zh.mdx',\n    'src/content/posts/black-white-film-art-selection-zh.mdx',\n    'src/content/posts/compact-film-camera-buying-guide-zh.mdx',\n    'src/content/posts/disposable-camera-processing-crisis-zh.mdx',\n    'src/content/posts/disposable-cameras-and-the-film-look.md',\n    'src/content/posts/expired-film-photography-guide-zh.mdx',\n    'src/content/posts/film-camera-maintenance-repair-zh.mdx',\n    'src/content/posts/film-landscape-photography-guide-zh.mdx',\n    'src/content/posts/film-multiple-exposure-creative-guide-zh.mdx',\n    'src/content/posts/film-night-photography-guide-zh.mdx',\n    'src/content/posts/film-photography-community-culture-zh.mdx',\n    'src/content/posts/film-photography-personal-archive-zh.mdx',\n    'src/content/posts/film-photography-revival-2026-zh.mdx',\n    'src/content/posts/film-portrait-photography-guide-zh.mdx',\n    'src/content/posts/film-push-pull-cross-processing-guide-zh.mdx',\n\
+          \    'src/content/posts/film-scanning-complete-guide-zh.mdx',\n    'src/content/posts/film-stock-guide-2026-zh.mdx',\n    'src/content/posts/film-street-photography-guide-zh.mdx',\n    'src/content/posts/home-film-developing-guide-zh.mdx',\n    'src/content/posts/infrared-film-photography-guide-zh.mdx',\n    'src/content/posts/live-photos-introduction-zh.mdx',\n    'src/content/posts/medium-format-film-photography-guide-zh.mdx',\n    'src/content/posts/qoderwake-linux-deployment-guide-zh.mdx',\n    'src/content/posts/summer-film-photography-guide-zh.mdx',\n    'src/content/posts/why-film-still-matters.md'\n]\n\n\ndef title_from_slug(slug: str) -> str:\n    return slug.replace('-zh', '').replace('-', ' ').strip()\n\n\ndef posts_from_paths(paths):\n    posts = []\n    for path in paths:\n        filename = path.rsplit('/', 1)[-1]\n        slug = re.sub(r'\\.(mdx|md)$', '', filename)\n        posts.append({'path': path, 'slug': slug, 'normalized_topic': title_from_slug(slug)})\n \
+          \   return posts\n\n\ndef main(github_body='') -> dict:\n    if isinstance(github_body, dict):\n        data = github_body\n    else:\n        try:\n            data = json.loads(github_body or '{}')\n        except Exception:\n            data = {}\n\n    paths = []\n    for item in data.get('tree', []) if isinstance(data, dict) else []:\n        path = item.get('path', '')\n        if not path.startswith('src/content/posts/'):\n            continue\n        if path.endswith('-en.mdx'):\n            continue\n        if path.endswith('-zh.mdx') or path.endswith('.md'):\n            paths.append(path)\n\n    source = 'github_api'\n    if not paths:\n        paths = FALLBACK_PATHS\n        source = 'fallback_static_index'\n\n    posts = posts_from_paths(paths)\n    existing_index = {\n        'repo': 'Feirobot/openfilm-blog',\n        'content_dir': 'src/content/posts',\n        'source': source,\n        'count': len(posts),\n        'posts': posts,\n        'avoid_rule': '不要选择与\
+          \ posts 中 slug 或 normalized_topic 高度相似的主题；如果必须相关，必须换成更窄、更具体的新角度。'\n    }\n    return {'existing_posts': json.dumps(existing_index, ensure_ascii=False)}\n"
+        code_language: python3
+        desc: 提取中文文章 slug 和主题索引，供编辑 Agent 避免重复选题。
+        outputs:
+          existing_posts:
+            children: null
+            type: string
+        selected: false
+        title: 整理已有文章索引
+        type: code
+        variables:
+        - value_selector:
+          - openfilm-repo-tree
+          - body
+          variable: github_body
+      height: 82
+      id: openfilm-existing-posts
+      position:
+        x: 360
+        y: 402
+      positionAbsolute:
+        x: 360
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\n\ndef main(title: str = '', slug: str = '', summary: str = '', article: str = '', sources: str = '', risks: str = '') -> dict:\n    payload = {\n        'title': title,\n        'slug_suggestion': slug,\n        'summary': summary,\n        'article_markdown': article,\n        'sources_json': sources,\n        'risk_flags_json': risks\n    }\n    lines = [\n        '请根据以下编辑结果执行翻译配图任务。',\n        '',\n        '标题：', title,\n        '',\n        'Slug 建议：', slug,\n        '',\n        '中文摘要：', summary,\n        '',\n        '中文正文 Markdown：', article,\n        '',\n        '来源 JSON：', sources,\n        '',\n        '风险标记：', risks,\n        '',\n        '请输出符合指令格式的 JSON。'\n    ]\n    return {\n        'translator_input': '\\n'.join(lines),\n        'translator_input_json': json.dumps(payload, ensure_ascii=False)\n    }\n"
+        code_language: python3
+        desc: 将编辑结果聚合成翻译配图 Agent 的单一输入，避免多个变量在 Agent 查询里插值失败。
+        outputs:
+          translator_input:
+            children: null
+            type: string
+          translator_input_json:
+            children: null
+            type: string
+        selected: false
+        title: 准备翻译配图输入
+        type: code
+        variables:
+        - value_selector:
+          - openfilm-parse-editor-json
+          - title
+          variable: title
+        - value_selector:
+          - openfilm-parse-editor-json
+          - slug_suggestion
+          variable: slug
+        - value_selector:
+          - openfilm-parse-editor-json
+          - summary
+          variable: summary
+        - value_selector:
+          - openfilm-parse-editor-json
+          - article_markdown
+          variable: article
+        - value_selector:
+          - openfilm-parse-editor-json
+          - sources_json
+          variable: sources
+        - value_selector:
+          - openfilm-parse-editor-json
+          - risk_flags_json
+          variable: risks
+      height: 82
+      id: '1783350100000'
+      position:
+        x: 700
+        y: 402
+      positionAbsolute:
+        x: 700
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: "你是 Openfilm 的中文胶片摄影编辑，负责为 openfilm.cc/zh 产出可继续进入翻译、配图和审核流程的中文文章初稿。\n\nOpenfilm 的文章风格：\n1. 标题常用“完全指南 / 入门指南 / 选购指南 / 创意指南 / 从……到……”这类清晰结构，标题要具体，不要空泛。\n2. 标题后必须有一段 1-2 句的文章摘要，概括主题、覆盖范围和读者收益。\n3. 正文必须以“## 引言”开始。引言要从一个具体问题、场景或矛盾切入，再说明本文将从哪些维度展开。\n4. 正文使用 3-6 个“##”主章节，必要时使用“###”子章节。章节标题要像编辑写出来的标题，例如“胶片选择：街头摄影的弹药”“曝光控制：最关键的数学题”，不要写成机械编号。\n5. 内容要系统、解释型、可操作：既要讲原理，也要给实拍建议、器材/胶片选择、常见误区和取舍。\n6. 语气克制、专业、有编辑判断。不要营销腔，不要过度抒情，不要像 AI 摘要，不要写“本文将深入探讨”等套话过多的句子。\n7. 中文排版遵循 Openfilm 习惯：中文标点；中文与英文/数字之间保留空格；使用「」表示强调或概念；品牌与型号保持英文原名。\n\n选题要求：\n1. 如果 topic_hint 为空，你需要自行选择一个适合 Openfilm 的胶片摄影选题。\n2. 选题优先围绕胶片摄影技巧、胶片相机、胶卷选择、冲洗扫描、暗房工艺、影像文化、器材维护或摄影社区。\n3. 避免与近期常见 Openfilm 主题重复，例如泛泛谈“胶片复兴”“为什么胶片重要”。应寻找更具体的角度。\n4. 写作前必须阅读“已有文章索引”。不要选择与已有文章 slug、normalized_topic 或标题语义高度相似的主题。\n5. 如果新主题与已有文章属于同一大类，必须换成更窄的新角度，例如不要再写“胶片街头摄影指南”，可以写“雨天街头胶片摄影的曝光与防护”。\n6. 输出 editor_notes 时必须说明你如何避开了已有文章重复。\n\n资料与事实要求：\n1. 文章内容必须基于可靠来源，优先参考摄影网站、器材评测网站、厂商官网、相机/胶片资料库。\n2. 至少列出 3 个来源。每个来源要说明 used_for，例如“胶片规格”“历史背景”“器材特性”“市场信息”。\n\
+              3. 不确定的信息必须写入 risk_flags，不能编造具体数据、年份、销量、价格或厂商计划。\n4. 如果无法联网或无法获取可靠来源，可以写初稿，但必须在 risk_flags 中标记 sources_need_verification。\n\n术语统一要求：\n- film stock：胶片型号 / 胶卷，按语境选择但全文保持一致\n- grain：颗粒\n- latitude：宽容度\n- dynamic range：动态范围\n- color rendition：色彩还原\n- push processing：迫冲 / 增感冲洗，优先使用“迫冲”\n- pull processing：迫减 / 减感冲洗，优先使用“迫减”\n- scan：扫描；涉及冲洗店服务时可写“冲扫”\n- halation：光晕\n- reciprocity failure：倒易律失效\n\n文章 Markdown 结构必须符合：\n# 标题\n\n摘要段落。\n\n## 引言\n2-4 段。\n\n## 主章节一\n若干段落，可含 ### 子章节、项目符号或步骤。\n\n## 主章节二\n若干段落。\n\n## 常见误区 / 实拍建议 / 如何选择\n根据主题选择其一或多个。\n\n## 结语\n1-3 段，收束观点，不要硬性号召购买。\n\n输出必须是 JSON，不要输出 JSON 之外的解释。article_markdown 中放完整 Markdown 文章。格式如下：\n{\n  \"agent\": \"film_editor\",\n  \"status\": \"editor_done\",\n  \"selected_topic\": \"\",\n  \"title\": \"\",\n  \"slug_suggestion\": \"\",\n  \"summary\": \"\",\n  \"article_markdown\": \"\",\n  \"terminology_table\": [\n    {\n      \"term_en\": \"\",\n      \"term_zh\": \"\",\n      \"usage_note\": \"\"\n    }\n  ],\n  \"sources\": [\n  \
+              \  {\n      \"title\": \"\",\n      \"url\": \"\",\n      \"site\": \"\",\n      \"used_for\": \"\"\n    }\n  ],\n  \"editor_notes\": \"\",\n  \"risk_flags\": []\n}"
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: deepseek-v4-pro
+              model_type: llm
+              provider: langgenius/deepseek/deepseek
+              type: model-selector
+          maximum_iterations:
+            type: constant
+            value: 8
+          query:
+            type: constant
+            value: '请根据以下任务状态和已有文章索引执行胶片编辑任务。
+
+
+              任务状态：
+
+              {{#1783343112414.result#}}
+
+
+              已有文章索引：
+
+              {{#openfilm-existing-posts.existing_posts#}}
+
+
+              请先阅读已有文章索引，排除重复或高度相似主题；再用 Tavily Search 搜索候选资料，并用 Tavily Extract 或网页爬虫读取重点来源。最后只输出符合指令要求的 JSON。'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: 一个用于爬取网页的工具。
+              parameters:
+                url:
+                  auto: 1
+                  value: null
+              plugin_id: null
+              provider_name: webscraper
+              provider_show_name: webscraper
+              settings:
+                generate_summary:
+                  value:
+                    type: constant
+                    value: 'false'
+                user_agent:
+                  value:
+                    type: mixed
+                    value: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+              tool_description: 一个用于爬取网页的工具。
+              tool_label: 网页爬虫
+              tool_name: webscraper
+              type: builtin
+            - enabled: true
+              extra:
+                description: 使用 Tavily Extract 从一个或多个指定的 URL 提取网页内容。
+              parameters:
+                extract_depth:
+                  auto: 1
+                  value: null
+                query:
+                  auto: 1
+                  value: null
+                urls:
+                  auto: 1
+                  value: null
+              plugin_id: langgenius/tavily
+              provider_name: langgenius/tavily/tavily
+              provider_show_name: langgenius/tavily/tavily
+              settings:
+                chunks_per_source:
+                  value:
+                    type: constant
+                    value: 3
+                format:
+                  value:
+                    type: constant
+                    value: markdown
+                include_favicon:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_images:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_usage:
+                  value:
+                    type: constant
+                    value: 'false'
+                project_id:
+                  value:
+                    type: mixed
+                    value: null
+                timeout:
+                  value:
+                    type: constant
+                    value: null
+              tool_description: 使用 Tavily Extract 从一个或多个指定的 URL 提取网页内容。
+              tool_label: Tavily Extract
+              tool_name: tavily_extract
+              type: builtin
+            - enabled: true
+              extra:
+                description: 专为人工智能代理 (LLM) 构建的搜索引擎工具，可快速提供实时、准确和真实的结果。
+              parameters:
+                country:
+                  auto: 1
+                  value: null
+                end_date:
+                  auto: 1
+                  value: null
+                exclude_domains:
+                  auto: 1
+                  value: null
+                include_domains:
+                  auto: 1
+                  value: null
+                query:
+                  auto: 1
+                  value: null
+                search_depth:
+                  auto: 1
+                  value: null
+                start_date:
+                  auto: 1
+                  value: null
+                time_range:
+                  auto: 1
+                  value: null
+                topic:
+                  auto: 1
+                  value: null
+              plugin_id: langgenius/tavily
+              provider_name: langgenius/tavily/tavily
+              provider_show_name: langgenius/tavily/tavily
+              settings:
+                auto_parameters:
+                  value:
+                    type: constant
+                    value: 'false'
+                chunks_per_source:
+                  value:
+                    type: constant
+                    value: 3
+                include_answer:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_favicon:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_image_descriptions:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_images:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_raw_content:
+                  value:
+                    type: constant
+                    value: 'false'
+                include_usage:
+                  value:
+                    type: constant
+                    value: 'false'
+                max_results:
+                  value:
+                    type: constant
+                    value: 5
+                project_id:
+                  value:
+                    type: mixed
+                    value: null
+              tool_description: 专为人工智能代理 (LLM) 构建的搜索引擎工具，可快速提供实时、准确和真实的结果。
+              tool_label: Tavily Search
+              tool_name: tavily_search
+              type: builtin
+            - enabled: false
+              extra:
+                description: 使用 Tavily Crawl 从基础 URL 开始爬取网站，发现并提取多个页面的内容。
+              parameters:
+                exclude_domains:
+                  auto: 1
+                  value: null
+                exclude_paths:
+                  auto: 1
+                  value: null
+                instructions:
+                  auto: 1
+                  value: null
+                select_domains:
+                  auto: 1
+                  value: null
+                select_paths:
+                  auto: 1
+                  value: null
+                url:
+                  auto: 1
+                  value: null
+              plugin_id: langgenius/tavily
+              provider_name: langgenius/tavily/tavily
+              provider_show_name: langgenius/tavily/tavily
+              settings:
+                allow_external:
+                  value:
+                    type: constant
+                    value: true
+                chunks_per_source:
+                  value:
+                    type: constant
+                    value: 3
+                extract_depth:
+                  value:
+                    type: constant
+                    value: basic
+                format:
+                  value:
+                    type: constant
+                    value: markdown
+                include_favicon:
+                  value:
+                    type: constant
+                    value: false
+                include_images:
+                  value:
+                    type: constant
+                    value: false
+                include_usage:
+                  value:
+                    type: constant
+                    value: false
+                limit:
+                  value:
+                    type: constant
+                    value: null
+                max_breadth:
+                  value:
+                    type: constant
+                    value: null
+                max_depth:
+                  value:
+                    type: constant
+                    value: null
+                project_id:
+                  value:
+                    type: mixed
+                    value: null
+                timeout:
+                  value:
+                    type: constant
+                    value: 150
+              tool_description: 使用 Tavily Crawl 从基础 URL 开始爬取网站，发现并提取多个页面的内容。
+              tool_label: Tavily Crawl
+              tool_name: tavily_crawl
+              type: builtin
+            - enabled: false
+              extra:
+                description: 使用 Tavily Map 从根 URL 开始发现所有 URL，映射网站结构。
+              parameters:
+                exclude_domains:
+                  auto: 1
+                  value: null
+                exclude_paths:
+                  auto: 1
+                  value: null
+                instructions:
+                  auto: 1
+                  value: null
+                select_domains:
+                  auto: 1
+                  value: null
+                select_paths:
+                  auto: 1
+                  value: null
+                url:
+                  auto: 1
+                  value: null
+              plugin_id: langgenius/tavily
+              provider_name: langgenius/tavily/tavily
+              provider_show_name: langgenius/tavily/tavily
+              settings:
+                allow_external:
+                  value:
+                    type: constant
+                    value: true
+                include_usage:
+                  value:
+                    type: constant
+                    value: false
+                limit:
+                  value:
+                    type: constant
+                    value: 50
+                max_breadth:
+                  value:
+                    type: constant
+                    value: 20
+                max_depth:
+                  value:
+                    type: constant
+                    value: 1
+                project_id:
+                  value:
+                    type: mixed
+                    value: null
+                timeout:
+                  value:
+                    type: constant
+                    value: 150
+              tool_description: 使用 Tavily Map 从根 URL 开始发现所有 URL，映射网站结构。
+              tool_label: Tavily Map
+              tool_name: tavily_map
+              type: builtin
+            - enabled: false
+              extra:
+                description: 使用 Tavily Research API 对任何主题进行深度研究，返回带有引用的综合报告。
+              parameters:
+                input:
+                  auto: 1
+                  value: null
+              plugin_id: langgenius/tavily
+              provider_name: langgenius/tavily/tavily
+              provider_show_name: langgenius/tavily/tavily
+              settings:
+                citation_format:
+                  value:
+                    type: constant
+                    value: numbered
+                model:
+                  value:
+                    type: constant
+                    value: auto
+                project_id:
+                  value:
+                    type: mixed
+                    value: null
+              tool_description: 使用 Tavily Research API 对任何主题进行深度研究，返回带有引用的综合报告。
+              tool_label: Tavily 研究
+              tool_name: tavily_research
+              type: builtin
+        agent_strategy_label: FunctionCalling
+        agent_strategy_name: function_calling
+        agent_strategy_provider_name: langgenius/agent/agent
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: {}
+        plugin_unique_identifier: langgenius/agent:0.0.40@d00a70e81bfb28fadd52cba7fd7a1f7c344c67b051e4a2e356a06c690736a7c4
+        selected: false
+        title: 胶片编辑
+        tool_node_version: '2'
+        type: agent
+      height: 188
+      id: '1783343400944'
+      position:
+        x: 210.2686292913985
+        y: 350.63751676552874
+      positionAbsolute:
+        x: 210.2686292913985
+        y: 350.63751676552874
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\n\ndef strip_think(text: str) -> str:\n    text = re.sub(r'<think>[\\s\\S]*?</think>', '', text or '', flags=re.IGNORECASE).strip()\n    text = re.sub(r'^```(?:json)?\\s*', '', text).strip()\n    text = re.sub(r'\\s*```$', '', text).strip()\n    return text\n\n\ndef extract_json(text: str):\n    cleaned = strip_think(text)\n    try:\n        return json.loads(cleaned), cleaned, ''\n    except Exception as e:\n        parse_error = str(e)\n    match = re.search(r'\\{[\\s\\S]*\\}', cleaned)\n    if match:\n        candidate = match.group(0)\n        try:\n            return json.loads(candidate), candidate, ''\n        except Exception as e:\n            parse_error = str(e)\n    return {}, cleaned, parse_error\n\n\ndef dumps(value):\n    return json.dumps(value, ensure_ascii=False)\n\n\ndef main(agent_text: str = '') -> dict:\n    data, cleaned, parse_error = extract_json(agent_text)\n    return {\n        'editor_json': dumps(data) if data else cleaned,\n\
+          \        'selected_topic': str(data.get('selected_topic', '')),\n        'title': str(data.get('title', '')),\n        'slug_suggestion': str(data.get('slug_suggestion', '')),\n        'summary': str(data.get('summary', '')),\n        'article_markdown': str(data.get('article_markdown') or data.get('article_markmarkdown') or data.get('article_markment') or data.get('markdown') or ''),\n        'sources_json': dumps(data.get('sources', [])),\n        'risk_flags_json': dumps(data.get('risk_flags', [])),\n        'editor_notes': str(data.get('editor_notes', '')),\n        'parse_error': parse_error\n    }\n"
+        code_language: python3
+        desc: 清理 Agent 原始输出中的思考标签，并解析 JSON 字段，方便后续翻译配图流程使用。
+        outputs:
+          article_markdown:
+            children: null
+            type: string
+          editor_json:
+            children: null
+            type: string
+          editor_notes:
+            children: null
+            type: string
+          parse_error:
+            children: null
+            type: string
+          risk_flags_json:
+            children: null
+            type: string
+          selected_topic:
+            children: null
+            type: string
+          slug_suggestion:
+            children: null
+            type: string
+          sources_json:
+            children: null
+            type: string
+          summary:
+            children: null
+            type: string
+          title:
+            children: null
+            type: string
+        selected: false
+        title: 解析编辑结果
+        type: code
+        variables:
+        - value_selector:
+          - '1783343400944'
+          - text
+          variable: agent_text
+      height: 82
+      id: openfilm-parse-editor-json
+      position:
+        x: 560
+        y: 402
+      positionAbsolute:
+        x: 560
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 将中文初稿整理为双语内容、SEO 字段和配图 brief；不用工具，避免 Agent 插件层不稳定。
+        model: &id001
+          completion_params: {}
+          mode: chat
+          name: deepseek-v4-pro
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: translator-visual-system
+          role: system
+          text: "你是 Openfilm 的翻译与视觉编辑，负责把“胶片编辑”节点产出的中文初稿整理为可发布的双语内容，并生成配图与 SEO 信息。\n\n你的职责：\n1. 保留中文文章的结构、事实、来源和术语，不要新增未经来源支持的事实。\n2. 生成自然、准确、适合摄影博客的英文版本。不要逐字硬译，要保持 Openfilm 的编辑语气。\n3. 统一中英文标题、slug、摘要、SEO 描述和标签。\n4. 生成封面图 brief 和正文配图建议，用于后续图片生成或人工选图。\n5. 不负责事实校验、GitHub 提交或发布。\n\n输出必须是 JSON，不要输出 JSON 之外的解释。格式如下：\n{\n  \"agent\": \"translator_visual\",\n  \"status\": \"translator_visual_done\",\n  \"zh_title\": \"\",\n  \"en_title\": \"\",\n  \"slug\": \"\",\n  \"zh_summary\": \"\",\n  \"en_summary\": \"\",\n  \"zh_markdown\": \"\",\n  \"en_markdown\": \"\",\n  \"seo\": {\n    \"zh_description\": \"\",\n    \"en_description\": \"\",\n    \"keywords\": []\n  },\n  \"visual_brief\": {\n    \"cover_prompt\": \"\",\n    \"cover_alt_zh\": \"\",\n    \"cover_alt_en\": \"\",\n    \"style_notes\": \"\",\n    \"inline_image_ideas\": []\n  },\n  \"translation_notes\": \"\",\n  \"risk_flags\": []\n}"
+        - id: translator-visual-user
+          role: user
+          text: '{{#1783350100000.translator_input#}}'
+        selected: false
+        title: 翻译配图
+        type: llm
+        vision:
+          enabled: false
+      height: 132
+      id: openfilm-translator-visual
+      position:
+        x: 840
+        y: 402
+      positionAbsolute:
+        x: 840
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\n\ndef strip_think(text: str) -> str:\n    text = re.sub(r'<think>[\\s\\S]*?</think>', '', text or '', flags=re.IGNORECASE).strip()\n    text = re.sub(r'^```(?:json)?\\s*', '', text).strip()\n    text = re.sub(r'\\s*```$', '', text).strip()\n    return text\n\n\ndef extract_json(text: str):\n    cleaned = strip_think(text)\n    try:\n        return json.loads(cleaned), cleaned, ''\n    except Exception as e:\n        parse_error = str(e)\n    match = re.search(r'\\{[\\s\\S]*\\}', cleaned)\n    if match:\n        candidate = match.group(0)\n        try:\n            return json.loads(candidate), candidate, ''\n        except Exception as e:\n            parse_error = str(e)\n    return {}, cleaned, parse_error\n\n\ndef dumps(value):\n    return json.dumps(value, ensure_ascii=False)\n\n\ndef main(agent_text: str = '') -> dict:\n    data, cleaned, parse_error = extract_json(agent_text)\n    visual = data.get('visual_brief', {}) if isinstance(data.get('visual_brief',\
+          \ {}), dict) else {}\n    seo = data.get('seo', {}) if isinstance(data.get('seo', {}), dict) else {}\n    return {\n        'translator_visual_json': dumps(data) if data else cleaned,\n        'zh_title': str(data.get('zh_title', '')),\n        'en_title': str(data.get('en_title', '')),\n        'slug': str(data.get('slug', '')),\n        'zh_markdown': str(data.get('zh_markdown', '')),\n        'en_markdown': str(data.get('en_markdown', '')),\n        'seo_json': dumps(seo),\n        'visual_brief_json': dumps(visual),\n        'cover_prompt': str(visual.get('cover_prompt', '')),\n        'translation_notes': str(data.get('translation_notes', '')),\n        'translation_risk_flags_json': dumps(data.get('risk_flags', [])),\n        'translation_parse_error': parse_error\n    }\n"
+        code_language: python3
+        desc: 清理翻译配图 Agent 输出并拆出双语正文、SEO 和配图 brief。
+        outputs:
+          cover_prompt:
+            children: null
+            type: string
+          en_markdown:
+            children: null
+            type: string
+          en_title:
+            children: null
+            type: string
+          seo_json:
+            children: null
+            type: string
+          slug:
+            children: null
+            type: string
+          translation_notes:
+            children: null
+            type: string
+          translation_parse_error:
+            children: null
+            type: string
+          translation_risk_flags_json:
+            children: null
+            type: string
+          translator_visual_json:
+            children: null
+            type: string
+          visual_brief_json:
+            children: null
+            type: string
+          zh_markdown:
+            children: null
+            type: string
+          zh_title:
+            children: null
+            type: string
+        selected: false
+        title: 解析翻译配图结果
+        type: code
+        variables:
+        - value_selector:
+          - openfilm-translator-visual
+          - text
+          variable: agent_text
+      height: 82
+      id: openfilm-parse-translator-visual
+      position:
+        x: 1120
+        y: 402
+      positionAbsolute:
+        x: 1120
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: 返回主工作流阶段性结果：任务状态、避重索引、编辑结果、翻译配图结果，供后续校验提交智能体继续使用。
+        outputs:
+        - value_selector:
+          - openfilm-parse-review-submit
+          - task_state
+          value_type: string
+          variable: task_state
+        - value_selector:
+          - openfilm-parse-review-submit
+          - review_json
+          value_type: string
+          variable: review_result
+        - value_selector:
+          - openfilm-parse-review-submit
+          - safe_to_publish
+          value_type: string
+          variable: safe_to_publish
+        - value_selector:
+          - openfilm-parse-review-submit
+          - review_score
+          value_type: string
+          variable: review_score
+        - value_selector:
+          - openfilm-parse-review-submit
+          - final_decision
+          value_type: string
+          variable: final_decision
+        - value_selector:
+          - openfilm-parse-review-submit
+          - blocking_issues_json
+          value_type: string
+          variable: blocking_issues_json
+        - value_selector:
+          - openfilm-parse-review-submit
+          - suggested_fixes_json
+          value_type: string
+          variable: suggested_fixes_json
+        - value_selector:
+          - openfilm-parse-review-submit
+          - review_parse_error
+          value_type: string
+          variable: review_parse_error
+        - value_selector:
+          - openfilm-existing-posts
+          - existing_posts
+          value_type: string
+          variable: existing_posts
+        - value_selector:
+          - openfilm-parse-editor-json
+          - editor_json
+          value_type: string
+          variable: editor_result
+        - value_selector:
+          - openfilm-parse-editor-json
+          - selected_topic
+          value_type: string
+          variable: selected_topic
+        - value_selector:
+          - openfilm-parse-editor-json
+          - title
+          value_type: string
+          variable: title
+        - value_selector:
+          - openfilm-parse-editor-json
+          - slug_suggestion
+          value_type: string
+          variable: slug_suggestion
+        - value_selector:
+          - openfilm-parse-editor-json
+          - article_markdown
+          value_type: string
+          variable: article_markdown
+        - value_selector:
+          - openfilm-parse-editor-json
+          - sources_json
+          value_type: string
+          variable: sources_json
+        - value_selector:
+          - openfilm-parse-editor-json
+          - risk_flags_json
+          value_type: string
+          variable: risk_flags_json
+        - value_selector:
+          - openfilm-parse-editor-json
+          - parse_error
+          value_type: string
+          variable: parse_error
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - translator_visual_json
+          value_type: string
+          variable: translator_visual_result
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - zh_title
+          value_type: string
+          variable: zh_title
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - en_title
+          value_type: string
+          variable: en_title
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - slug
+          value_type: string
+          variable: final_slug
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - zh_markdown
+          value_type: string
+          variable: zh_markdown
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - en_markdown
+          value_type: string
+          variable: en_markdown
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - seo_json
+          value_type: string
+          variable: seo_json
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - visual_brief_json
+          value_type: string
+          variable: visual_brief_json
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - cover_prompt
+          value_type: string
+          variable: cover_prompt
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - translation_parse_error
+          value_type: string
+          variable: translation_parse_error
+        selected: false
+        title: 输出主流程结果
+        type: end
+      height: 118
+      id: openfilm-editor-end
+      position:
+        x: 2240
+        y: 402
+      positionAbsolute:
+        x: 2240
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nfrom datetime import datetime, timezone\n\n\ndef loads(text, default):\n    if not text:\n        return default\n    try:\n        return json.loads(text)\n    except Exception:\n        return default\n\n\ndef dumps(value):\n    return json.dumps(value, ensure_ascii=False)\n\n\ndef main(\n    task_state: str = '',\n    existing_posts: str = '',\n    editor_json: str = '',\n    translator_visual_json: str = '',\n    parse_error: str = '',\n    translation_parse_error: str = ''\n) -> dict:\n    state = loads(task_state, {})\n    editor = loads(editor_json, {})\n    translator = loads(translator_visual_json, {})\n    posts = loads(existing_posts, {})\n\n    steps = state.setdefault('steps', {})\n    steps['editor'] = 'done' if not parse_error else 'error'\n    steps['translator_visual'] = 'done' if not translation_parse_error else 'error'\n    steps['review_submit'] = 'pending'\n\n    state['status'] = 'translated' if not (parse_error or translation_parse_error)\
+          \ else 'needs_attention'\n    state['current_agent'] = 'review_submit'\n    state['updated_at'] = datetime.now(timezone.utc).isoformat()\n\n    state['article'] = {\n        'selected_topic': editor.get('selected_topic', ''),\n        'slug': translator.get('slug') or editor.get('slug_suggestion', ''),\n        'zh_title': translator.get('zh_title') or editor.get('title', ''),\n        'en_title': translator.get('en_title', ''),\n        'zh_summary': translator.get('zh_summary') or editor.get('summary', ''),\n        'en_summary': translator.get('en_summary', ''),\n        'zh_markdown': translator.get('zh_markdown', ''),\n        'en_markdown': translator.get('en_markdown', ''),\n        'seo': translator.get('seo', {}),\n        'visual_brief': translator.get('visual_brief', {}),\n        'sources': editor.get('sources', []),\n        'risk_flags': translator.get('risk_flags') or editor.get('risk_flags', []),\n        'translation_notes': translator.get('translation_notes',\
+          \ ''),\n    }\n\n    state['existing_posts'] = {\n        'source': posts.get('source', ''),\n        'count': posts.get('count', 0),\n    }\n\n    state['errors'] = {\n        'editor_parse_error': parse_error,\n        'translation_parse_error': translation_parse_error,\n    }\n\n    return {'task_state': dumps(state)}\n"
+        code_language: python3
+        desc: 把编辑、翻译配图和已有文章索引整理回统一任务状态，交给后续校验提交流程。
+        outputs:
+          task_state:
+            children: null
+            type: string
+        selected: false
+        title: 更新任务状态
+        type: code
+        variables:
+        - value_selector:
+          - '1783343112414'
+          - result
+          variable: task_state
+        - value_selector:
+          - openfilm-existing-posts
+          - existing_posts
+          variable: existing_posts
+        - value_selector:
+          - openfilm-parse-editor-json
+          - editor_json
+          variable: editor_json
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - translator_visual_json
+          variable: translator_visual_json
+        - value_selector:
+          - openfilm-parse-editor-json
+          - parse_error
+          variable: parse_error
+        - value_selector:
+          - openfilm-parse-translator-visual
+          - translation_parse_error
+          variable: translation_parse_error
+      height: 82
+      id: openfilm-update-task-state
+      position:
+        x: 1400
+        y: 402
+      positionAbsolute:
+        x: 1400
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 审核文章完整性、重复风险、术语一致性、来源可靠性和是否允许进入 GitHub 提交阶段。
+        model: *id001
+        prompt_template:
+        - id: review-submit-system
+          role: system
+          text: "你是 Openfilm 的“校验提交 Agent”。你的职责是审核已经完成编辑与翻译配图的博客任务，判断是否可以进入 GitHub 提交阶段。\n\n你只做审核与提交建议，不执行 GitHub 提交、不调用外部发布动作、不修改正文。\n\n审核标准：\n1. 选题不得与已有文章明显重复；如果 slug 与 existing_posts 中已有 slug 相同，必须判定不可发布。\n2. 中文正文和英文正文都必须完整，不能是占位符、摘要替代正文或明显截断。\n3. 中文正文应符合 Openfilm 风格：结构清晰、摄影术语准确、不是营销文案，不使用夸张标题党。\n4. 英文翻译应保持事实、结构和术语一致，不应新增未经来源支持的事实。\n5. 来源至少应有 3 条，并且来源用途说明要能支撑文章中的专业判断。\n6. 风险标记如果涉及事实不确定、价格、器材兼容性、化学流程、安全事项，必须进入人工复核；可以给出 safe_to_publish=false。\n7. SEO、slug、封面 prompt、alt 文本应存在且与文章内容一致。\n8. 如果 parser error 不为空，必须判定不可发布。\n\n输出必须是 JSON，不要输出 JSON 之外的解释。格式如下：\n{\n  \"agent\": \"review_submit\",\n  \"status\": \"review_done\",\n  \"safe_to_publish\": false,\n  \"review_score\": 0,\n  \"final_decision\": \"\",\n  \"blocking_issues\": [],\n  \"suggested_fixes\": [],\n  \"terminology_checks\": [\n    {\n      \"term\": \"\",\n      \"status\": \"ok|needs_review\",\n      \"note\": \"\"\n    }\n  ],\n  \"source_checks\": [\n    {\n      \"title\": \"\",\n      \"status\": \"ok|weak|needs_verification\"\
+            ,\n      \"note\": \"\"\n    }\n  ],\n  \"publish_plan\": {\n    \"branch\": \"\",\n    \"zh_path\": \"\",\n    \"en_path\": \"\",\n    \"commit_message\": \"\"\n  },\n  \"human_review_required\": true,\n  \"review_notes\": \"\"\n}\n\nreview_score 使用 0-100 分。只有没有 blocking_issues、parser error 为空、正文完整、slug 不重复、来源可靠时，safe_to_publish 才能为 true。"
+        - id: review-submit-user
+          role: user
+          text: '请审核以下 Openfilm 博客任务状态，并给出是否允许进入 GitHub 提交阶段的 JSON 结果。
+
+
+            任务状态：
+
+            {{#openfilm-update-task-state.task_state#}}
+
+
+            已有文章索引：
+
+            {{#openfilm-existing-posts.existing_posts#}}
+
+            '
+        selected: false
+        title: 校验提交 Agent
+        type: llm
+        vision:
+          enabled: false
+      height: 132
+      id: openfilm-review-submit-agent
+      position:
+        x: 1680
+        y: 402
+      positionAbsolute:
+        x: 1680
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\nimport re\n\n\ndef strip_think(text: str) -> str:\n    text = re.sub(r'<think>[\\s\\S]*?</think>', '', text or '', flags=re.IGNORECASE).strip()\n    text = re.sub(r'^```(?:json)?\\s*', '', text).strip()\n    text = re.sub(r'\\s*```$', '', text).strip()\n    return text\n\n\ndef extract_json(text: str):\n    cleaned = strip_think(text)\n    try:\n        return json.loads(cleaned), cleaned, ''\n    except Exception as e:\n        parse_error = str(e)\n    match = re.search(r'\\{[\\s\\S]*\\}', cleaned)\n    if match:\n        candidate = match.group(0)\n        try:\n            return json.loads(candidate), candidate, ''\n        except Exception as e:\n            parse_error = str(e)\n    return {}, cleaned, parse_error\n\n\ndef loads(text, default):\n    if not text:\n        return default\n    try:\n        return json.loads(text)\n    except Exception:\n        return default\n\n\ndef dumps(value):\n    return json.dumps(value, ensure_ascii=False)\n\n\ndef\
+          \ main(review_text: str = '', task_state: str = '') -> dict:\n    review, cleaned, parse_error = extract_json(review_text)\n    state = loads(task_state, {})\n\n    safe_to_publish = bool(review.get('safe_to_publish', False)) if isinstance(review, dict) else False\n    blocking_issues = review.get('blocking_issues', []) if isinstance(review, dict) else []\n    human_review_required = bool(review.get('human_review_required', True)) if isinstance(review, dict) else True\n\n    steps = state.setdefault('steps', {})\n    steps['review_submit'] = 'done' if not parse_error else 'error'\n\n    state['review'] = review if review else {\n        'agent': 'review_submit',\n        'status': 'review_parse_error',\n        'safe_to_publish': False,\n        'review_score': 0,\n        'final_decision': '审核输出解析失败，需要人工检查。',\n        'blocking_issues': ['review_parse_error'],\n        'suggested_fixes': ['检查校验提交 Agent 输出是否为合法 JSON。'],\n        'human_review_required': True,\n        'review_notes':\
+          \ cleaned,\n    }\n    state.setdefault('errors', {})['review_parse_error'] = parse_error\n\n    if parse_error:\n        state['status'] = 'review_error'\n        state['current_agent'] = 'human_review'\n    elif safe_to_publish and not blocking_issues and not human_review_required:\n        state['status'] = 'review_passed'\n        state['current_agent'] = 'github_submit'\n    else:\n        state['status'] = 'needs_revision'\n        state['current_agent'] = 'human_review'\n\n    return {\n        'task_state': dumps(state),\n        'review_json': dumps(review) if review else cleaned,\n        'safe_to_publish': str(safe_to_publish).lower(),\n        'review_score': str(review.get('review_score', 0)) if isinstance(review, dict) else '0',\n        'final_decision': str(review.get('final_decision', '')) if isinstance(review, dict) else '',\n        'blocking_issues_json': dumps(blocking_issues),\n        'suggested_fixes_json': dumps(review.get('suggested_fixes', [])) if isinstance(review,\
+          \ dict) else dumps([]),\n        'review_parse_error': parse_error,\n    }\n"
+        code_language: python3
+        desc: 解析校验提交 Agent 的审核 JSON，并把审核结论写回统一任务状态。
+        outputs:
+          blocking_issues_json:
+            children: null
+            type: string
+          final_decision:
+            children: null
+            type: string
+          review_json:
+            children: null
+            type: string
+          review_parse_error:
+            children: null
+            type: string
+          review_score:
+            children: null
+            type: string
+          safe_to_publish:
+            children: null
+            type: string
+          suggested_fixes_json:
+            children: null
+            type: string
+          task_state:
+            children: null
+            type: string
+        selected: false
+        title: 解析校验提交结果
+        type: code
+        variables:
+        - value_selector:
+          - openfilm-review-submit-agent
+          - text
+          variable: review_text
+        - value_selector:
+          - openfilm-update-task-state
+          - task_state
+          variable: task_state
+      height: 82
+      id: openfilm-parse-review-submit
+      position:
+        x: 1960
+        y: 402
+      positionAbsolute:
+        x: 1960
+        y: 402
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 93.11961401022484
+      y: 103.97620842777587
+      zoom: 1.1486983549970358
+  rag_pipeline_variables: []
