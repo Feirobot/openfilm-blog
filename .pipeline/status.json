@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260721-010019",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-camera-advance-mechanism-zh.mdx",
-  "translated_article": "src/content/posts/film-camera-advance-mechanism-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-21T01:11:00+08:00",
+  "workflow_run_id": "openfilm-20260722-230151",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-camera-flash-systems-zh.mdx",
+  "translated_article": "src/content/posts/film-camera-flash-systems-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-22T23:55:29+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -50,7 +50,7 @@
       "stage": "draft_created",
       "at": "2026-07-18T01:08:00+08:00",
       "by": "胶片编辑",
-      "note": "创建中文草稿《胶片相机的快门机械：焦平面、镜间与快门系统的物理逻辑》。避重检查：盘点 40 篇已有文章，最相近文章包括 film-camera-maintenance-repair-zh（相机维护与修理，聚焦保养和 CLA 服务，不涉及快门系统的机械原理拆解）、film-lens-optics-classic-designs-zh（镜头光学，讨论光学结构与镀膜，不涉及快门叶片和同步机制）、film-rangefinder-camera-guide-zh（旁轴相机指南，讨论测距联动机构，不涉及快门类型对比）、darkroom-enlarger-optics-guide-zh（放大机光学，与相机快门无关）。快门机械作为独立深度专题尚未覆盖：本文从焦平面快门的布帘到金属帘演进、横走与纵走的行程差异、狭缝曝光机制、镜间快门的叶片结构、X 同步与 FP 同步的物理约束、快门精度与老化漂移检测、快门振动与机震控制、反光镜预升、T/B 门长曝光等角度系统展开，并讨论快门类型对拍摄哲学的影响（安静 vs 精确、街头 vs 运动场）。选题为自主选题（topic.json 为空）。"
+      "note": "创建中文草稿《胶片相机的快门机械：焦平面、镜间与快门系统的物理逻辑》。避重检查：盘点 40 篇已有文章，最相近文章包括 film-camera-maintenance-repair-zh（相机维护与修理，聚焦保养和 CLA 服务，不涉及快门系统的机械原理拆解）、film-lens-optics-classic-designs-zh（镜头光学，讨论光学结构与镀膜，不涉及快门叶片和同步机制）、film-rangefinder-camera-guide-zh（旁轴相机指南，讨论测距联动机构，不涉及快门类型对比）、darkroom-enlarger-optics-guide-zh（放大机光学，与相机快门无关）、film-camera-maintenance-repair-zh（相机维护，涉及取景器清洁但不涉及光学设计）。快门机械作为独立深度专题尚未覆盖：本文从焦平面快门的布帘到金属帘演进、横走与纵走的行程差异、狭缝曝光机制、镜间快门的叶片结构、X 同步与 FP 同步的物理约束、快门精度与老化漂移检测、快门振动与机震控制、反光镜预升、T/B 门长曝光等角度系统展开，并讨论快门类型对拍摄哲学的影响（安静 vs 精确、街头 vs 运动场）。选题为自主选题（topic.json 为空）。"
     },
     {
       "stage": "translated",
@@ -129,21 +129,42 @@
       "at": "2026-07-21T01:11:00+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 f668e07。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-22T23:01:51+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-22T23:03:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《胶片相机的闪光系统：从附件靴到热靴到 TTL 测光的演进逻辑》。避重检查：盘点 43 篇已有文章，最相近文章包括 film-camera-shutter-mechanics-zh（快门机械，讨论了 X 同步和 FP 同步的物理约束，但未涉及闪光系统的完整演进——附件靴到热靴的接口电气化、M 同步延时机制、专用闪光灯自动测光、TTL 预闪测光、多点算法闪光控制、闪光同步速度与相机设计的博弈）、film-metering-techniques-guide-zh（测光指南，聚焦环境光反射/入射测光和曝光补偿策略，不涉及闪光测光的预闪逻辑和 TTL 反射测量）、film-night-photography-guide-zh（夜景指南，涉及慢速同步但仅作为拍摄技巧提及，未拆解闪光同步物理）、film-camera-maintenance-repair-zh（相机维护，不涉及闪光系统）。闪光系统作为独立深度专题尚未覆盖：本文从附件靴（纯物理固定+PC 同步线）到热靴（中心触点电气化触发）的接口演进、焦平面快门狭缝曝光对闪光同步的物理约束（X 同步/FP 高速同步/M 同步灯泡延时）、自动闪光灯的内置光敏元件切断逻辑、TTL 闪光测光的通过镜头反射测量原理（预闪测光、多点加权算法）、闪光同步速度与快门帘幕设计的博弈（焦平面 vs 镜间快门的同步速度差异）、闪光系统从手动计算到自动决策到智能对话的光线控制哲学演进等角度系统展开。选题为自主选题（topic.json 为空）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-22T23:08:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Flash Systems in Film Cameras: The Evolution from Accessory Shoe to Hot Shoe to TTL Metering》。翻译覆盖全部章节（附件靴到热靴接口电气化、焦平面快门狭缝困境与 X/FP/M 同步、专用闪光灯与 TTL 预闪测光、闪光同步速度与相机设计博弈、闪光系统光线控制哲学、结语、参考资料 5 条）。摄影术语一致性通过（accessory shoe/hot shoe/X-sync/FP-sync/M-sync/TTL flash metering/pre-flash/guide number/leaf shutter/focal plane shutter/sync cord/PC sync socket 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-22T23:55:29+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-camera-advance-mechanism/20260721-1.webp",
-    "https://media.openfilm.cc/images/film-camera-advance-mechanism/20260721-2.webp",
-    "https://media.openfilm.cc/images/film-camera-advance-mechanism/20260721-3.webp"
+    "https://media.openfilm.cc/images/film-camera-flash-systems/20260722-1.webp",
+    "https://media.openfilm.cc/images/film-camera-flash-systems/20260722-2.webp",
+    "https://media.openfilm.cc/images/film-camera-flash-systems/20260722-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-advance-mechanism/20260721-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-advance-mechanism/20260721-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-advance-mechanism/20260721-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-flash-systems/20260722-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-flash-systems/20260722-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-flash-systems/20260722-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-camera-advance-mechanism-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-camera-advance-mechanism-en/",
-  "commit_hash": "f668e07"
+  "r2_upload_status": "success"
 }
