@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260722-230151",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-camera-flash-systems-zh.mdx",
-  "translated_article": "src/content/posts/film-camera-flash-systems-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-23T00:19:54+08:00",
+  "workflow_run_id": "openfilm-20260723-010040",
+  "workflow_state": "running",
+  "article": "src/content/posts/film-camera-film-pressure-plate-zh.mdx",
+  "translated_article": "src/content/posts/film-camera-film-pressure-plate-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-23T01:10:54+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -159,21 +159,45 @@
       "at": "2026-07-23T00:19:54+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 b7f43eb。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-23T01:00:40+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-23T01:05:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《胶片相机的胶片压板与片道：底片平面精度的机械守门人》。避重检查：盘点 44 篇已有文章，最相近文章包括 film-camera-maintenance-repair-zh（相机维护与修理，聚焦 CLA 服务和一般保养流程，仅涉及取景器清洁和润滑，不涉及压板弹性力学、片道凹槽精度和片基厚度变量）、film-camera-shutter-mechanics-zh（快门机械，讨论快门类型和同步机制，不涉及胶片定位系统）、film-camera-viewfinder-systems-zh（取景器系统，讨论取景光路，不涉及片道结构）、film-camera-advance-mechanism-zh（过片机构，讨论拨杆/旋钮/电动卷片的机械传动，不涉及胶片在曝光窗口的定位精度）、film-camera-flash-systems-zh（闪光系统，讨论闪光同步，不涉及压板）。胶片压板与片道作为独立深度专题尚未覆盖：本文从片道凹槽的精密约束（间隙控制 0.05-0.1mm）、曝光窗口框架加工精度（Leica M ±0.005mm）、压板弹性力学（Nikon F3 约 200-300g 压力、Ra 0.4 表面粗糙度）、压板平面度与脱焦关系、片基厚度变量（醋酸 0.12mm vs 聚酯 0.10-0.13mm）对压板补偿的挑战、大画幅片夹定位台阶与对焦毛玻璃厚度匹配、压板弹簧疲劳/片道凹槽磨损/表面污染的诊断与维护等角度系统展开，并讨论机械精度对摄影锐度的哲学意义。选题为自主选题（topic.json 为空）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-23T09:10:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Film Pressure Plate and Film Gate in Film Cameras: The Mechanical Gatekeepers of Film Plane Precision》。翻译覆盖全部章节（片道基本结构、压板力学与平面度、片基厚度与压板补偿、压板磨损诊断与维护、机械精度到成像哲学、参考资料 5 条）。摄影术语一致性通过（film pressure plate/film gate/film channel/aperture frame/film base/acetate base/polyester base/focal plane/registration surface/CLA/film holder/ground glass 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-23T01:10:54+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-camera-flash-systems/20260722-1.webp",
-    "https://media.openfilm.cc/images/film-camera-flash-systems/20260722-2.webp",
-    "https://media.openfilm.cc/images/film-camera-flash-systems/20260722-3.webp"
+    "https://media.openfilm.cc/images/film-camera-film-pressure-plate/20260723-1.webp",
+    "https://media.openfilm.cc/images/film-camera-film-pressure-plate/20260723-2.webp",
+    "https://media.openfilm.cc/images/film-camera-film-pressure-plate/20260723-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-flash-systems/20260722-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-flash-systems/20260722-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-flash-systems/20260722-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-film-pressure-plate/20260723-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-film-pressure-plate/20260723-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-film-pressure-plate/20260723-3.webp"
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-camera-flash-systems-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-camera-flash-systems-en/",
-  "commit_hash": "b7f43eb"
+  "published_url": null,
+  "published_url_en": null,
+  "commit_hash": null
 }
