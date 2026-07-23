@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260724-050748",
-  "workflow_state": "completed",
-  "article": "src/content/posts/fujifilm-x-half-digital-half-frame-zh.mdx",
-  "translated_article": "src/content/posts/fujifilm-x-half-digital-half-frame-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-24T05:22:10+08:00",
+  "workflow_run_id": "openfilm-20260724-053931",
+  "workflow_state": "running",
+  "article": "src/content/posts/ektachrome-e100-reversal-film-revival-zh.mdx",
+  "translated_article": "src/content/posts/ektachrome-e100-reversal-film-revival-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-24T05:51:34+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -309,40 +309,50 @@
       "at": "2026-07-24T05:22:10+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、6 张图片验证。内容提交 9b351f4。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-24T05:39:31+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-24T05:39:31+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《Ektachrome E100 与反转片的数字时代复兴》。避重检查：盘点 48 篇已有文章，最相近文章包括 film-latitude-exposure-guide-zh（宽容度指南，仅 2 行提及 E100 的 5-6 挡宽容度数据，不涉及 Ektachrome 历史、E-6 工艺拆解、反转片文化定位或产品线存续分析）、film-stock-guide-2026-zh（2026 年胶片选择指南，聚焦消费级彩色/黑白胶片推荐，未提及 Ektachrome 或反转片品类）、film-push-pull-cross-processing-guide-zh（迫冲迫减与交叉冲洗，涉及交叉冲洗概念但未专门讨论 E-6 工艺或 E100 的交叉冲洗色彩表现）、film-photography-revival-2026-zh（2026 年胶片复兴，聚焦市场数据和 Z 世代文化运动，不涉及反转片品类的技术定位或 Ektachrome 产品线历史）、cinestill-motion-picture-film-crossover-zh（CineStill 电影胶片跨界，聚焦 rem-jet 去除和 ECN-2 vs C-41，不涉及反转片/E-6）。Ektachrome E100 与反转片作为独立深度专题尚未覆盖：本文从 1946 年 Ektachrome 诞生到 2013 年停产、2018 年 E100 复活的产品史出发，拆解 E-6 六步工艺（首显/反转浴/彩色显影/调节/漂白/定影）与 C-41 的兼容性差异、E100 互易律特性（10 秒内无需补偿）的乳剂物理原因、反转片 5-6 挡宽容度的曝光纪律、135 到 120 画幅扩展对中大画幅摄影的意义、反转片直接投影观看与负片必须扫描的工作流差异，并讨论数码后期模拟时代反转片'所见即所得'物理真实性的不可替代审美价值。选题为自主选题，从海外研究三个候选中选择与历史文章差异最大的角度（候选 2 DSLR 翻拍与 film-scanning-complete-guide 重叠，候选 3 经济悖论与 film-photography-revival-2026 部分重叠）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-24T05:45:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Ektachrome E100 and the Digital-Age Revival of Reversal Film》。翻译覆盖全部章节（Ektachrome 产品史、E-6 六步工艺与 C-41 兼容性差异、互易律特性与乳剂物理、宽容度约束与曝光纪律、135 到 120 画幅扩展、2024-2026 存续悬念、物理真实性审美价值、参考资料 5 条）。摄影术语一致性通过（color reversal film/E-6 process/first developer/reversal bath/color developer/azo dye/reciprocity failure/latitude/cross processing/slide projector/daylight-balanced/emulsion/silver halide/latent image 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-24T05:51:34+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-1.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-2.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-3.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-1.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-2.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-3.webp"
+    "https://media.openfilm.cc/images/ektachrome-e100-reversal-film-revival/20260724-1.webp",
+    "https://media.openfilm.cc/images/ektachrome-e100-reversal-film-revival/20260724-2.webp",
+    "https://media.openfilm.cc/images/ektachrome-e100-reversal-film-revival/20260724-3.webp"
   ],
-  "images_zh": [
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-1.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-2.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-3.webp"
-  ],
-  "images_en": [
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-1.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-2.webp",
-    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-3.webp"
-  ],
+  "images_zh": [],
+  "images_en": [],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/zh/20260724-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/zh/20260724-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/zh/20260724-3.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/en/20260724-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/en/20260724-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/en/20260724-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/ektachrome-e100-reversal-film-revival/20260724-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/ektachrome-e100-reversal-film-revival/20260724-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/ektachrome-e100-reversal-film-revival/20260724-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "image_layout_validation": "passed",
-  "image_language_validation": "passed",
+  "image_layout_validation": null,
+  "image_language_validation": null,
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/fujifilm-x-half-digital-half-frame-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/fujifilm-x-half-digital-half-frame-en/",
-  "rss_verified": true,
-  "commit_hash": "9b351f4"
+  "published_url": null,
+  "published_url_en": null,
+  "rss_verified": null,
+  "commit_hash": null
 }
