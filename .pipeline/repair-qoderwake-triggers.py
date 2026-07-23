@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Keep OpenFilm automations attached to the source workspace."""
+"""Keep retired OpenFilm automations disabled after the WakerFlow migration."""
 
 import argparse
 import json
@@ -53,7 +53,7 @@ def main() -> int:
     for row in rows:
         extensions = normalized_json(row["extensions"], payload=False)
         payload = normalized_json(row["payload"], payload=True)
-        expected = (1, "workspaceSource", "file", WORKSPACE, extensions, payload)
+        expected = (0, "workspaceSource", "file", WORKSPACE, extensions, payload)
         actual = tuple(row[key] for key in (
             "enabled", "execution_target", "workspace_type", "workspace_ref",
             "extensions", "payload",
@@ -62,7 +62,7 @@ def main() -> int:
             drifted.append(row["trigger_id"])
             if not args.check:
                 connection.execute(
-                    "UPDATE triggers SET enabled = 1, execution_target = ?, "
+                    "UPDATE triggers SET enabled = 0, execution_target = ?, "
                     "workspace_type = ?, workspace_ref = ?, extensions = ?, payload = ? "
                     "WHERE trigger_id = ?",
                     ("workspaceSource", "file", WORKSPACE, extensions, payload, row["trigger_id"]),
@@ -75,7 +75,7 @@ def main() -> int:
     if drifted:
         print(("detected" if args.check else "repaired") + " trigger drift: " + ", ".join(drifted))
     elif not missing:
-        print("OpenFilm trigger bindings are healthy")
+        print("Retired OpenFilm trigger bindings are disabled")
     return 1 if missing or (args.check and drifted) else 0
 
 
