@@ -154,7 +154,8 @@ def main() -> None:
     status.update({
         "workflow_state": "completed", "stage": "published", "current_stage": "published",
         "next_stage": None, "next_automation": None, "published_url": zh_url,
-        "published_url_en": en_url, "commit_hash": content_commit, "updated_at": now,
+        "published_url_en": en_url, "rss_verified": True,
+        "commit_hash": content_commit, "updated_at": now,
     })
     status.setdefault("history", []).append({
         "stage": "published", "at": now, "by": "启航",

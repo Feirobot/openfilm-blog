@@ -5,7 +5,9 @@ import process from "node:process";
 import sharp from "sharp";
 
 const REPO = process.env.OPENFILM_REPO || "/root/AIwork/openfilm-blog";
-const CONFIG = "/root/.qoder-alpha/extensions/d9b25b78e908/.mcp.json";
+const CONFIG =
+  process.env.OPENFILM_CF_MCP_CONFIG ||
+  "/root/.qoder-alpha/extensions/d9b25b78e908/.mcp.json";
 const BUCKET = "openfilm";
 const PUBLIC_BASE = "https://media.openfilm.cc";
 
