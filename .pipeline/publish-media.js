@@ -2,7 +2,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { spawnSync } from "node:child_process";
 import sharp from "sharp";
 
 const REPO = process.env.OPENFILM_REPO || "/root/AIwork/openfilm-blog";
@@ -17,7 +16,6 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === "--slug") result.slug = argv[++i];
     else if (argv[i] === "--manifest") result.manifest = argv[++i];
-    else if (argv[i] === "--locale") result.locale = argv[++i];
     else if (argv[i] === "--date") result.date = argv[++i];
     else if (argv[i] === "--self-test") result.selfTest = true;
     else if (argv[i] === "--self-test-upload") result.selfTestUpload = true;
@@ -77,13 +75,12 @@ async function removeObject(context, key) {
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  const context = await cloudflareContext();
   if (args.selfTest) {
-    const context = await cloudflareContext();
     console.log(JSON.stringify({ ok: true, service: "cloudflare-r2", bucket: BUCKET }));
     return;
   }
   if (args.selfTestUpload) {
-    const context = await cloudflareContext();
     const healthDir = path.join(REPO, ".pipeline", "generated", ".health");
     const healthFile = path.join(healthDir, "probe.webp");
     const key = `pipeline-health/${Date.now()}-probe.webp`;
@@ -99,24 +96,12 @@ async function main() {
     return;
   }
   if (!args.slug || !/^[a-z0-9][a-z0-9-]*$/.test(args.slug) || !args.manifest) {
-    throw new Error(
-      "usage: publish-media.js --slug <slug> --manifest <file> --locale <zh|en> [--date YYYYMMDD] <1-3 source images>",
-    );
+    throw new Error("usage: publish-media.js --slug <slug> --manifest <file> [--date YYYYMMDD] <1-3 source images>");
   }
-  if (!["zh", "en"].includes(args.locale)) throw new Error("--locale must be zh or en");
   if (args.files.length < 1 || args.files.length > 3) throw new Error("Provide 1 to 3 source images");
-  const validator = path.join(REPO, ".pipeline", "validate-blog-images.js");
-  const validation = spawnSync(process.execPath, [validator, "--locale", args.locale, ...args.files], {
-    cwd: REPO,
-    encoding: "utf8",
-  });
-  if (validation.status !== 0) {
-    throw new Error(`image validation failed: ${(validation.stderr || validation.stdout).trim()}`);
-  }
-  const context = await cloudflareContext();
 
   const date = args.date || new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Shanghai" }).replaceAll("-", "");
-  const outputDir = path.join(REPO, ".pipeline", "generated", args.slug, args.locale);
+  const outputDir = path.join(REPO, ".pipeline", "generated", args.slug);
   await fs.mkdir(outputDir, { recursive: true });
   const images = [];
 
@@ -131,32 +116,15 @@ async function main() {
     }
     await pipeline.webp({ quality: 82, effort: 5 }).toFile(output);
     const metadata = await sharp(output).metadata();
-    const key = `images/${args.slug}/${args.locale}/${date}-${i + 1}.webp`;
+    const key = `images/${args.slug}/${date}-${i + 1}.webp`;
     const url = await upload(context, key, output);
     images.push({ url, local: output, width: metadata.width, height: metadata.height, key });
   }
 
   const manifestPath = path.resolve(args.manifest);
   await fs.mkdir(path.dirname(manifestPath), { recursive: true });
-  let manifest = { version: 2, slug: args.slug, locales: {} };
-  try {
-    const existing = JSON.parse(await fs.readFile(manifestPath, "utf8"));
-    if (existing.slug !== args.slug) throw new Error("manifest slug does not match --slug");
-    if (existing.version === 2 && existing.locales) manifest = existing;
-  } catch (error) {
-    if (error.code !== "ENOENT") throw error;
-  }
-  manifest.version = 2;
-  manifest.slug = args.slug;
-  manifest.locales[args.locale] = { images };
-  await fs.writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
-  console.log(JSON.stringify({
-    ok: true,
-    locale: args.locale,
-    count: images.length,
-    manifest: manifestPath,
-    urls: images.map((item) => item.url),
-  }));
+  await fs.writeFile(manifestPath, `${JSON.stringify({ slug: args.slug, images }, null, 2)}\n`, "utf8");
+  console.log(JSON.stringify({ ok: true, count: images.length, manifest: manifestPath, urls: images.map((item) => item.url) }));
 }
 
 main().catch((error) => {
