@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260723-010040",
-  "workflow_state": "completed",
-  "article": "src/content/posts/film-camera-film-pressure-plate-zh.mdx",
-  "translated_article": "src/content/posts/film-camera-film-pressure-plate-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-24T02:26:46+08:00",
+  "workflow_run_id": "openfilm-20260724-023622",
+  "workflow_state": "running",
+  "article": "src/content/posts/color-photo-fading-preservation-zh.mdx",
+  "translated_article": "src/content/posts/color-photo-fading-preservation-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-24T02:47:12+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -189,21 +189,45 @@
       "at": "2026-07-24T02:26:46+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 d6472d4。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-24T02:36:22+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-24T02:36:22+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《彩色照片的褪色危机：染料型彩色影像的长期保存挑战与机构应对》。避重检查：盘点 45 篇已有文章，最相近文章包括 film-negative-archival-storage-zh（底片物理保存与档案管理，聚焦片基材料——醋酸综合症/聚酯片基——和底片级温湿度控制，约 200 字提及彩色材料冷藏但未涉及染料化学、光褪色/热褪色机制、加速老化测试方法论和机构保存策略）、film-chemistry-environmental-impact-zh（胶片化学的环境代价，聚焦冲洗废液处理和可持续实践，不涉及影像保存化学）、darkroom-color-printing-ra4-zh（RA-4 彩色放大指南，聚焦制作工艺和偏色控制，不涉及成品的长期褪色问题）、film-photography-personal-archive-zh（个人记忆档案，聚焦归档体系和数字化策略，不涉及染料化学和保存科学）。彩色照片褪色危机作为独立深度专题尚未覆盖：本文从 chromogenic print 三层偶氮染料结构的化学脆弱性切入，拆解光褪色（品红最敏感）与热褪色（青色最不稳定）的两条独立路径及阿伦尼乌斯方程量化关系，梳理加拿大保存研究所冷链标准（4°C/30-40% RH）、IPI 加速老化测试方法论与影像寿命预测模型、Technicolor dye-transfer 蒽醌染料的历史对照，并讨论视觉记忆消失的文化危机和数字化能否替代物质性价值。选题为自主选题，从海外研究三个候选中选择与历史文章差异最大的角度。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-24T02:45:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《The Fading Crisis of Color Photographs: Long-Term Preservation Challenges of Dye-Based Color Images and Institutional Responses》。翻译覆盖全部章节（三层偶氮染料结构、光褪色与热褪色两条路径及阿伦尼乌斯方程、冷链保存标准、IPI 加速老化测试方法论、Technicolor 蒽醌染料历史对照、视觉记忆消失的文化危机、参考资料 6 条）。摄影术语一致性通过（chromogenic print/azo dye/coupler/photo-fading/thermal fading/Arrhenius equation/cyan/magenta/yellow/accelerated aging test/A/D Strips/dye-transfer/anthraquinone/cold storage 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-24T02:47:12+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/film-camera-film-pressure-plate/20260723-1.webp",
-    "https://media.openfilm.cc/images/film-camera-film-pressure-plate/20260723-2.webp",
-    "https://media.openfilm.cc/images/film-camera-film-pressure-plate/20260723-3.webp"
+    "https://media.openfilm.cc/images/color-photo-fading-preservation/20260724-1.webp",
+    "https://media.openfilm.cc/images/color-photo-fading-preservation/20260724-2.webp",
+    "https://media.openfilm.cc/images/color-photo-fading-preservation/20260724-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-film-pressure-plate/20260723-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-film-pressure-plate/20260723-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/film-camera-film-pressure-plate/20260723-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/color-photo-fading-preservation/20260724-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/color-photo-fading-preservation/20260724-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/color-photo-fading-preservation/20260724-3.webp"
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/film-camera-film-pressure-plate-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/film-camera-film-pressure-plate-en/",
-  "commit_hash": "d6472d4"
+  "published_url": null,
+  "published_url_en": null,
+  "commit_hash": null
 }
