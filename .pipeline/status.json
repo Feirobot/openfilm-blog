@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260724-023622",
-  "workflow_state": "completed",
-  "article": "src/content/posts/color-photo-fading-preservation-zh.mdx",
-  "translated_article": "src/content/posts/color-photo-fading-preservation-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
+  "workflow_run_id": "openfilm-20260724-040916",
+  "workflow_state": "running",
+  "article": "src/content/posts/kodak-verita-200d-euphoria-zh.mdx",
+  "translated_article": "src/content/posts/kodak-verita-200d-euphoria-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
   "next_automation": null,
-  "updated_at": "2026-07-24T02:49:08+08:00",
+  "updated_at": "2026-07-24T04:21:57+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -219,22 +219,64 @@
       "at": "2026-07-24T02:49:08+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 47b6960。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-24T04:09:16+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-24T04:09:16+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《柯达 VERITA 200D：为《亢奋》第三季而生的新电影胶片》。避重检查：盘点 46 篇已有文章，最相近文章包括 film-stock-guide-2026-zh（2026 年胶片选择指南，聚焦消费级彩色/黑白胶片推荐，不涉及电影胶片乳剂开发和厂商-创作者联合定制模式）、film-photography-revival-2026-zh（2026 年胶片复兴，聚焦市场数据和 Z 世代文化运动，不涉及具体新乳剂产品或电影制作工作流）、film-grain-aesthetics-zh（颗粒美学，讨论卤化银晶体与视觉风格，不涉及电影胶片产品发布或 65mm 制作流程）。VERITA 200D 作为独立深度专题尚未覆盖：本文从柯达与 Marcell Rév/Sam Levinson 的联合开发出发，拆解 200ASA 低感光度乳剂的颗粒设计逻辑、65mm 画幅与细颗粒乳剂的协同效应、冷暖双胶片工作流（VERITA 200D 日光 + VISION3 500T 夜间的色彩叙事）、柯达 137 年乳剂演进脉络（1889 卷膜→1935 Kodachrome→1948 安全片基→VISION3→VERITA），并讨论厂商-创作者定制开发模式对胶片工业的影响以及胶片从大众媒介向精英工艺转变的文化追问。选题为自主选题，从海外研究三个候选中选择与历史文章差异最大的角度（候选 2 硝酸胶片与 archival-storage/color-fading 重叠，候选 3 复兴悖论与 revival-2026 重叠）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-24T04:15:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Kodak VERITA 200D: A New Motion Picture Film Born for Euphoria Season 3》。翻译覆盖全部章节（乳剂设计逻辑、低感光度与颗粒结构、65mm 画幅协同效应、冷暖双胶片工作流、柯达 137 年乳剂演进脉络、厂商-创作者联合开发范式、精英工艺与大众媒介文化追问、参考资料 5 条）。摄影术语一致性通过（color negative film/emulsion/silver halide/ECN-2/daylight-balanced/tungsten-balanced/T-Grain/tabular grain/latitude/65mm/35mm/16mm/VISION3/Kodachrome/safety base/nitrate base 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-24T04:21:57+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成中英文各 3 张 WebP 的版式与语言校验、R2 上传、公开验证及分别入稿；两种语言首图均为 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/color-photo-fading-preservation/20260724-1.webp",
-    "https://media.openfilm.cc/images/color-photo-fading-preservation/20260724-2.webp",
-    "https://media.openfilm.cc/images/color-photo-fading-preservation/20260724-3.webp"
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-1.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-2.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-3.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/en/20260724-1.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/en/20260724-2.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/en/20260724-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/color-photo-fading-preservation/20260724-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/color-photo-fading-preservation/20260724-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/color-photo-fading-preservation/20260724-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodak-verita-200d-euphoria/zh/20260724-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodak-verita-200d-euphoria/zh/20260724-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodak-verita-200d-euphoria/zh/20260724-3.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodak-verita-200d-euphoria/en/20260724-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodak-verita-200d-euphoria/en/20260724-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodak-verita-200d-euphoria/en/20260724-3.webp"
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/color-photo-fading-preservation-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/color-photo-fading-preservation-en/",
-  "rss_verified": true,
-  "commit_hash": "47b6960"
+  "published_url": null,
+  "published_url_en": null,
+  "rss_verified": null,
+  "commit_hash": null,
+  "images_zh": [
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-1.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-2.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-3.webp"
+  ],
+  "images_en": [
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/en/20260724-1.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/en/20260724-2.webp",
+    "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/en/20260724-3.webp"
+  ],
+  "image_layout_validation": "passed",
+  "image_language_validation": "passed"
 }
