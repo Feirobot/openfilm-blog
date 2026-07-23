@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260724-040916",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/kodak-verita-200d-euphoria-zh.mdx",
   "translated_article": "src/content/posts/kodak-verita-200d-euphoria-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
   "next_automation": null,
-  "updated_at": "2026-07-24T04:21:57+08:00",
+  "updated_at": "2026-07-24T04:23:56+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -243,6 +243,12 @@
       "at": "2026-07-24T04:21:57+08:00",
       "by": "画师",
       "note": "固定媒体工具完成中英文各 3 张 WebP 的版式与语言校验、R2 上传、公开验证及分别入稿；两种语言首图均为 1:1。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-24T04:23:56+08:00",
+      "by": "启航",
+      "note": "固定发布工具完成构建、推送及中英文页面、RSS、6 张图片验证。内容提交 b1459d4。"
     }
   ],
   "images": [
@@ -263,10 +269,10 @@
   ],
   "first_image_aspect": "1:1",
   "r2_upload_status": "success",
-  "published_url": null,
-  "published_url_en": null,
-  "rss_verified": null,
-  "commit_hash": null,
+  "published_url": "https://openfilm.cc/zh/posts/kodak-verita-200d-euphoria-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/kodak-verita-200d-euphoria-en/",
+  "rss_verified": true,
+  "commit_hash": "b1459d4",
   "images_zh": [
     "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-1.webp",
     "https://media.openfilm.cc/images/kodak-verita-200d-euphoria/zh/20260724-2.webp",
