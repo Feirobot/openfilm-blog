@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260724-044931",
-  "workflow_state": "completed",
-  "article": "src/content/posts/cinestill-motion-picture-film-crossover-zh.mdx",
-  "translated_article": "src/content/posts/cinestill-motion-picture-film-crossover-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
+  "workflow_run_id": "openfilm-20260724-050748",
+  "workflow_state": "running",
+  "article": "src/content/posts/fujifilm-x-half-digital-half-frame-zh.mdx",
+  "translated_article": "src/content/posts/fujifilm-x-half-digital-half-frame-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
   "next_automation": null,
-  "updated_at": "2026-07-24T05:06:24+08:00",
+  "updated_at": "2026-07-24T05:20:01+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -279,40 +279,60 @@
       "at": "2026-07-24T05:06:24+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、6 张图片验证。内容提交 06464bf。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-24T05:07:48+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-24T05:09:21+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《富士 X Half：半格胶片仪式感的数码转译》。避重检查：盘点 47 篇已有文章，最相近文章包括 compact-film-camera-buying-guide-zh（紧凑型胶片相机选购指南，聚焦经典胶片相机推荐，不涉及数码相机的胶片仪式模拟设计）、film-camera-advance-mechanism-zh（过片机构，拆解机械过片的物理结构，不涉及数码模拟过片拨杆的产品设计哲学）、film-photography-revival-2026-zh（2026 年胶片复兴，聚焦市场数据和 Z 世代文化运动，不涉及具体数码相机产品分析）、film-photography-community-culture-zh（社区文化，聚焦社群形态，不涉及产品设计分析）。富士 X Half 作为独立深度专题尚未覆盖：本文从 1960 年代半格设计哲学出发，拆解 Frame Advance Lever 物理过片拨杆的节奏控制、Film Camera Mode 延迟反馈机制、2in1 拼合与半格底片视觉语法、13 种胶片模拟与效果滤镜、JPEG-only 约束设计，并讨论 799 欧元定价与半格平民属性的文化悖论。选题为指定主题（topic: 富士 x half）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-24T05:15:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Fujifilm X Half: A Digital Translation of Half-Frame Film Ritual》。翻译覆盖全部章节（半格设计哲学、Frame Advance Lever 节奏控制、Film Camera Mode 延迟反馈、2in1 拼合与半格视觉语法、13 种胶片模拟与效果滤镜、JPEG-only 约束设计、799 欧元文化悖论、结语、参考资料 5 条）。摄影术语一致性通过（half-frame/frame advance lever/film simulation/latent image/rangefinder/back-illuminated sensor/JPEG-only/PROVIA/Velvia/CLASSIC Neg. 等），MDX 结构完整保留，双语切换链接已添加。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-24T05:20:01+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成中英文各 3 张 WebP 的版式与语言校验、R2 上传、公开验证及分别入稿；两种语言首图均为 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/zh/20260724-1.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/zh/20260724-2.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/zh/20260724-3.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/en/20260724-1.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/en/20260724-2.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/en/20260724-3.webp"
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-3.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-3.webp"
   ],
   "images_zh": [
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/zh/20260724-1.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/zh/20260724-2.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/zh/20260724-3.webp"
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/zh/20260724-3.webp"
   ],
   "images_en": [
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/en/20260724-1.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/en/20260724-2.webp",
-    "https://media.openfilm.cc/images/cinestill-motion-picture-film-crossover/en/20260724-3.webp"
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-x-half-digital-half-frame/en/20260724-3.webp"
   ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/cinestill-motion-picture-film-crossover/zh/20260724-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/cinestill-motion-picture-film-crossover/zh/20260724-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/cinestill-motion-picture-film-crossover/zh/20260724-3.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/cinestill-motion-picture-film-crossover/en/20260724-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/cinestill-motion-picture-film-crossover/en/20260724-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/cinestill-motion-picture-film-crossover/en/20260724-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/zh/20260724-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/zh/20260724-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/zh/20260724-3.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/en/20260724-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/en/20260724-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-x-half-digital-half-frame/en/20260724-3.webp"
   ],
   "first_image_aspect": "1:1",
   "image_layout_validation": "passed",
   "image_language_validation": "passed",
-  "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/cinestill-motion-picture-film-crossover-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/cinestill-motion-picture-film-crossover-en/",
-  "rss_verified": true,
-  "commit_hash": "06464bf"
+  "r2_upload_status": "success"
 }
