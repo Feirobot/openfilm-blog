@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260724-053931",
-  "workflow_state": "completed",
-  "article": "src/content/posts/ektachrome-e100-reversal-film-revival-zh.mdx",
-  "translated_article": "src/content/posts/ektachrome-e100-reversal-film-revival-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-24T05:53:48+08:00",
+  "workflow_run_id": "openfilm-20260725-010818",
+  "workflow_state": "running",
+  "article": "src/content/posts/gen-z-film-revival-anti-algorithm-zh.mdx",
+  "translated_article": "src/content/posts/gen-z-film-revival-anti-algorithm-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-25T01:22:19+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -339,26 +339,50 @@
       "at": "2026-07-24T05:53:48+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 b246c96。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-25T01:08:18+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-25T01:10:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《4200 万活跃用户背后：Z 世代胶片复兴的反算法叙事与产业响应》。避重检查：盘点 50 篇已有文章，最相近文章包括 film-photography-revival-2026-zh（2026 年胶片复兴，聚焦市场估值 6.13 亿美元、产业链复苏和入门建议，不涉及 Fortune 2026 年 4200 万用户数据、化学随机性 vs 数码确定性的技术哲学拆解、2025 年新胶片品牌浪潮的乳剂定位分析、Instax 即时成像化学自显影原理、以及'反算法叙事被消费主义收编'的批判性追问）、film-photography-community-culture-zh（社区文化，聚焦社群形态——Reddit/Discord/暗房共享空间/胶片交换活动，不涉及产业供给端数据和商品化悖论分析）、film-stock-guide-2026-zh（胶片选择指南，聚焦具体胶片推荐，不涉及新品牌乳剂设计哲学或文化批判）。本文的差异化角度：以 Fortune 2026 年 7 月最新数据为切入点，从卤化银晶体随机性的物理机制解释 Z 世代选择胶片的技术根基，拆解 2025 年 8+ 款新胶片的乳剂定位策略（策划不完美 vs 消除不完美），解释 Instax 化学自显影原理作为最低门槛入口，并以'抵抗性商品化悖论'作为文化批判核心——这是已有文章均未覆盖的批判性视角。选题为自主选题，从海外研究三个候选中选择与历史文章差异最大的角度（候选 1 Ektachrome E100 与 ektachrome-e100-reversal-film-revival-zh 完全重叠，候选 2 CineStill 光晕美学与 cinestill-motion-picture-film-crossover-zh 完全重叠）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-25T01:15:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Behind 42 Million Active Users: Gen Z's Film Revival, the Anti-Algorithm Narrative, and the Industry's Response》。翻译覆盖全部章节（数据拐点、化学随机性 vs 数码确定性、2025 新胶片品牌乳剂定位、Instax 化学自显影原理、产业供应链重构、抵抗性商品化悖论、参考资料 5 条）。摄影术语一致性通过（silver halide/emulsion/grain/H-D curve/shoulder and toe/C-41/E-6/ECN-2/instant film/diffusion transfer/reagent pod/latent image/halation/rem-jet/tonal range 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-25T01:22:19+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/ektachrome-e100-reversal-film-revival/20260724-1.webp",
-    "https://media.openfilm.cc/images/ektachrome-e100-reversal-film-revival/20260724-2.webp",
-    "https://media.openfilm.cc/images/ektachrome-e100-reversal-film-revival/20260724-3.webp"
+    "https://media.openfilm.cc/images/gen-z-film-revival-anti-algorithm/20260725-1.webp",
+    "https://media.openfilm.cc/images/gen-z-film-revival-anti-algorithm/20260725-2.webp",
+    "https://media.openfilm.cc/images/gen-z-film-revival-anti-algorithm/20260725-3.webp"
   ],
   "images_zh": [],
   "images_en": [],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/ektachrome-e100-reversal-film-revival/20260724-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/ektachrome-e100-reversal-film-revival/20260724-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/ektachrome-e100-reversal-film-revival/20260724-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/gen-z-film-revival-anti-algorithm/20260725-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/gen-z-film-revival-anti-algorithm/20260725-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/gen-z-film-revival-anti-algorithm/20260725-3.webp"
   ],
   "first_image_aspect": "1:1",
   "image_layout_validation": null,
   "image_language_validation": null,
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/ektachrome-e100-reversal-film-revival-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/ektachrome-e100-reversal-film-revival-en/",
-  "rss_verified": true,
-  "commit_hash": "b246c96"
+  "published_url": null,
+  "published_url_en": null,
+  "rss_verified": false,
+  "commit_hash": null
 }
