@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260725-010818",
-  "workflow_state": "completed",
-  "article": "src/content/posts/gen-z-film-revival-anti-algorithm-zh.mdx",
-  "translated_article": "src/content/posts/gen-z-film-revival-anti-algorithm-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-25T01:25:01+08:00",
+  "workflow_run_id": "openfilm-20260727-010602",
+  "workflow_state": "running",
+  "article": "src/content/posts/kodachrome-birth-farewell-color-reversal-legend-zh.mdx",
+  "translated_article": "src/content/posts/kodachrome-birth-farewell-color-reversal-legend-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-27T01:15:58+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -369,19 +369,43 @@
       "at": "2026-07-25T01:25:01+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 dce7584。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-27T01:06:02+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-27T01:07:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《Kodachrome 的诞生与谢幕：从 1935 年到 2009 年的彩色反转片传奇》。避重检查：盘点 51 篇已有文章，最相近文章包括 ektachrome-e100-reversal-film-revival-zh（Ektachrome E100 与反转片复兴，聚焦 E-6 工艺和 Ektachrome 产品线 1946-2018 的存续史，不涉及 Kodachrome 的 K-14 工艺、成色剂外置设计、1935-2009 生命周期和 Dwayne's Photo 最后一卷冲洗）、film-stock-guide-2026-zh（2026 年胶片选择指南，聚焦在售消费级胶片推荐，不涉及已停产胶片的历史叙事）、color-photo-fading-preservation-zh（彩色照片褪色危机，聚焦染料保存化学和机构应对策略，约 200 字提及 Kodachrome 稳定性但未展开 K-14 工艺或文化史）、kodak-verita-200d-euphoria-zh（VERITA 200D 电影胶片，聚焦 2026 年新乳剂发布，不涉及 Kodachrome 历史）。Kodachrome 作为独立深度专题尚未覆盖：本文从 K-14 工艺的成色剂外置设计出发，拆解三层乳剂分步再曝光与彩色显影的化学逻辑、暗保存稳定性的分子结构原因、冲洗网络集中化对胶片命运的锁定效应，并以 2009 年停产和 2010 年 Dwayne's Photo 最后一卷冲洗为叙事终点，讨论一种胶片消亡是否意味着一种观看方式的终结。选题为自主选题，从海外研究三个候选中选择与历史文章差异最大的角度（候选 2 Zone System 与 black-white-film-art-selection-zh/large-format-field-photography-guide-zh 部分重叠，候选 3 湿版火棉胶与 alternative-process-photography-revival-zh 高度重叠）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-27T01:15:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《The Birth and Farewell of Kodachrome: A Color Reversal Film Legend from 1935 to 2009》。翻译覆盖全部章节（两位音乐家到一款胶片、K-14 工艺与成色剂外置设计、暗保存稳定性与分子结构、色彩签名与观看方式塑造、停产与 Dwayne's Photo 最后一卷、消亡与观看方式终结、参考资料 3 条）。摄影术语一致性通过（dye coupler/emulsion/silver halide/K-14 process/C-41/E-6/re-exposure/color development/cyan/magenta/yellow/dark storage/accelerated aging test/slide/light box/LUT/latitude 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-27T01:15:58+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/gen-z-film-revival-anti-algorithm/20260725-1.webp",
-    "https://media.openfilm.cc/images/gen-z-film-revival-anti-algorithm/20260725-2.webp",
-    "https://media.openfilm.cc/images/gen-z-film-revival-anti-algorithm/20260725-3.webp"
+    "https://media.openfilm.cc/images/kodachrome-birth-farewell-color-reversal-legend/20260727-1.webp",
+    "https://media.openfilm.cc/images/kodachrome-birth-farewell-color-reversal-legend/20260727-2.webp",
+    "https://media.openfilm.cc/images/kodachrome-birth-farewell-color-reversal-legend/20260727-3.webp"
   ],
   "images_zh": [],
   "images_en": [],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/gen-z-film-revival-anti-algorithm/20260725-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/gen-z-film-revival-anti-algorithm/20260725-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/gen-z-film-revival-anti-algorithm/20260725-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodachrome-birth-farewell-color-reversal-legend/20260727-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodachrome-birth-farewell-color-reversal-legend/20260727-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/kodachrome-birth-farewell-color-reversal-legend/20260727-3.webp"
   ],
   "first_image_aspect": "1:1",
   "image_layout_validation": null,
