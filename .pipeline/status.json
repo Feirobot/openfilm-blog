@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260727-010602",
-  "workflow_state": "completed",
-  "article": "src/content/posts/kodachrome-birth-farewell-color-reversal-legend-zh.mdx",
-  "translated_article": "src/content/posts/kodachrome-birth-farewell-color-reversal-legend-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-27T01:17:49+08:00",
+  "workflow_run_id": "openfilm-20260729-032334",
+  "workflow_state": "running",
+  "article": "src/content/posts/fujifilm-instax-pal-digital-instant-zh.mdx",
+  "translated_article": "src/content/posts/fujifilm-instax-pal-digital-instant-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-29T03:36:00+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -399,19 +399,55 @@
       "at": "2026-07-27T01:17:49+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 593ba18。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-29T03:10:06+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-29T03:12:00+08:00",
+      "by": "胶片编辑",
+      "note": "选题避重未通过，本轮终止。海外研究唯一候选主题'Kodak Verita 200D：柯达自 Vision3 以来首个全新电影胶片乳剂'与已发布文章 kodak-verita-200d-euphoria-zh.mdx（2026-07-24 发布，标题《柯达 VERITA 200D：为《亢奋》第三季而生的新电影胶片》）完全重叠——核心事实（EI 200 日光型、16/35/65mm 格式、2007 年以来首个原创乳剂、Euphoria 团队合作、按需供应）和文化判断（胶片作为当代创作媒介的合法性、厂商-创作者联合开发模式）均已被覆盖。无法在不重复的前提下生成新文章，工作流标记为 failed。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-29T03:23:34+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-29T03:24:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《Fujifilm INSTAX Pal：掌心大小的全数字 instax 相机如何把即时成像变成可选的打印步骤》。避重检查：盘点 52 篇已有文章，最相近文章包括 fujifilm-x-half-digital-half-frame-zh（富士 X Half，聚焦半格设计哲学、物理过片拨杆、Film Camera Mode 和胶片模拟，不涉及 INSTAX Pal 的即时成像打印链路和全数字拍摄-可选打印架构）、gen-z-film-revival-anti-algorithm-zh（Z 世代复兴，约 300 字提及 Instax 化学自显影原理和扩产数据，不涉及 INSTAX Pal 具体产品的传感器规格、蓝牙打印链路和'即时'语义漂移分析）、compact-film-camera-buying-guide-zh（紧凑型胶片相机选购，聚焦经典胶片相机推荐，不涉及数码即时成像产品）。INSTAX Pal 作为独立深度专题尚未覆盖：本文从 1/5 英寸 CMOS 传感器与 16.25mm F2.2 广角镜头的'零参数'设计哲学出发，拆解蓝牙打印链路如何将线性化学工作流拆成'数字拍摄+可选打印'两段独立操作、41g 机身与 USB Type-C 的随身携带设计、199.95 美元套装的打印生态前端定位，并讨论当'即时'从 90 秒化学显影漂移为'我想打印的时候'，即时成像的仪式感是被解放还是被稀释。选题为自主选题，海外研究唯一候选通过预检和证据门（4 个独立域名、2 条 primary 来源已打开）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-29T03:30:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Fujifilm INSTAX Pal: How a Palm-Sized All-Digital instax Camera Turned Instant Photography into an Optional Printing Step》。翻译覆盖全部章节（没有出片口的 instax、1/5 英寸 CMOS 与 16.25mm 广角镜头、蓝牙打印链路与可选输出架构、41 克机身与 USB Type-C 充电、199.95 美元套装逻辑、当即时不再意味着立刻、参考资料 4 条）。摄影术语一致性通过（CMOS sensor/Program AE/instax/Bluetooth/Mini Link 2/smartphone printer/microSD/USB Type-C/instant photography/chemical development 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-29T03:36:00+08:00",
+      "by": "画师",
+      "note": "固定媒体工具完成 3 张 WebP 转换、R2 上传、公开验证及双语入稿；首图 1:1。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/kodachrome-birth-farewell-color-reversal-legend/20260727-1.webp",
-    "https://media.openfilm.cc/images/kodachrome-birth-farewell-color-reversal-legend/20260727-2.webp",
-    "https://media.openfilm.cc/images/kodachrome-birth-farewell-color-reversal-legend/20260727-3.webp"
+    "https://media.openfilm.cc/images/fujifilm-instax-pal-digital-instant/20260729-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-pal-digital-instant/20260729-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-pal-digital-instant/20260729-3.webp"
   ],
   "images_zh": [],
   "images_en": [],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/kodachrome-birth-farewell-color-reversal-legend/20260727-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/kodachrome-birth-farewell-color-reversal-legend/20260727-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/kodachrome-birth-farewell-color-reversal-legend/20260727-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-pal-digital-instant/20260729-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-pal-digital-instant/20260729-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-pal-digital-instant/20260729-3.webp"
   ],
   "first_image_aspect": "1:1",
   "image_layout_validation": null,
