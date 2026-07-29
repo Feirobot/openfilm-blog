@@ -1,13 +1,13 @@
 {
-  "workflow_run_id": "openfilm-20260729-032334",
-  "workflow_state": "completed",
-  "article": "src/content/posts/fujifilm-instax-pal-digital-instant-zh.mdx",
-  "translated_article": "src/content/posts/fujifilm-instax-pal-digital-instant-en.mdx",
-  "stage": "published",
-  "current_stage": "published",
-  "next_stage": null,
-  "next_automation": null,
-  "updated_at": "2026-07-29T07:45:29+08:00",
+  "workflow_run_id": "openfilm-20260729-192417",
+  "workflow_state": "running",
+  "article": "src/content/posts/fujifilm-instax-mini-evo-cinema-hybrid-instant-zh.mdx",
+  "translated_article": "src/content/posts/fujifilm-instax-mini-evo-cinema-hybrid-instant-en.mdx",
+  "stage": "images_generated",
+  "current_stage": "images_generated",
+  "next_stage": "published",
+  "next_automation": "tr_7a6182a67db84957",
+  "updated_at": "2026-07-29T23:02:50+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -441,23 +441,61 @@
       "at": "2026-07-29T07:45:29+08:00",
       "by": "启航",
       "note": "固定发布工具完成构建、推送及中英文页面、RSS、3 张图片验证。内容提交 5cdbb6d。"
+    },
+    {
+      "stage": "initializing",
+      "at": "2026-07-29T19:24:17+08:00",
+      "by": "胶片编辑",
+      "note": "已获取原子工作流锁，开始新一轮选题与写作。"
+    },
+    {
+      "stage": "draft_created",
+      "at": "2026-07-29T19:25:00+08:00",
+      "by": "胶片编辑",
+      "note": "创建中文草稿《Fujifilm instax mini Evo Cinema：一台向 1965 年 8mm 摄影机致敬的混合拍立得，如何把 15 秒视频藏进一张相纸》。避重检查：盘点 53 篇已有文章，最相近文章包括 fujifilm-instax-pal-digital-instant-zh（INSTAX Pal，聚焦 41g 掌心相机的全数字拍摄与蓝牙可选打印链路，不涉及 Evo Cinema 的 15 秒视频录制、QR 码打印、Era Dial 年代拨盘和 FUJICA Single-8 致敬设计）、fujifilm-x-half-digital-half-frame-zh（富士 X Half，聚焦半格设计哲学和物理过片拨杆，不涉及即时成像打印或视频功能）、gen-z-film-revival-anti-algorithm-zh（Z 世代复兴，约 300 字提及 Instax 化学自显影原理，不涉及 Evo Cinema 具体产品）。instax mini Evo Cinema 作为独立深度专题尚未覆盖：本文从 1965 年 FUJICA Single-8 致敬设计的纵向握持逻辑出发，拆解 1/5 英寸 CMOS 的 15 秒视频链路与 QR 码打印机制、Era Dial 年代拨盘 10×10=100 种效果的索引设计、混合即时相机从'数码拍摄+可选打印'到'动态影像+静态打印+数字回看'三层架构的产品演进，并讨论相纸从影像本体变为影像超链接的本体论位移。选题为自主选题，海外研究唯一候选通过预检和证据门（5 个独立域名、2 条 Fujifilm 官方一手来源已打开）。"
+    },
+    {
+      "stage": "translated",
+      "at": "2026-07-29T19:30:00+08:00",
+      "by": "启航",
+      "note": "完成英文翻译《Fujifilm instax mini Evo Cinema: A Hybrid Instant Camera Paying Homage to a 1965 8mm Movie Camera — How 15 Seconds of Video Are Hidden Inside a Single Sheet of Film》。翻译覆盖全部章节（纵向握持设计、1/5 英寸 CMOS 与 15 秒视频链路、Era Dial 年代拨盘 100 种效果、混合即时相机产品定位、相纸作为超链接的文化判断、参考资料 5 条）。摄影术语一致性通过（CMOS sensor/QR code/Era Dial/hybrid instant camera/instax mini film/Single-8/Super 8/9:16 aspect ratio/thermal print/chemical development 等），MDX 结构完整保留，双语切换链接已添加（-en/-zh 后缀 slug）。"
+    },
+    {
+      "stage": "images_generated",
+      "at": "2026-07-29T23:02:50+08:00",
+      "by": "画师-海外",
+      "note": "Notion 信息图风格完成中英文各 3 张 Ark 生成、机器校验、视觉复核、WebP 转换、R2 上传、公开验证及分别入稿；两种语言首图均为 1:1，正文图 16:9。"
     }
   ],
   "images": [
-    "https://media.openfilm.cc/images/fujifilm-instax-pal-digital-instant/20260729-1.webp",
-    "https://media.openfilm.cc/images/fujifilm-instax-pal-digital-instant/20260729-2.webp",
-    "https://media.openfilm.cc/images/fujifilm-instax-pal-digital-instant/20260729-3.webp"
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-3.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-3.webp"
   ],
-  "images_zh": [],
-  "images_en": [],
+  "images_zh": [
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-3.webp"
+  ],
+  "images_en": [
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-1.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-2.webp",
+    "https://media.openfilm.cc/images/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-3.webp"
+  ],
   "images_local": [
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-pal-digital-instant/20260729-1.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-pal-digital-instant/20260729-2.webp",
-    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-pal-digital-instant/20260729-3.webp"
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-mini-evo-cinema-hybrid-instant/zh/20260729-3.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-1.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-2.webp",
+    "/root/AIwork/openfilm-blog/.pipeline/generated/fujifilm-instax-mini-evo-cinema-hybrid-instant/en/20260729-3.webp"
   ],
   "first_image_aspect": "1:1",
-  "image_layout_validation": null,
-  "image_language_validation": null,
+  "image_layout_validation": "pass",
+  "image_language_validation": "pass",
   "r2_upload_status": "success",
   "published_url": "https://openfilm.cc/zh/posts/fujifilm-instax-pal-digital-instant-zh/",
   "published_url_en": "https://openfilm.cc/en/posts/fujifilm-instax-pal-digital-instant-en/",
