@@ -1,13 +1,13 @@
 {
   "workflow_run_id": "openfilm-20260729-192417",
-  "workflow_state": "running",
+  "workflow_state": "completed",
   "article": "src/content/posts/fujifilm-instax-mini-evo-cinema-hybrid-instant-zh.mdx",
   "translated_article": "src/content/posts/fujifilm-instax-mini-evo-cinema-hybrid-instant-en.mdx",
-  "stage": "images_generated",
-  "current_stage": "images_generated",
-  "next_stage": "published",
-  "next_automation": "tr_7a6182a67db84957",
-  "updated_at": "2026-07-29T23:02:50+08:00",
+  "stage": "published",
+  "current_stage": "published",
+  "next_stage": null,
+  "next_automation": null,
+  "updated_at": "2026-07-29T23:06:14+08:00",
   "retry_count": 0,
   "history": [
     {
@@ -465,6 +465,12 @@
       "at": "2026-07-29T23:02:50+08:00",
       "by": "画师-海外",
       "note": "Notion 信息图风格完成中英文各 3 张 Ark 生成、机器校验、视觉复核、WebP 转换、R2 上传、公开验证及分别入稿；两种语言首图均为 1:1，正文图 16:9。"
+    },
+    {
+      "stage": "published",
+      "at": "2026-07-29T23:06:14+08:00",
+      "by": "启航",
+      "note": "固定发布工具完成构建、推送及中英文页面、RSS、6 张图片验证。内容提交 0238a4c。"
     }
   ],
   "images": [
@@ -497,8 +503,8 @@
   "image_layout_validation": "pass",
   "image_language_validation": "pass",
   "r2_upload_status": "success",
-  "published_url": "https://openfilm.cc/zh/posts/fujifilm-instax-pal-digital-instant-zh/",
-  "published_url_en": "https://openfilm.cc/en/posts/fujifilm-instax-pal-digital-instant-en/",
+  "published_url": "https://openfilm.cc/zh/posts/fujifilm-instax-mini-evo-cinema-hybrid-instant-zh/",
+  "published_url_en": "https://openfilm.cc/en/posts/fujifilm-instax-mini-evo-cinema-hybrid-instant-en/",
   "rss_verified": true,
-  "commit_hash": "5cdbb6d"
+  "commit_hash": "0238a4c"
 }
